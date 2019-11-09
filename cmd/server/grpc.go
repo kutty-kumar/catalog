@@ -1,6 +1,7 @@
 package main
 
 import (
+	"catalog/pkg/domain"
 	"catalog/pkg/pb"
 	"catalog/pkg/svc"
 	"time"
@@ -11,7 +12,7 @@ import (
 	"github.com/infobloxopen/atlas-app-toolkit/gateway"
 	"github.com/infobloxopen/atlas-app-toolkit/requestid"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
@@ -44,16 +45,27 @@ func NewGRPCServer(logger *logrus.Logger, dbConnectionString string) (*grpc.Serv
 	)
 
 	// create new postgres database
-	db, err := gorm.Open("postgres", dbConnectionString)
+	db, err := gorm.Open("mysql", dbConnectionString)
+	// TODO this is just for dev purposes
+	dropTables(db)
+	createTables(db)
 	if err != nil {
 		return nil, err
 	}
 	// register service implementation with the grpcServer
-	s, err := svc.NewBasicServer(db)
+	s, err := svc.NewBrandService(db)
 	if err != nil {
 		return nil, err
 	}
 	pb.RegisterCatalogServer(grpcServer, s)
 
 	return grpcServer, nil
+}
+
+func createTables(db *gorm.DB){
+	db.CreateTable(domain.Brand{})
+}
+
+func dropTables(db *gorm.DB){
+	db.DropTableIfExists(domain.Brand{})
 }

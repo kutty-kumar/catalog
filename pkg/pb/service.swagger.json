@@ -15,17 +15,126 @@
     "version": "version not set"
   },
   "paths": {
-    "/version": {
+    "/brands": {
+      "post": {
+        "tags": [
+          "Catalog"
+        ],
+        "operationId": "CatalogCreateBrand",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceBrandDetails"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "POST operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceCreateBrandResponse"
+            }
+          }
+        }
+      }
+    },
+    "/brands/multi-get": {
+      "put": {
+        "tags": [
+          "Catalog"
+        ],
+        "operationId": "CatalogMultiGetBrands",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetBrandsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PUT operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetBrandsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/brands/{external_id}": {
       "get": {
         "tags": [
           "Catalog"
         ],
-        "operationId": "CatalogGetVersion",
+        "operationId": "CatalogGetBrandById",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "external_id",
+            "in": "path",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "GET operation response",
             "schema": {
-              "$ref": "#/definitions/serviceVersionResponse"
+              "$ref": "#/definitions/serviceGetBrandByIdResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Catalog"
+        ],
+        "operationId": "CatalogDeleteBrand",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "external_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Catalog"
+        ],
+        "operationId": "CatalogUpdateBrand",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "external_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceBrandDetails"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PATCH operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceUpdateBrandResponse"
             }
           }
         }
@@ -33,11 +142,75 @@
     }
   },
   "definitions": {
-    "serviceVersionResponse": {
-      "description": "TODO: Structure your own protobuf messages. Each protocol buffer message is a \nsmall logical record of information, containing a series of name-value pairs.",
+    "serviceBrandDetails": {
       "type": "object",
       "properties": {
-        "version": {
+        "description": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "serviceCreateBrandResponse": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "$ref": "#/definitions/serviceBrandDetails"
+        },
+        "external_id": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceGetBrandByIdResponse": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "$ref": "#/definitions/serviceBrandDetails"
+        },
+        "external_id": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceMultiGetBrandsRequest": {
+      "type": "object",
+      "properties": {
+        "external_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "serviceMultiGetBrandsResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceGetBrandByIdResponse"
+          }
+        }
+      }
+    },
+    "serviceUpdateBrandResponse": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "$ref": "#/definitions/serviceBrandDetails"
+        },
+        "external_id": {
           "type": "string"
         }
       }

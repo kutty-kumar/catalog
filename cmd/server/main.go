@@ -5,24 +5,21 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/golang/protobuf/proto"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/infobloxopen/atlas-app-toolkit/gateway"
+	"github.com/infobloxopen/atlas-app-toolkit/gorm/resource"
+	"github.com/infobloxopen/atlas-app-toolkit/health"
+	"github.com/infobloxopen/atlas-app-toolkit/requestid"
+	"github.com/infobloxopen/atlas-app-toolkit/server"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/pflag"
+	"github.com/spf13/viper"
 	"log"
 	"net"
 	"net/http"
 	"strings"
 	"time"
-
-	"github.com/golang/protobuf/proto"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/pflag"
-	"github.com/spf13/viper"
-
-	"github.com/infobloxopen/atlas-app-toolkit/gateway"
-	"github.com/infobloxopen/atlas-app-toolkit/requestid"
-	"github.com/infobloxopen/atlas-app-toolkit/server"
-
-	"github.com/infobloxopen/atlas-app-toolkit/gorm/resource"
-	"github.com/infobloxopen/atlas-app-toolkit/health"
 )
 
 func main() {
@@ -181,3 +178,5 @@ func setDBConnection() {
 		viper.GetString("database.user"), viper.GetString("database.password"),
 		viper.GetString("database.ssl"), viper.GetString("database.name")))
 }
+
+

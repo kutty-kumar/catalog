@@ -100,3 +100,823 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = VersionResponseValidationError{}
+
+// Validate checks the field values on CreateBrandRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateBrandRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateBrandRequestValidationError{
+				field:  "Payload",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// CreateBrandRequestValidationError is the validation error returned by
+// CreateBrandRequest.Validate if the designated constraints aren't met.
+type CreateBrandRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateBrandRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateBrandRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateBrandRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateBrandRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateBrandRequestValidationError) ErrorName() string {
+	return "CreateBrandRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateBrandRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateBrandRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateBrandRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateBrandRequestValidationError{}
+
+// Validate checks the field values on BrandDetails with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *BrandDetails) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Name
+
+	// no validation rules for Description
+
+	// no validation rules for Keywords
+
+	// no validation rules for Status
+
+	return nil
+}
+
+// BrandDetailsValidationError is the validation error returned by
+// BrandDetails.Validate if the designated constraints aren't met.
+type BrandDetailsValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BrandDetailsValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BrandDetailsValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BrandDetailsValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BrandDetailsValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BrandDetailsValidationError) ErrorName() string { return "BrandDetailsValidationError" }
+
+// Error satisfies the builtin error interface
+func (e BrandDetailsValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBrandDetails.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BrandDetailsValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BrandDetailsValidationError{}
+
+// Validate checks the field values on CreateBrandResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateBrandResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetBrand()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateBrandResponseValidationError{
+				field:  "Brand",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// CreateBrandResponseValidationError is the validation error returned by
+// CreateBrandResponse.Validate if the designated constraints aren't met.
+type CreateBrandResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateBrandResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateBrandResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateBrandResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateBrandResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateBrandResponseValidationError) ErrorName() string {
+	return "CreateBrandResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateBrandResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateBrandResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateBrandResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateBrandResponseValidationError{}
+
+// Validate checks the field values on GetBrandByIdResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetBrandByIdResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetBrand()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetBrandByIdResponseValidationError{
+				field:  "Brand",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// GetBrandByIdResponseValidationError is the validation error returned by
+// GetBrandByIdResponse.Validate if the designated constraints aren't met.
+type GetBrandByIdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBrandByIdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBrandByIdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBrandByIdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBrandByIdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBrandByIdResponseValidationError) ErrorName() string {
+	return "GetBrandByIdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBrandByIdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBrandByIdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBrandByIdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBrandByIdResponseValidationError{}
+
+// Validate checks the field values on GetBrandByIdRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetBrandByIdRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// GetBrandByIdRequestValidationError is the validation error returned by
+// GetBrandByIdRequest.Validate if the designated constraints aren't met.
+type GetBrandByIdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBrandByIdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBrandByIdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBrandByIdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBrandByIdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBrandByIdRequestValidationError) ErrorName() string {
+	return "GetBrandByIdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBrandByIdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBrandByIdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBrandByIdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBrandByIdRequestValidationError{}
+
+// Validate checks the field values on UpdateBrandRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateBrandRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateBrandRequestValidationError{
+				field:  "Payload",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// UpdateBrandRequestValidationError is the validation error returned by
+// UpdateBrandRequest.Validate if the designated constraints aren't met.
+type UpdateBrandRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateBrandRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateBrandRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateBrandRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateBrandRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateBrandRequestValidationError) ErrorName() string {
+	return "UpdateBrandRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateBrandRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateBrandRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateBrandRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateBrandRequestValidationError{}
+
+// Validate checks the field values on UpdateBrandResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateBrandResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetBrand()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateBrandResponseValidationError{
+				field:  "Brand",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// UpdateBrandResponseValidationError is the validation error returned by
+// UpdateBrandResponse.Validate if the designated constraints aren't met.
+type UpdateBrandResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateBrandResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateBrandResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateBrandResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateBrandResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateBrandResponseValidationError) ErrorName() string {
+	return "UpdateBrandResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateBrandResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateBrandResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateBrandResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateBrandResponseValidationError{}
+
+// Validate checks the field values on DeleteBrandRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DeleteBrandRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// DeleteBrandRequestValidationError is the validation error returned by
+// DeleteBrandRequest.Validate if the designated constraints aren't met.
+type DeleteBrandRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteBrandRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteBrandRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteBrandRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteBrandRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteBrandRequestValidationError) ErrorName() string {
+	return "DeleteBrandRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteBrandRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteBrandRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteBrandRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteBrandRequestValidationError{}
+
+// Validate checks the field values on DeleteBrandResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DeleteBrandResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// DeleteBrandResponseValidationError is the validation error returned by
+// DeleteBrandResponse.Validate if the designated constraints aren't met.
+type DeleteBrandResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteBrandResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteBrandResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteBrandResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteBrandResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteBrandResponseValidationError) ErrorName() string {
+	return "DeleteBrandResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteBrandResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteBrandResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteBrandResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteBrandResponseValidationError{}
+
+// Validate checks the field values on MultiGetBrandsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *MultiGetBrandsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// MultiGetBrandsRequestValidationError is the validation error returned by
+// MultiGetBrandsRequest.Validate if the designated constraints aren't met.
+type MultiGetBrandsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MultiGetBrandsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MultiGetBrandsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MultiGetBrandsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MultiGetBrandsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MultiGetBrandsRequestValidationError) ErrorName() string {
+	return "MultiGetBrandsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e MultiGetBrandsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMultiGetBrandsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MultiGetBrandsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MultiGetBrandsRequestValidationError{}
+
+// Validate checks the field values on MultiGetBrandsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *MultiGetBrandsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetResult() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return MultiGetBrandsResponseValidationError{
+					field:  fmt.Sprintf("Result[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MultiGetBrandsResponseValidationError is the validation error returned by
+// MultiGetBrandsResponse.Validate if the designated constraints aren't met.
+type MultiGetBrandsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MultiGetBrandsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MultiGetBrandsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MultiGetBrandsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MultiGetBrandsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MultiGetBrandsResponseValidationError) ErrorName() string {
+	return "MultiGetBrandsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e MultiGetBrandsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMultiGetBrandsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MultiGetBrandsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MultiGetBrandsResponseValidationError{}

@@ -18,14 +18,14 @@ const (
 
 	// Database
 	defaultDatabaseEnable = true
-	// DSN example: "postgres://postgres:postgres@postgres:5432/atlas_db?sslmode=disable"
-	defaultDatabaseDSN      = ""
-	defaultDatabaseType     = "postgres"
+	// DSN example user:password@/dbname?charset=utf8&parseTime=True&loc=Local
+	defaultDatabaseDSN      = "root:@/brahma?charset=utf8&parseTime=True&loc=Local"
+	defaultDatabaseType     = "mysql"
 	defaultDatabaseAddress  = "0.0.0.0"
-	defaultDatabasePort     = "5432"
-	defaultDatabaseName     = "catalog"
-	defaultDatabaseUser     = "postgres"
-	defaultDatabasePassword = "postgres"
+	defaultDatabasePort     = "3306"
+	defaultDatabaseName     = "brahma"
+	defaultDatabaseUser     = "root"
+	defaultDatabasePassword = ""
 	defaultDatabaseSSL      = "disable"
 	defaultDatabaseOption   = ""
 

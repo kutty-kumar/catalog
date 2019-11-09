@@ -10,15 +10,12 @@
   version = "v1.4.7"
 
 [[projects]]
-  digest = "1:b7bf829b93308b3bae273db44c70ba265976b62ea00e774e71aee18d4c076833"
-  name = "github.com/gogo/protobuf"
-  packages = [
-    "proto",
-    "protoc-gen-gogo/descriptor",
-  ]
+  digest = "1:ec6f9bf5e274c833c911923c9193867f3f18788c461f76f05f62bb1510e0ae65"
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
   pruneopts = "UT"
-  revision = "5628607bb4c51c3157aacc3a50f0ab707582b805"
-  version = "v1.3.1"
+  revision = "72cd26f257d44c1114970e19afddcd812016007e"
+  version = "v1.4.1"
 
 [[projects]]
   branch = "master"
@@ -120,19 +117,11 @@
   version = "v0.19.0"
 
 [[projects]]
-  digest = "1:447ff45708e10b03748c3e2c32e82ddce6b692b87ef36516b68a7527e1ac0e02"
-  name = "github.com/infobloxopen/protoc-gen-gorm"
-  packages = ["options"]
-  pruneopts = "UT"
-  revision = "0e46de27081803b7abeb68d256fdab0611843881"
-  version = "v0.18.0"
-
-[[projects]]
-  digest = "1:a0216296da5c3191358b114fa8d2490477f5dff7380541551495b4f2a16989b3"
+  digest = "1:bf3bd8cc2f7357b8ab72f697bd05f308f7252094195c86872ba1505a644cdb59"
   name = "github.com/jinzhu/gorm"
   packages = [
     ".",
-    "dialects/postgres",
+    "dialects/mysql",
   ]
   pruneopts = "UT"
   revision = "81c17a7e2529c59efc4e74c5b32c1fb71fb12fa2"
@@ -153,19 +142,6 @@
   pruneopts = "UT"
   revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
   version = "v1.0.2"
-
-[[projects]]
-  digest = "1:0ead8e64fe356bd9221605e3ec40b4438509868018cbbbaaaff3ebae1b69b78b"
-  name = "github.com/lib/pq"
-  packages = [
-    ".",
-    "hstore",
-    "oid",
-    "scram",
-  ]
-  pruneopts = "UT"
-  revision = "3427c32cb71afc948325f299f040e53c1dd78979"
-  version = "v1.2.0"
 
 [[projects]]
   digest = "1:53258c295c6d2eb4f69f6008bd7648df4ffaee52ffbf5aae3d5203440d31f669"
@@ -198,6 +174,14 @@
   pruneopts = "UT"
   revision = "903d9455db9ff1d7ac1ab199062eca7266dd11a3"
   version = "v1.6.0"
+
+[[projects]]
+  digest = "1:274f67cb6fed9588ea2521ecdac05a6d62a8c51c074c1fccc6a49a40ba80e925"
+  name = "github.com/satori/go.uuid"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
 
 [[projects]]
   digest = "1:04457f9f6f3ffc5fea48e71d62f2ca256637dee0a04d710288e27e05c8b41976"
@@ -307,6 +291,14 @@
   version = "v0.3.2"
 
 [[projects]]
+  digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
+  name = "google.golang.org/appengine"
+  packages = ["cloudsql"]
+  pruneopts = "UT"
+  revision = "971852bfffca25b069c31162ae8f247a3dba083b"
+  version = "v1.6.5"
+
+[[projects]]
   branch = "master"
   digest = "1:64b458128c317cad2a64802a8bc0551853c11194a23a2db2e9e3283a3407971c"
   name = "google.golang.org/genproto"
@@ -388,10 +380,10 @@
     "github.com/infobloxopen/atlas-app-toolkit/health",
     "github.com/infobloxopen/atlas-app-toolkit/requestid",
     "github.com/infobloxopen/atlas-app-toolkit/server",
-    "github.com/infobloxopen/protoc-gen-gorm/options",
     "github.com/jinzhu/gorm",
-    "github.com/jinzhu/gorm/dialects/postgres",
+    "github.com/jinzhu/gorm/dialects/mysql",
     "github.com/lyft/protoc-gen-validate/validate",
+    "github.com/satori/go.uuid",
     "github.com/sirupsen/logrus",
     "github.com/spf13/pflag",
     "github.com/spf13/viper",
@@ -399,6 +391,7 @@
     "google.golang.org/grpc",
     "google.golang.org/grpc/codes",
     "google.golang.org/grpc/grpclog",
+    "google.golang.org/grpc/keepalive",
     "google.golang.org/grpc/status",
   ]
   solver-name = "gps-cdcl"
