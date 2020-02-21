@@ -64,6 +64,608 @@ func (m *VersionResponse) GetVersion() string {
 	return ""
 }
 
+type BrandAttributeView struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BrandAttributeView) Reset()         { *m = BrandAttributeView{} }
+func (m *BrandAttributeView) String() string { return proto.CompactTextString(m) }
+func (*BrandAttributeView) ProtoMessage()    {}
+func (*BrandAttributeView) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{1}
+}
+
+func (m *BrandAttributeView) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BrandAttributeView.Unmarshal(m, b)
+}
+func (m *BrandAttributeView) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BrandAttributeView.Marshal(b, m, deterministic)
+}
+func (m *BrandAttributeView) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BrandAttributeView.Merge(m, src)
+}
+func (m *BrandAttributeView) XXX_Size() int {
+	return xxx_messageInfo_BrandAttributeView.Size(m)
+}
+func (m *BrandAttributeView) XXX_DiscardUnknown() {
+	xxx_messageInfo_BrandAttributeView.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BrandAttributeView proto.InternalMessageInfo
+
+func (m *BrandAttributeView) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *BrandAttributeView) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type BrandAttributeResponseView struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	ExternalId           string   `protobuf:"bytes,3,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BrandAttributeResponseView) Reset()         { *m = BrandAttributeResponseView{} }
+func (m *BrandAttributeResponseView) String() string { return proto.CompactTextString(m) }
+func (*BrandAttributeResponseView) ProtoMessage()    {}
+func (*BrandAttributeResponseView) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{2}
+}
+
+func (m *BrandAttributeResponseView) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BrandAttributeResponseView.Unmarshal(m, b)
+}
+func (m *BrandAttributeResponseView) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BrandAttributeResponseView.Marshal(b, m, deterministic)
+}
+func (m *BrandAttributeResponseView) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BrandAttributeResponseView.Merge(m, src)
+}
+func (m *BrandAttributeResponseView) XXX_Size() int {
+	return xxx_messageInfo_BrandAttributeResponseView.Size(m)
+}
+func (m *BrandAttributeResponseView) XXX_DiscardUnknown() {
+	xxx_messageInfo_BrandAttributeResponseView.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BrandAttributeResponseView proto.InternalMessageInfo
+
+func (m *BrandAttributeResponseView) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *BrandAttributeResponseView) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+func (m *BrandAttributeResponseView) GetExternalId() string {
+	if m != nil {
+		return m.ExternalId
+	}
+	return ""
+}
+
+type CreateBrandAttributeRequest struct {
+	BrandId              string              `protobuf:"bytes,1,opt,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty"`
+	Payload              *BrandAttributeView `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
+	XXX_unrecognized     []byte              `json:"-"`
+	XXX_sizecache        int32               `json:"-"`
+}
+
+func (m *CreateBrandAttributeRequest) Reset()         { *m = CreateBrandAttributeRequest{} }
+func (m *CreateBrandAttributeRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateBrandAttributeRequest) ProtoMessage()    {}
+func (*CreateBrandAttributeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{3}
+}
+
+func (m *CreateBrandAttributeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateBrandAttributeRequest.Unmarshal(m, b)
+}
+func (m *CreateBrandAttributeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateBrandAttributeRequest.Marshal(b, m, deterministic)
+}
+func (m *CreateBrandAttributeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateBrandAttributeRequest.Merge(m, src)
+}
+func (m *CreateBrandAttributeRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateBrandAttributeRequest.Size(m)
+}
+func (m *CreateBrandAttributeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateBrandAttributeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateBrandAttributeRequest proto.InternalMessageInfo
+
+func (m *CreateBrandAttributeRequest) GetBrandId() string {
+	if m != nil {
+		return m.BrandId
+	}
+	return ""
+}
+
+func (m *CreateBrandAttributeRequest) GetPayload() *BrandAttributeView {
+	if m != nil {
+		return m.Payload
+	}
+	return nil
+}
+
+type CreateBrandAttributeResponse struct {
+	Result               *BrandAttributeResponseView `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
+}
+
+func (m *CreateBrandAttributeResponse) Reset()         { *m = CreateBrandAttributeResponse{} }
+func (m *CreateBrandAttributeResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateBrandAttributeResponse) ProtoMessage()    {}
+func (*CreateBrandAttributeResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{4}
+}
+
+func (m *CreateBrandAttributeResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateBrandAttributeResponse.Unmarshal(m, b)
+}
+func (m *CreateBrandAttributeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateBrandAttributeResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateBrandAttributeResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateBrandAttributeResponse.Merge(m, src)
+}
+func (m *CreateBrandAttributeResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateBrandAttributeResponse.Size(m)
+}
+func (m *CreateBrandAttributeResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateBrandAttributeResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateBrandAttributeResponse proto.InternalMessageInfo
+
+func (m *CreateBrandAttributeResponse) GetResult() *BrandAttributeResponseView {
+	if m != nil {
+		return m.Result
+	}
+	return nil
+}
+
+type UpdateBrandAttributeRequest struct {
+	BrandId              string              `protobuf:"bytes,1,opt,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty"`
+	BrandAttributeId     string              `protobuf:"bytes,2,opt,name=brand_attribute_id,json=brandAttributeId,proto3" json:"brand_attribute_id,omitempty"`
+	Payload              *BrandAttributeView `protobuf:"bytes,3,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
+	XXX_unrecognized     []byte              `json:"-"`
+	XXX_sizecache        int32               `json:"-"`
+}
+
+func (m *UpdateBrandAttributeRequest) Reset()         { *m = UpdateBrandAttributeRequest{} }
+func (m *UpdateBrandAttributeRequest) String() string { return proto.CompactTextString(m) }
+func (*UpdateBrandAttributeRequest) ProtoMessage()    {}
+func (*UpdateBrandAttributeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{5}
+}
+
+func (m *UpdateBrandAttributeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateBrandAttributeRequest.Unmarshal(m, b)
+}
+func (m *UpdateBrandAttributeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateBrandAttributeRequest.Marshal(b, m, deterministic)
+}
+func (m *UpdateBrandAttributeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateBrandAttributeRequest.Merge(m, src)
+}
+func (m *UpdateBrandAttributeRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateBrandAttributeRequest.Size(m)
+}
+func (m *UpdateBrandAttributeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateBrandAttributeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateBrandAttributeRequest proto.InternalMessageInfo
+
+func (m *UpdateBrandAttributeRequest) GetBrandId() string {
+	if m != nil {
+		return m.BrandId
+	}
+	return ""
+}
+
+func (m *UpdateBrandAttributeRequest) GetBrandAttributeId() string {
+	if m != nil {
+		return m.BrandAttributeId
+	}
+	return ""
+}
+
+func (m *UpdateBrandAttributeRequest) GetPayload() *BrandAttributeView {
+	if m != nil {
+		return m.Payload
+	}
+	return nil
+}
+
+type UpdateBrandAttributeResponse struct {
+	Result               *BrandAttributeResponseView `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
+}
+
+func (m *UpdateBrandAttributeResponse) Reset()         { *m = UpdateBrandAttributeResponse{} }
+func (m *UpdateBrandAttributeResponse) String() string { return proto.CompactTextString(m) }
+func (*UpdateBrandAttributeResponse) ProtoMessage()    {}
+func (*UpdateBrandAttributeResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{6}
+}
+
+func (m *UpdateBrandAttributeResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateBrandAttributeResponse.Unmarshal(m, b)
+}
+func (m *UpdateBrandAttributeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateBrandAttributeResponse.Marshal(b, m, deterministic)
+}
+func (m *UpdateBrandAttributeResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateBrandAttributeResponse.Merge(m, src)
+}
+func (m *UpdateBrandAttributeResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateBrandAttributeResponse.Size(m)
+}
+func (m *UpdateBrandAttributeResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateBrandAttributeResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateBrandAttributeResponse proto.InternalMessageInfo
+
+func (m *UpdateBrandAttributeResponse) GetResult() *BrandAttributeResponseView {
+	if m != nil {
+		return m.Result
+	}
+	return nil
+}
+
+type DeleteBrandAttributeRequest struct {
+	BrandId              string   `protobuf:"bytes,1,opt,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty"`
+	BrandAttributeId     string   `protobuf:"bytes,2,opt,name=brand_attribute_id,json=brandAttributeId,proto3" json:"brand_attribute_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteBrandAttributeRequest) Reset()         { *m = DeleteBrandAttributeRequest{} }
+func (m *DeleteBrandAttributeRequest) String() string { return proto.CompactTextString(m) }
+func (*DeleteBrandAttributeRequest) ProtoMessage()    {}
+func (*DeleteBrandAttributeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{7}
+}
+
+func (m *DeleteBrandAttributeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteBrandAttributeRequest.Unmarshal(m, b)
+}
+func (m *DeleteBrandAttributeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteBrandAttributeRequest.Marshal(b, m, deterministic)
+}
+func (m *DeleteBrandAttributeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteBrandAttributeRequest.Merge(m, src)
+}
+func (m *DeleteBrandAttributeRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteBrandAttributeRequest.Size(m)
+}
+func (m *DeleteBrandAttributeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteBrandAttributeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteBrandAttributeRequest proto.InternalMessageInfo
+
+func (m *DeleteBrandAttributeRequest) GetBrandId() string {
+	if m != nil {
+		return m.BrandId
+	}
+	return ""
+}
+
+func (m *DeleteBrandAttributeRequest) GetBrandAttributeId() string {
+	if m != nil {
+		return m.BrandAttributeId
+	}
+	return ""
+}
+
+type DeleteBrandAttributeResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteBrandAttributeResponse) Reset()         { *m = DeleteBrandAttributeResponse{} }
+func (m *DeleteBrandAttributeResponse) String() string { return proto.CompactTextString(m) }
+func (*DeleteBrandAttributeResponse) ProtoMessage()    {}
+func (*DeleteBrandAttributeResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{8}
+}
+
+func (m *DeleteBrandAttributeResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteBrandAttributeResponse.Unmarshal(m, b)
+}
+func (m *DeleteBrandAttributeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteBrandAttributeResponse.Marshal(b, m, deterministic)
+}
+func (m *DeleteBrandAttributeResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteBrandAttributeResponse.Merge(m, src)
+}
+func (m *DeleteBrandAttributeResponse) XXX_Size() int {
+	return xxx_messageInfo_DeleteBrandAttributeResponse.Size(m)
+}
+func (m *DeleteBrandAttributeResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteBrandAttributeResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteBrandAttributeResponse proto.InternalMessageInfo
+
+type GetBrandAttributeByIdRequest struct {
+	BrandId              string   `protobuf:"bytes,1,opt,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty"`
+	BrandAttributeId     string   `protobuf:"bytes,2,opt,name=brand_attribute_id,json=brandAttributeId,proto3" json:"brand_attribute_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetBrandAttributeByIdRequest) Reset()         { *m = GetBrandAttributeByIdRequest{} }
+func (m *GetBrandAttributeByIdRequest) String() string { return proto.CompactTextString(m) }
+func (*GetBrandAttributeByIdRequest) ProtoMessage()    {}
+func (*GetBrandAttributeByIdRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{9}
+}
+
+func (m *GetBrandAttributeByIdRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBrandAttributeByIdRequest.Unmarshal(m, b)
+}
+func (m *GetBrandAttributeByIdRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBrandAttributeByIdRequest.Marshal(b, m, deterministic)
+}
+func (m *GetBrandAttributeByIdRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBrandAttributeByIdRequest.Merge(m, src)
+}
+func (m *GetBrandAttributeByIdRequest) XXX_Size() int {
+	return xxx_messageInfo_GetBrandAttributeByIdRequest.Size(m)
+}
+func (m *GetBrandAttributeByIdRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBrandAttributeByIdRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetBrandAttributeByIdRequest proto.InternalMessageInfo
+
+func (m *GetBrandAttributeByIdRequest) GetBrandId() string {
+	if m != nil {
+		return m.BrandId
+	}
+	return ""
+}
+
+func (m *GetBrandAttributeByIdRequest) GetBrandAttributeId() string {
+	if m != nil {
+		return m.BrandAttributeId
+	}
+	return ""
+}
+
+type GetBrandAttributeByIdResponse struct {
+	Result               *BrandAttributeResponseView `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
+}
+
+func (m *GetBrandAttributeByIdResponse) Reset()         { *m = GetBrandAttributeByIdResponse{} }
+func (m *GetBrandAttributeByIdResponse) String() string { return proto.CompactTextString(m) }
+func (*GetBrandAttributeByIdResponse) ProtoMessage()    {}
+func (*GetBrandAttributeByIdResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{10}
+}
+
+func (m *GetBrandAttributeByIdResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBrandAttributeByIdResponse.Unmarshal(m, b)
+}
+func (m *GetBrandAttributeByIdResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBrandAttributeByIdResponse.Marshal(b, m, deterministic)
+}
+func (m *GetBrandAttributeByIdResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBrandAttributeByIdResponse.Merge(m, src)
+}
+func (m *GetBrandAttributeByIdResponse) XXX_Size() int {
+	return xxx_messageInfo_GetBrandAttributeByIdResponse.Size(m)
+}
+func (m *GetBrandAttributeByIdResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBrandAttributeByIdResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetBrandAttributeByIdResponse proto.InternalMessageInfo
+
+func (m *GetBrandAttributeByIdResponse) GetResult() *BrandAttributeResponseView {
+	if m != nil {
+		return m.Result
+	}
+	return nil
+}
+
+type MultiGetBrandAttributeRequest struct {
+	ExternalIds          []string `protobuf:"bytes,1,rep,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MultiGetBrandAttributeRequest) Reset()         { *m = MultiGetBrandAttributeRequest{} }
+func (m *MultiGetBrandAttributeRequest) String() string { return proto.CompactTextString(m) }
+func (*MultiGetBrandAttributeRequest) ProtoMessage()    {}
+func (*MultiGetBrandAttributeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{11}
+}
+
+func (m *MultiGetBrandAttributeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MultiGetBrandAttributeRequest.Unmarshal(m, b)
+}
+func (m *MultiGetBrandAttributeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MultiGetBrandAttributeRequest.Marshal(b, m, deterministic)
+}
+func (m *MultiGetBrandAttributeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MultiGetBrandAttributeRequest.Merge(m, src)
+}
+func (m *MultiGetBrandAttributeRequest) XXX_Size() int {
+	return xxx_messageInfo_MultiGetBrandAttributeRequest.Size(m)
+}
+func (m *MultiGetBrandAttributeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_MultiGetBrandAttributeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MultiGetBrandAttributeRequest proto.InternalMessageInfo
+
+func (m *MultiGetBrandAttributeRequest) GetExternalIds() []string {
+	if m != nil {
+		return m.ExternalIds
+	}
+	return nil
+}
+
+type MultiGetBrandAttributeResponse struct {
+	Results              []*BrandAttributeResponseView `protobuf:"bytes,1,rep,name=results,proto3" json:"results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
+}
+
+func (m *MultiGetBrandAttributeResponse) Reset()         { *m = MultiGetBrandAttributeResponse{} }
+func (m *MultiGetBrandAttributeResponse) String() string { return proto.CompactTextString(m) }
+func (*MultiGetBrandAttributeResponse) ProtoMessage()    {}
+func (*MultiGetBrandAttributeResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{12}
+}
+
+func (m *MultiGetBrandAttributeResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MultiGetBrandAttributeResponse.Unmarshal(m, b)
+}
+func (m *MultiGetBrandAttributeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MultiGetBrandAttributeResponse.Marshal(b, m, deterministic)
+}
+func (m *MultiGetBrandAttributeResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MultiGetBrandAttributeResponse.Merge(m, src)
+}
+func (m *MultiGetBrandAttributeResponse) XXX_Size() int {
+	return xxx_messageInfo_MultiGetBrandAttributeResponse.Size(m)
+}
+func (m *MultiGetBrandAttributeResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MultiGetBrandAttributeResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MultiGetBrandAttributeResponse proto.InternalMessageInfo
+
+func (m *MultiGetBrandAttributeResponse) GetResults() []*BrandAttributeResponseView {
+	if m != nil {
+		return m.Results
+	}
+	return nil
+}
+
+type GetBrandRequest struct {
+	ExternalId           string   `protobuf:"bytes,1,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetBrandRequest) Reset()         { *m = GetBrandRequest{} }
+func (m *GetBrandRequest) String() string { return proto.CompactTextString(m) }
+func (*GetBrandRequest) ProtoMessage()    {}
+func (*GetBrandRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{13}
+}
+
+func (m *GetBrandRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBrandRequest.Unmarshal(m, b)
+}
+func (m *GetBrandRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBrandRequest.Marshal(b, m, deterministic)
+}
+func (m *GetBrandRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBrandRequest.Merge(m, src)
+}
+func (m *GetBrandRequest) XXX_Size() int {
+	return xxx_messageInfo_GetBrandRequest.Size(m)
+}
+func (m *GetBrandRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBrandRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetBrandRequest proto.InternalMessageInfo
+
+func (m *GetBrandRequest) GetExternalId() string {
+	if m != nil {
+		return m.ExternalId
+	}
+	return ""
+}
+
+type GetBrandResponse struct {
+	Result               *BrandAttributeResponseView `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
+}
+
+func (m *GetBrandResponse) Reset()         { *m = GetBrandResponse{} }
+func (m *GetBrandResponse) String() string { return proto.CompactTextString(m) }
+func (*GetBrandResponse) ProtoMessage()    {}
+func (*GetBrandResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{14}
+}
+
+func (m *GetBrandResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBrandResponse.Unmarshal(m, b)
+}
+func (m *GetBrandResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBrandResponse.Marshal(b, m, deterministic)
+}
+func (m *GetBrandResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBrandResponse.Merge(m, src)
+}
+func (m *GetBrandResponse) XXX_Size() int {
+	return xxx_messageInfo_GetBrandResponse.Size(m)
+}
+func (m *GetBrandResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBrandResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetBrandResponse proto.InternalMessageInfo
+
+func (m *GetBrandResponse) GetResult() *BrandAttributeResponseView {
+	if m != nil {
+		return m.Result
+	}
+	return nil
+}
+
 type CreateBrandRequest struct {
 	Payload              *BrandDetails `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
@@ -75,7 +677,7 @@ func (m *CreateBrandRequest) Reset()         { *m = CreateBrandRequest{} }
 func (m *CreateBrandRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateBrandRequest) ProtoMessage()    {}
 func (*CreateBrandRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{1}
+	return fileDescriptor_481cb6c23ddb1e62, []int{15}
 }
 
 func (m *CreateBrandRequest) XXX_Unmarshal(b []byte) error {
@@ -103,6 +705,84 @@ func (m *CreateBrandRequest) GetPayload() *BrandDetails {
 	return nil
 }
 
+type GetAttributesForBrandRequest struct {
+	BrandId              string   `protobuf:"bytes,1,opt,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetAttributesForBrandRequest) Reset()         { *m = GetAttributesForBrandRequest{} }
+func (m *GetAttributesForBrandRequest) String() string { return proto.CompactTextString(m) }
+func (*GetAttributesForBrandRequest) ProtoMessage()    {}
+func (*GetAttributesForBrandRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{16}
+}
+
+func (m *GetAttributesForBrandRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAttributesForBrandRequest.Unmarshal(m, b)
+}
+func (m *GetAttributesForBrandRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAttributesForBrandRequest.Marshal(b, m, deterministic)
+}
+func (m *GetAttributesForBrandRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAttributesForBrandRequest.Merge(m, src)
+}
+func (m *GetAttributesForBrandRequest) XXX_Size() int {
+	return xxx_messageInfo_GetAttributesForBrandRequest.Size(m)
+}
+func (m *GetAttributesForBrandRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAttributesForBrandRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAttributesForBrandRequest proto.InternalMessageInfo
+
+func (m *GetAttributesForBrandRequest) GetBrandId() string {
+	if m != nil {
+		return m.BrandId
+	}
+	return ""
+}
+
+type GetAttributesForBrandResponse struct {
+	Results              []*BrandAttributeResponseView `protobuf:"bytes,1,rep,name=results,proto3" json:"results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
+}
+
+func (m *GetAttributesForBrandResponse) Reset()         { *m = GetAttributesForBrandResponse{} }
+func (m *GetAttributesForBrandResponse) String() string { return proto.CompactTextString(m) }
+func (*GetAttributesForBrandResponse) ProtoMessage()    {}
+func (*GetAttributesForBrandResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{17}
+}
+
+func (m *GetAttributesForBrandResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAttributesForBrandResponse.Unmarshal(m, b)
+}
+func (m *GetAttributesForBrandResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAttributesForBrandResponse.Marshal(b, m, deterministic)
+}
+func (m *GetAttributesForBrandResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAttributesForBrandResponse.Merge(m, src)
+}
+func (m *GetAttributesForBrandResponse) XXX_Size() int {
+	return xxx_messageInfo_GetAttributesForBrandResponse.Size(m)
+}
+func (m *GetAttributesForBrandResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAttributesForBrandResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAttributesForBrandResponse proto.InternalMessageInfo
+
+func (m *GetAttributesForBrandResponse) GetResults() []*BrandAttributeResponseView {
+	if m != nil {
+		return m.Results
+	}
+	return nil
+}
+
 type BrandDetails struct {
 	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Description          string   `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
@@ -117,7 +797,7 @@ func (m *BrandDetails) Reset()         { *m = BrandDetails{} }
 func (m *BrandDetails) String() string { return proto.CompactTextString(m) }
 func (*BrandDetails) ProtoMessage()    {}
 func (*BrandDetails) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{2}
+	return fileDescriptor_481cb6c23ddb1e62, []int{18}
 }
 
 func (m *BrandDetails) XXX_Unmarshal(b []byte) error {
@@ -178,7 +858,7 @@ func (m *CreateBrandResponse) Reset()         { *m = CreateBrandResponse{} }
 func (m *CreateBrandResponse) String() string { return proto.CompactTextString(m) }
 func (*CreateBrandResponse) ProtoMessage()    {}
 func (*CreateBrandResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{3}
+	return fileDescriptor_481cb6c23ddb1e62, []int{19}
 }
 
 func (m *CreateBrandResponse) XXX_Unmarshal(b []byte) error {
@@ -225,7 +905,7 @@ func (m *GetBrandByIdResponse) Reset()         { *m = GetBrandByIdResponse{} }
 func (m *GetBrandByIdResponse) String() string { return proto.CompactTextString(m) }
 func (*GetBrandByIdResponse) ProtoMessage()    {}
 func (*GetBrandByIdResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{4}
+	return fileDescriptor_481cb6c23ddb1e62, []int{20}
 }
 
 func (m *GetBrandByIdResponse) XXX_Unmarshal(b []byte) error {
@@ -271,7 +951,7 @@ func (m *GetBrandByIdRequest) Reset()         { *m = GetBrandByIdRequest{} }
 func (m *GetBrandByIdRequest) String() string { return proto.CompactTextString(m) }
 func (*GetBrandByIdRequest) ProtoMessage()    {}
 func (*GetBrandByIdRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{5}
+	return fileDescriptor_481cb6c23ddb1e62, []int{21}
 }
 
 func (m *GetBrandByIdRequest) XXX_Unmarshal(b []byte) error {
@@ -311,7 +991,7 @@ func (m *UpdateBrandRequest) Reset()         { *m = UpdateBrandRequest{} }
 func (m *UpdateBrandRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateBrandRequest) ProtoMessage()    {}
 func (*UpdateBrandRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{6}
+	return fileDescriptor_481cb6c23ddb1e62, []int{22}
 }
 
 func (m *UpdateBrandRequest) XXX_Unmarshal(b []byte) error {
@@ -358,7 +1038,7 @@ func (m *UpdateBrandResponse) Reset()         { *m = UpdateBrandResponse{} }
 func (m *UpdateBrandResponse) String() string { return proto.CompactTextString(m) }
 func (*UpdateBrandResponse) ProtoMessage()    {}
 func (*UpdateBrandResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{7}
+	return fileDescriptor_481cb6c23ddb1e62, []int{23}
 }
 
 func (m *UpdateBrandResponse) XXX_Unmarshal(b []byte) error {
@@ -404,7 +1084,7 @@ func (m *DeleteBrandRequest) Reset()         { *m = DeleteBrandRequest{} }
 func (m *DeleteBrandRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteBrandRequest) ProtoMessage()    {}
 func (*DeleteBrandRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{8}
+	return fileDescriptor_481cb6c23ddb1e62, []int{24}
 }
 
 func (m *DeleteBrandRequest) XXX_Unmarshal(b []byte) error {
@@ -442,7 +1122,7 @@ func (m *DeleteBrandResponse) Reset()         { *m = DeleteBrandResponse{} }
 func (m *DeleteBrandResponse) String() string { return proto.CompactTextString(m) }
 func (*DeleteBrandResponse) ProtoMessage()    {}
 func (*DeleteBrandResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{9}
+	return fileDescriptor_481cb6c23ddb1e62, []int{25}
 }
 
 func (m *DeleteBrandResponse) XXX_Unmarshal(b []byte) error {
@@ -474,7 +1154,7 @@ func (m *MultiGetBrandsRequest) Reset()         { *m = MultiGetBrandsRequest{} }
 func (m *MultiGetBrandsRequest) String() string { return proto.CompactTextString(m) }
 func (*MultiGetBrandsRequest) ProtoMessage()    {}
 func (*MultiGetBrandsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{10}
+	return fileDescriptor_481cb6c23ddb1e62, []int{26}
 }
 
 func (m *MultiGetBrandsRequest) XXX_Unmarshal(b []byte) error {
@@ -513,7 +1193,7 @@ func (m *MultiGetBrandsResponse) Reset()         { *m = MultiGetBrandsResponse{}
 func (m *MultiGetBrandsResponse) String() string { return proto.CompactTextString(m) }
 func (*MultiGetBrandsResponse) ProtoMessage()    {}
 func (*MultiGetBrandsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_481cb6c23ddb1e62, []int{11}
+	return fileDescriptor_481cb6c23ddb1e62, []int{27}
 }
 
 func (m *MultiGetBrandsResponse) XXX_Unmarshal(b []byte) error {
@@ -543,7 +1223,23 @@ func (m *MultiGetBrandsResponse) GetResult() []*GetBrandByIdResponse {
 
 func init() {
 	proto.RegisterType((*VersionResponse)(nil), "service.VersionResponse")
+	proto.RegisterType((*BrandAttributeView)(nil), "service.BrandAttributeView")
+	proto.RegisterType((*BrandAttributeResponseView)(nil), "service.BrandAttributeResponseView")
+	proto.RegisterType((*CreateBrandAttributeRequest)(nil), "service.CreateBrandAttributeRequest")
+	proto.RegisterType((*CreateBrandAttributeResponse)(nil), "service.CreateBrandAttributeResponse")
+	proto.RegisterType((*UpdateBrandAttributeRequest)(nil), "service.UpdateBrandAttributeRequest")
+	proto.RegisterType((*UpdateBrandAttributeResponse)(nil), "service.UpdateBrandAttributeResponse")
+	proto.RegisterType((*DeleteBrandAttributeRequest)(nil), "service.DeleteBrandAttributeRequest")
+	proto.RegisterType((*DeleteBrandAttributeResponse)(nil), "service.DeleteBrandAttributeResponse")
+	proto.RegisterType((*GetBrandAttributeByIdRequest)(nil), "service.GetBrandAttributeByIdRequest")
+	proto.RegisterType((*GetBrandAttributeByIdResponse)(nil), "service.GetBrandAttributeByIdResponse")
+	proto.RegisterType((*MultiGetBrandAttributeRequest)(nil), "service.MultiGetBrandAttributeRequest")
+	proto.RegisterType((*MultiGetBrandAttributeResponse)(nil), "service.MultiGetBrandAttributeResponse")
+	proto.RegisterType((*GetBrandRequest)(nil), "service.GetBrandRequest")
+	proto.RegisterType((*GetBrandResponse)(nil), "service.GetBrandResponse")
 	proto.RegisterType((*CreateBrandRequest)(nil), "service.CreateBrandRequest")
+	proto.RegisterType((*GetAttributesForBrandRequest)(nil), "service.GetAttributesForBrandRequest")
+	proto.RegisterType((*GetAttributesForBrandResponse)(nil), "service.GetAttributesForBrandResponse")
 	proto.RegisterType((*BrandDetails)(nil), "service.BrandDetails")
 	proto.RegisterType((*CreateBrandResponse)(nil), "service.CreateBrandResponse")
 	proto.RegisterType((*GetBrandByIdResponse)(nil), "service.GetBrandByIdResponse")
@@ -559,45 +1255,72 @@ func init() {
 func init() { proto.RegisterFile("catalog/pkg/pb/service.proto", fileDescriptor_481cb6c23ddb1e62) }
 
 var fileDescriptor_481cb6c23ddb1e62 = []byte{
-	// 600 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x55, 0xcf, 0x6e, 0xd3, 0x4e,
-	0x10, 0x96, 0xfb, 0x2f, 0xbf, 0xdf, 0xb8, 0x02, 0x75, 0x43, 0x8a, 0x65, 0x52, 0x1a, 0x7c, 0x40,
-	0x55, 0x4b, 0xbb, 0x52, 0x50, 0x39, 0xb4, 0xb7, 0xb6, 0x08, 0xf5, 0x80, 0x90, 0x2c, 0xc1, 0x81,
-	0x0b, 0x5a, 0xdb, 0x53, 0x63, 0xea, 0x7a, 0x8d, 0x77, 0xd3, 0x36, 0x42, 0x5c, 0x78, 0x05, 0x9e,
-	0x81, 0x27, 0xe2, 0x15, 0x78, 0x10, 0x94, 0xf5, 0x3a, 0x5d, 0xc7, 0x4e, 0x7b, 0x40, 0xbd, 0x79,
-	0x67, 0xbe, 0x99, 0x6f, 0xbe, 0xd9, 0x2f, 0x1b, 0xe8, 0x87, 0x4c, 0xb2, 0x94, 0xc7, 0x34, 0x3f,
-	0x8f, 0x69, 0x1e, 0x50, 0x81, 0xc5, 0x65, 0x12, 0xe2, 0x5e, 0x5e, 0x70, 0xc9, 0x49, 0x47, 0x1f,
-	0xdd, 0x7e, 0xcc, 0x79, 0x9c, 0x22, 0x65, 0x79, 0x42, 0x59, 0x96, 0x71, 0xc9, 0x64, 0xc2, 0x33,
-	0x51, 0xc2, 0xdc, 0xc3, 0x38, 0x91, 0x9f, 0x47, 0xc1, 0x5e, 0xc8, 0x2f, 0x68, 0x3a, 0x3e, 0x93,
-	0x54, 0x85, 0xc3, 0xdd, 0x18, 0xb3, 0xdd, 0x4b, 0x96, 0x26, 0x11, 0x93, 0x48, 0x1b, 0x1f, 0xba,
-	0xf8, 0x85, 0x01, 0x16, 0x57, 0x2c, 0x8e, 0xb1, 0xa0, 0x3c, 0x57, 0xed, 0x9b, 0x54, 0xde, 0x0e,
-	0x3c, 0xfc, 0x80, 0x85, 0x48, 0x78, 0xe6, 0xa3, 0xc8, 0x79, 0x26, 0x90, 0x38, 0xd0, 0xb9, 0x2c,
-	0x43, 0x8e, 0x35, 0xb0, 0xb6, 0xfe, 0xf7, 0xab, 0xa3, 0xf7, 0x1a, 0xc8, 0x71, 0x81, 0x4c, 0xe2,
-	0x51, 0xc1, 0xb2, 0xc8, 0xc7, 0xaf, 0x23, 0x14, 0x92, 0x50, 0xe8, 0xe4, 0x6c, 0x9c, 0x72, 0x16,
-	0x29, 0xbc, 0x3d, 0xec, 0xed, 0x55, 0xaa, 0x15, 0xee, 0x04, 0x25, 0x4b, 0x52, 0xe1, 0x57, 0x28,
-	0xef, 0x1a, 0x56, 0xcd, 0x04, 0x21, 0xb0, 0x94, 0xb1, 0x0b, 0xd4, 0x6c, 0xea, 0x9b, 0x0c, 0xc0,
-	0x8e, 0x50, 0x84, 0x45, 0xa2, 0x26, 0x77, 0x16, 0x54, 0xca, 0x0c, 0x11, 0x17, 0xfe, 0x3b, 0xc7,
-	0xf1, 0x15, 0x2f, 0x22, 0xe1, 0x2c, 0xaa, 0xf4, 0xf4, 0x4c, 0xd6, 0x61, 0x45, 0x48, 0x26, 0x47,
-	0xc2, 0x59, 0x1a, 0x58, 0x5b, 0xcb, 0xbe, 0x3e, 0x79, 0x21, 0x74, 0x6b, 0x02, 0xb4, 0xe2, 0x1d,
-	0x58, 0x0e, 0x26, 0x81, 0xdb, 0xe7, 0x2f, 0x31, 0x64, 0x13, 0x6c, 0xbc, 0x96, 0x58, 0x64, 0x2c,
-	0xfd, 0x94, 0x44, 0x7a, 0x32, 0xa8, 0x42, 0xa7, 0x91, 0x17, 0xc1, 0xa3, 0x37, 0x28, 0x55, 0xe9,
-	0xd1, 0xf8, 0xf4, 0xbe, 0x58, 0x5e, 0x41, 0xb7, 0xce, 0x52, 0x5e, 0xc6, 0x4c, 0x9d, 0xd5, 0xa8,
-	0x3b, 0x03, 0xf2, 0x3e, 0x8f, 0xfe, 0xf5, 0x0e, 0xef, 0x9e, 0x2f, 0x84, 0x6e, 0x8d, 0xe7, 0x5e,
-	0x96, 0xb0, 0x0f, 0xe4, 0x04, 0x53, 0x9c, 0x11, 0x73, 0xe7, 0x0e, 0x7a, 0xd0, 0xad, 0x95, 0x95,
-	0xb3, 0x79, 0x07, 0xd0, 0x7b, 0x3b, 0x4a, 0x65, 0x52, 0xed, 0x55, 0x54, 0x0d, 0x9f, 0xc1, 0xaa,
-	0xd1, 0x50, 0x38, 0xd6, 0x60, 0x71, 0xe2, 0xc6, 0x9b, 0x8e, 0xc2, 0x7b, 0x07, 0xeb, 0xb3, 0xb5,
-	0x5a, 0xf1, 0x3e, 0xac, 0x14, 0x28, 0x46, 0xa9, 0x54, 0x65, 0xf6, 0x70, 0x63, 0x2a, 0xb9, 0xcd,
-	0x25, 0xbe, 0x06, 0x0f, 0x7f, 0x2d, 0x41, 0xe7, 0xb8, 0x7c, 0x4b, 0x48, 0x00, 0xb6, 0x61, 0x5b,
-	0xf2, 0x64, 0xda, 0xa1, 0xf9, 0x6b, 0x74, 0xfb, 0xed, 0x49, 0x2d, 0xd1, 0xf9, 0xf1, 0xfb, 0xcf,
-	0xcf, 0x05, 0xe2, 0x75, 0xa8, 0xda, 0xb0, 0x38, 0x98, 0x5e, 0xe8, 0x17, 0x58, 0x35, 0xe7, 0x21,
-	0xfd, 0x39, 0x63, 0x96, 0x2c, 0xb7, 0x8b, 0xf0, 0x36, 0x14, 0xcd, 0x63, 0xd2, 0xd3, 0x34, 0xf4,
-	0x9b, 0xb1, 0xbf, 0xef, 0x24, 0x07, 0xdb, 0xf0, 0x86, 0xa1, 0xa7, 0xe9, 0x4c, 0x43, 0x4f, 0x8b,
-	0x9d, 0xbc, 0xe7, 0x8a, 0x68, 0x30, 0x6c, 0x27, 0xba, 0x51, 0x17, 0x83, 0x6d, 0xdc, 0xb8, 0xc1,
-	0xd8, 0xb4, 0x8f, 0xc1, 0xd8, 0x66, 0x12, 0x2d, 0x6d, 0x7b, 0x8e, 0x34, 0x0e, 0x0f, 0xea, 0x3e,
-	0x20, 0x4f, 0xa7, 0xed, 0x5a, 0xcd, 0xe5, 0x6e, 0xce, 0xcd, 0x6b, 0xc6, 0xbe, 0x62, 0x5c, 0x77,
-	0xd7, 0x2a, 0xc6, 0x8b, 0x09, 0x6e, 0x37, 0x46, 0x79, 0x60, 0x6d, 0x1f, 0x75, 0x3f, 0xae, 0xd5,
-	0xff, 0x72, 0x0e, 0xf3, 0x20, 0x58, 0x51, 0x8f, 0xfb, 0xcb, 0xbf, 0x01, 0x00, 0x00, 0xff, 0xff,
-	0x93, 0x27, 0x23, 0x41, 0x8e, 0x06, 0x00, 0x00,
+	// 1026 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x41, 0x6f, 0x1b, 0x45,
+	0x14, 0xd6, 0x26, 0x4d, 0xdc, 0x3e, 0x47, 0x34, 0x1d, 0xdb, 0xa9, 0xd9, 0x38, 0xa9, 0x99, 0x92,
+	0x10, 0x25, 0x4d, 0x56, 0x32, 0x04, 0x41, 0x02, 0x12, 0xa4, 0x05, 0x94, 0x03, 0xaa, 0x64, 0x44,
+	0x0f, 0x80, 0xa8, 0xc6, 0xde, 0xc9, 0xb2, 0x64, 0xb3, 0xbb, 0xec, 0x8c, 0x93, 0x5a, 0xa8, 0x17,
+	0x4e, 0x1c, 0x91, 0x38, 0x71, 0xe0, 0x88, 0xc4, 0x89, 0x7f, 0xc0, 0x85, 0xbf, 0xc0, 0x5f, 0xe0,
+	0x87, 0x20, 0xcf, 0xce, 0xda, 0x33, 0xde, 0x59, 0xc7, 0xb1, 0xdc, 0x9b, 0x67, 0xe6, 0xbd, 0xf7,
+	0x7d, 0xef, 0xcd, 0xf7, 0x66, 0x9f, 0xa1, 0xd1, 0x25, 0x9c, 0x04, 0x91, 0xe7, 0xc4, 0xe7, 0x9e,
+	0x13, 0x77, 0x1c, 0x46, 0x93, 0x4b, 0xbf, 0x4b, 0x0f, 0xe2, 0x24, 0xe2, 0x11, 0x2a, 0xc9, 0xa5,
+	0xdd, 0xf0, 0xa2, 0xc8, 0x0b, 0xa8, 0x43, 0x62, 0xdf, 0x21, 0x61, 0x18, 0x71, 0xc2, 0xfd, 0x28,
+	0x64, 0xa9, 0x99, 0x7d, 0xec, 0xf9, 0xfc, 0xbb, 0x5e, 0xe7, 0xa0, 0x1b, 0x5d, 0x38, 0x41, 0xff,
+	0x8c, 0x3b, 0x62, 0xbb, 0xbb, 0xef, 0xd1, 0x70, 0xff, 0x92, 0x04, 0xbe, 0x4b, 0x38, 0x75, 0x72,
+	0x3f, 0xa4, 0xf3, 0x23, 0xc5, 0x98, 0x5d, 0x11, 0xcf, 0xa3, 0x89, 0x13, 0xc5, 0x22, 0x7c, 0x1e,
+	0x0a, 0xef, 0xc1, 0xdd, 0x67, 0x34, 0x61, 0x7e, 0x14, 0xb6, 0x29, 0x8b, 0xa3, 0x90, 0x51, 0x54,
+	0x87, 0xd2, 0x65, 0xba, 0x55, 0xb7, 0x9a, 0xd6, 0xce, 0x9d, 0x76, 0xb6, 0xc4, 0x1f, 0x00, 0x3a,
+	0x49, 0x48, 0xe8, 0x7e, 0xcc, 0x79, 0xe2, 0x77, 0x7a, 0x9c, 0x3e, 0xf3, 0xe9, 0x15, 0x5a, 0x85,
+	0xc5, 0x73, 0xda, 0x97, 0xb6, 0x83, 0x9f, 0xa8, 0x0a, 0x4b, 0x97, 0x24, 0xe8, 0xd1, 0xfa, 0x82,
+	0xd8, 0x4b, 0x17, 0x98, 0x82, 0xad, 0x7b, 0x67, 0x88, 0x37, 0x89, 0x82, 0x1e, 0x40, 0x99, 0xbe,
+	0xe0, 0x34, 0x09, 0x49, 0xf0, 0xdc, 0x77, 0xeb, 0x8b, 0xe2, 0x0c, 0xb2, 0xad, 0x53, 0x17, 0x47,
+	0xb0, 0xfe, 0x38, 0xa1, 0x84, 0xd3, 0x71, 0xb0, 0x1f, 0x7a, 0x94, 0x71, 0xf4, 0x3a, 0xdc, 0xee,
+	0x0c, 0x0e, 0x06, 0xce, 0x32, 0x3d, 0xb1, 0x3e, 0x75, 0xd1, 0x21, 0x94, 0x62, 0xd2, 0x0f, 0x22,
+	0xe2, 0x0a, 0xc8, 0x72, 0x6b, 0xfd, 0x20, 0xbb, 0xbe, 0x7c, 0xda, 0xed, 0xcc, 0x16, 0x7f, 0x0d,
+	0x0d, 0x33, 0xa0, 0xac, 0xe7, 0x31, 0x2c, 0x27, 0x94, 0xf5, 0x02, 0x2e, 0xf0, 0xca, 0xad, 0x87,
+	0x05, 0x51, 0xd5, 0x72, 0xb4, 0xa5, 0x0b, 0xfe, 0xdd, 0x82, 0xf5, 0x2f, 0x63, 0x77, 0x96, 0x74,
+	0x1e, 0x01, 0x4a, 0x8f, 0x48, 0xe6, 0x34, 0x30, 0x4a, 0x8b, 0xb9, 0xda, 0xd1, 0xa2, 0xe9, 0xc9,
+	0x2f, 0xde, 0x2c, 0x79, 0x33, 0xbd, 0x79, 0x24, 0x7f, 0x06, 0xeb, 0x4f, 0x68, 0x40, 0x5f, 0x75,
+	0xee, 0x78, 0x13, 0x1a, 0x66, 0x9c, 0x94, 0x13, 0xf6, 0xa0, 0xf1, 0x19, 0xe5, 0xfa, 0xe1, 0x49,
+	0xff, 0xd4, 0x9d, 0x3b, 0x91, 0x6f, 0x60, 0xa3, 0x00, 0x68, 0x1e, 0xe5, 0x3c, 0x81, 0x8d, 0xcf,
+	0x7b, 0x01, 0xf7, 0x73, 0x10, 0x59, 0x1e, 0x6f, 0xc0, 0x8a, 0xd2, 0x5b, 0xac, 0x6e, 0x35, 0x17,
+	0x77, 0xee, 0xb4, 0xcb, 0xa3, 0xe6, 0x62, 0xf8, 0x39, 0x6c, 0x16, 0xc5, 0x90, 0x14, 0x3f, 0x84,
+	0x52, 0x8a, 0x97, 0xfa, 0x4f, 0xc9, 0x31, 0xf3, 0xc1, 0x2d, 0xb8, 0x9b, 0xc5, 0xce, 0x68, 0x8d,
+	0xb5, 0xbc, 0x95, 0x6b, 0xf9, 0xa7, 0xb0, 0x3a, 0xf2, 0x99, 0x47, 0xa5, 0x3e, 0x01, 0xa4, 0xb4,
+	0x74, 0xc6, 0xc3, 0x19, 0xb5, 0x48, 0x1a, 0xb3, 0xa6, 0xc7, 0x7c, 0x42, 0x39, 0xf1, 0x03, 0x36,
+	0x6a, 0x8e, 0xf7, 0x85, 0x6e, 0x86, 0x50, 0xec, 0xd3, 0x28, 0xd1, 0x02, 0x16, 0xeb, 0x06, 0x7f,
+	0x2b, 0x94, 0x60, 0x72, 0x9d, 0x4f, 0x99, 0x5f, 0xc0, 0x8a, 0xca, 0x19, 0x21, 0xb8, 0x15, 0x92,
+	0x0b, 0x2a, 0x69, 0x88, 0xdf, 0xa8, 0x09, 0x65, 0x97, 0xb2, 0x6e, 0xe2, 0x8b, 0xaf, 0x87, 0x14,
+	0xad, 0xba, 0x85, 0x6c, 0xb8, 0x7d, 0x4e, 0xfb, 0x57, 0x51, 0xe2, 0x32, 0xf9, 0x12, 0x0f, 0xd7,
+	0x68, 0x0d, 0x96, 0x19, 0x27, 0xbc, 0xc7, 0xea, 0xb7, 0x9a, 0xd6, 0xce, 0x52, 0x5b, 0xae, 0x70,
+	0x17, 0x2a, 0x5a, 0x6d, 0x65, 0x3e, 0x7b, 0xb0, 0x24, 0x72, 0x9f, 0x5c, 0xda, 0xd4, 0x66, 0x5c,
+	0x11, 0x0b, 0x39, 0x45, 0xb8, 0x50, 0xcd, 0x14, 0xa1, 0xf5, 0xcf, 0x7c, 0x51, 0xde, 0x85, 0x8a,
+	0x8e, 0x32, 0xa5, 0x5e, 0xcf, 0x00, 0x29, 0x8f, 0xe6, 0xac, 0xf2, 0xba, 0x9e, 0x5f, 0x17, 0x2a,
+	0x1a, 0xce, 0x2b, 0x29, 0xc2, 0x21, 0x20, 0xe5, 0xf1, 0x9c, 0xba, 0x06, 0x35, 0xa8, 0x68, 0x6e,
+	0xf2, 0xa9, 0x3d, 0x82, 0x9a, 0xf6, 0xbe, 0xb0, 0x1b, 0xbc, 0x4d, 0x4f, 0x61, 0x6d, 0xdc, 0x57,
+	0x66, 0x7c, 0xa8, 0x3c, 0x06, 0x83, 0x5e, 0xd9, 0x18, 0xa6, 0x6c, 0x52, 0x49, 0xf6, 0x0c, 0xb4,
+	0xfe, 0x5e, 0x92, 0x5d, 0xf2, 0x45, 0x6a, 0x8d, 0x3a, 0x50, 0x56, 0xb4, 0x8b, 0x46, 0x9f, 0xc8,
+	0xfc, 0x6b, 0x61, 0x37, 0xcc, 0x87, 0x32, 0xcf, 0xfa, 0x4f, 0xff, 0xfe, 0xf7, 0xeb, 0x02, 0xc2,
+	0x25, 0x47, 0x94, 0x99, 0x1d, 0x0d, 0x6f, 0xf5, 0x7b, 0x58, 0x51, 0x49, 0xa1, 0x46, 0x01, 0xd7,
+	0x14, 0x65, 0x72, 0x26, 0x78, 0x43, 0xc0, 0xdc, 0x47, 0x35, 0x09, 0xe3, 0xfc, 0xa8, 0x14, 0xf1,
+	0x25, 0x8a, 0xa1, 0xac, 0x08, 0x44, 0xc9, 0x27, 0x2f, 0x4f, 0x25, 0x1f, 0x83, 0xa6, 0xf0, 0xb6,
+	0x00, 0x6a, 0xb6, 0xcc, 0x40, 0xa3, 0xec, 0x3c, 0x28, 0x2b, 0xd7, 0xae, 0x20, 0xe6, 0x35, 0xa4,
+	0x20, 0x9a, 0x94, 0x22, 0x53, 0xdb, 0x2d, 0x48, 0x2d, 0x82, 0xd7, 0x74, 0x31, 0xa0, 0xcd, 0x61,
+	0x38, 0xa3, 0xc2, 0xec, 0x07, 0x85, 0xe7, 0x12, 0xb1, 0x21, 0x10, 0xd7, 0xec, 0x7b, 0x19, 0xe2,
+	0xc5, 0xc0, 0x6e, 0xdf, 0xa3, 0xfc, 0xc8, 0xda, 0x45, 0xbf, 0x58, 0x80, 0x72, 0x5f, 0x45, 0x86,
+	0xb6, 0xd4, 0x0b, 0x2a, 0xfc, 0x14, 0xd8, 0xdb, 0xd7, 0x99, 0x49, 0x0e, 0x7b, 0x82, 0xc3, 0x16,
+	0x7a, 0x38, 0xcc, 0x3a, 0xfb, 0x82, 0xbc, 0x4c, 0x77, 0xf6, 0x87, 0x83, 0x06, 0x6b, 0xfd, 0xb3,
+	0x0c, 0x35, 0x9d, 0x4f, 0x26, 0xe4, 0xdf, 0x2c, 0xa8, 0x9a, 0x86, 0x56, 0xf4, 0xa6, 0x49, 0xb5,
+	0xe3, 0x83, 0x82, 0xbd, 0x75, 0x8d, 0x95, 0x24, 0xfb, 0x8e, 0x20, 0x7b, 0x80, 0xa7, 0x21, 0x3b,
+	0x92, 0xc8, 0x5f, 0x16, 0x54, 0x4d, 0x33, 0xa5, 0xc2, 0x6d, 0xc2, 0x44, 0xac, 0x70, 0x9b, 0x34,
+	0x98, 0xe2, 0x53, 0xc1, 0xed, 0xb1, 0xfd, 0xde, 0x14, 0xdc, 0xb2, 0x33, 0x75, 0x86, 0x53, 0x34,
+	0xfd, 0xa7, 0x05, 0x35, 0xe3, 0xd8, 0xa6, 0x5f, 0x7e, 0xe1, 0xfc, 0xa8, 0x5f, 0x7e, 0xf1, 0xf4,
+	0x87, 0x3f, 0x12, 0x9c, 0x8f, 0xd0, 0xcc, 0x9c, 0xd1, 0x1f, 0x16, 0x54, 0x4d, 0xa3, 0xae, 0x52,
+	0xdb, 0x09, 0x13, 0xb7, 0x52, 0xdb, 0x89, 0xf3, 0xb2, 0xe4, 0xb9, 0x3b, 0x3b, 0xcf, 0x9f, 0x2d,
+	0xb8, 0x6f, 0x9e, 0x33, 0x19, 0xda, 0x36, 0xf7, 0x69, 0x8e, 0xec, 0x5b, 0xd7, 0xda, 0x99, 0xfb,
+	0x5a, 0x15, 0xa5, 0xb5, 0x7b, 0x52, 0xf9, 0xea, 0x9e, 0xfe, 0x9f, 0xfe, 0x38, 0xee, 0x74, 0x96,
+	0xc5, 0xbf, 0xe7, 0xb7, 0xff, 0x0f, 0x00, 0x00, 0xff, 0xff, 0x0d, 0x39, 0x3d, 0x08, 0xef, 0x0f,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -608,196 +1331,425 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// CatalogClient is the client API for Catalog service.
+// BrandServiceClient is the client API for BrandService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type CatalogClient interface {
+type BrandServiceClient interface {
 	CreateBrand(ctx context.Context, in *CreateBrandRequest, opts ...grpc.CallOption) (*CreateBrandResponse, error)
 	GetBrandById(ctx context.Context, in *GetBrandByIdRequest, opts ...grpc.CallOption) (*GetBrandByIdResponse, error)
 	UpdateBrand(ctx context.Context, in *UpdateBrandRequest, opts ...grpc.CallOption) (*UpdateBrandResponse, error)
 	DeleteBrand(ctx context.Context, in *DeleteBrandRequest, opts ...grpc.CallOption) (*DeleteBrandResponse, error)
 	MultiGetBrands(ctx context.Context, in *MultiGetBrandsRequest, opts ...grpc.CallOption) (*MultiGetBrandsResponse, error)
+	GetBrandAttributes(ctx context.Context, in *GetAttributesForBrandRequest, opts ...grpc.CallOption) (*GetAttributesForBrandResponse, error)
 }
 
-type catalogClient struct {
+type brandServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewCatalogClient(cc *grpc.ClientConn) CatalogClient {
-	return &catalogClient{cc}
+func NewBrandServiceClient(cc *grpc.ClientConn) BrandServiceClient {
+	return &brandServiceClient{cc}
 }
 
-func (c *catalogClient) CreateBrand(ctx context.Context, in *CreateBrandRequest, opts ...grpc.CallOption) (*CreateBrandResponse, error) {
+func (c *brandServiceClient) CreateBrand(ctx context.Context, in *CreateBrandRequest, opts ...grpc.CallOption) (*CreateBrandResponse, error) {
 	out := new(CreateBrandResponse)
-	err := c.cc.Invoke(ctx, "/service.Catalog/CreateBrand", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.BrandService/CreateBrand", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *catalogClient) GetBrandById(ctx context.Context, in *GetBrandByIdRequest, opts ...grpc.CallOption) (*GetBrandByIdResponse, error) {
+func (c *brandServiceClient) GetBrandById(ctx context.Context, in *GetBrandByIdRequest, opts ...grpc.CallOption) (*GetBrandByIdResponse, error) {
 	out := new(GetBrandByIdResponse)
-	err := c.cc.Invoke(ctx, "/service.Catalog/GetBrandById", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.BrandService/GetBrandById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *catalogClient) UpdateBrand(ctx context.Context, in *UpdateBrandRequest, opts ...grpc.CallOption) (*UpdateBrandResponse, error) {
+func (c *brandServiceClient) UpdateBrand(ctx context.Context, in *UpdateBrandRequest, opts ...grpc.CallOption) (*UpdateBrandResponse, error) {
 	out := new(UpdateBrandResponse)
-	err := c.cc.Invoke(ctx, "/service.Catalog/UpdateBrand", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.BrandService/UpdateBrand", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *catalogClient) DeleteBrand(ctx context.Context, in *DeleteBrandRequest, opts ...grpc.CallOption) (*DeleteBrandResponse, error) {
+func (c *brandServiceClient) DeleteBrand(ctx context.Context, in *DeleteBrandRequest, opts ...grpc.CallOption) (*DeleteBrandResponse, error) {
 	out := new(DeleteBrandResponse)
-	err := c.cc.Invoke(ctx, "/service.Catalog/DeleteBrand", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.BrandService/DeleteBrand", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *catalogClient) MultiGetBrands(ctx context.Context, in *MultiGetBrandsRequest, opts ...grpc.CallOption) (*MultiGetBrandsResponse, error) {
+func (c *brandServiceClient) MultiGetBrands(ctx context.Context, in *MultiGetBrandsRequest, opts ...grpc.CallOption) (*MultiGetBrandsResponse, error) {
 	out := new(MultiGetBrandsResponse)
-	err := c.cc.Invoke(ctx, "/service.Catalog/MultiGetBrands", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.BrandService/MultiGetBrands", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CatalogServer is the server API for Catalog service.
-type CatalogServer interface {
+func (c *brandServiceClient) GetBrandAttributes(ctx context.Context, in *GetAttributesForBrandRequest, opts ...grpc.CallOption) (*GetAttributesForBrandResponse, error) {
+	out := new(GetAttributesForBrandResponse)
+	err := c.cc.Invoke(ctx, "/service.BrandService/GetBrandAttributes", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BrandServiceServer is the server API for BrandService service.
+type BrandServiceServer interface {
 	CreateBrand(context.Context, *CreateBrandRequest) (*CreateBrandResponse, error)
 	GetBrandById(context.Context, *GetBrandByIdRequest) (*GetBrandByIdResponse, error)
 	UpdateBrand(context.Context, *UpdateBrandRequest) (*UpdateBrandResponse, error)
 	DeleteBrand(context.Context, *DeleteBrandRequest) (*DeleteBrandResponse, error)
 	MultiGetBrands(context.Context, *MultiGetBrandsRequest) (*MultiGetBrandsResponse, error)
+	GetBrandAttributes(context.Context, *GetAttributesForBrandRequest) (*GetAttributesForBrandResponse, error)
 }
 
-func RegisterCatalogServer(s *grpc.Server, srv CatalogServer) {
-	s.RegisterService(&_Catalog_serviceDesc, srv)
+func RegisterBrandServiceServer(s *grpc.Server, srv BrandServiceServer) {
+	s.RegisterService(&_BrandService_serviceDesc, srv)
 }
 
-func _Catalog_CreateBrand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrandService_CreateBrand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateBrandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CatalogServer).CreateBrand(ctx, in)
+		return srv.(BrandServiceServer).CreateBrand(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.Catalog/CreateBrand",
+		FullMethod: "/service.BrandService/CreateBrand",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CatalogServer).CreateBrand(ctx, req.(*CreateBrandRequest))
+		return srv.(BrandServiceServer).CreateBrand(ctx, req.(*CreateBrandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Catalog_GetBrandById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrandService_GetBrandById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBrandByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CatalogServer).GetBrandById(ctx, in)
+		return srv.(BrandServiceServer).GetBrandById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.Catalog/GetBrandById",
+		FullMethod: "/service.BrandService/GetBrandById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CatalogServer).GetBrandById(ctx, req.(*GetBrandByIdRequest))
+		return srv.(BrandServiceServer).GetBrandById(ctx, req.(*GetBrandByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Catalog_UpdateBrand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrandService_UpdateBrand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateBrandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CatalogServer).UpdateBrand(ctx, in)
+		return srv.(BrandServiceServer).UpdateBrand(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.Catalog/UpdateBrand",
+		FullMethod: "/service.BrandService/UpdateBrand",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CatalogServer).UpdateBrand(ctx, req.(*UpdateBrandRequest))
+		return srv.(BrandServiceServer).UpdateBrand(ctx, req.(*UpdateBrandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Catalog_DeleteBrand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrandService_DeleteBrand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteBrandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CatalogServer).DeleteBrand(ctx, in)
+		return srv.(BrandServiceServer).DeleteBrand(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.Catalog/DeleteBrand",
+		FullMethod: "/service.BrandService/DeleteBrand",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CatalogServer).DeleteBrand(ctx, req.(*DeleteBrandRequest))
+		return srv.(BrandServiceServer).DeleteBrand(ctx, req.(*DeleteBrandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Catalog_MultiGetBrands_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrandService_MultiGetBrands_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MultiGetBrandsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CatalogServer).MultiGetBrands(ctx, in)
+		return srv.(BrandServiceServer).MultiGetBrands(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.Catalog/MultiGetBrands",
+		FullMethod: "/service.BrandService/MultiGetBrands",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CatalogServer).MultiGetBrands(ctx, req.(*MultiGetBrandsRequest))
+		return srv.(BrandServiceServer).MultiGetBrands(ctx, req.(*MultiGetBrandsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Catalog_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "service.Catalog",
-	HandlerType: (*CatalogServer)(nil),
+func _BrandService_GetBrandAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAttributesForBrandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrandServiceServer).GetBrandAttributes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.BrandService/GetBrandAttributes",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrandServiceServer).GetBrandAttributes(ctx, req.(*GetAttributesForBrandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _BrandService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "service.BrandService",
+	HandlerType: (*BrandServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateBrand",
-			Handler:    _Catalog_CreateBrand_Handler,
+			Handler:    _BrandService_CreateBrand_Handler,
 		},
 		{
 			MethodName: "GetBrandById",
-			Handler:    _Catalog_GetBrandById_Handler,
+			Handler:    _BrandService_GetBrandById_Handler,
 		},
 		{
 			MethodName: "UpdateBrand",
-			Handler:    _Catalog_UpdateBrand_Handler,
+			Handler:    _BrandService_UpdateBrand_Handler,
 		},
 		{
 			MethodName: "DeleteBrand",
-			Handler:    _Catalog_DeleteBrand_Handler,
+			Handler:    _BrandService_DeleteBrand_Handler,
 		},
 		{
 			MethodName: "MultiGetBrands",
-			Handler:    _Catalog_MultiGetBrands_Handler,
+			Handler:    _BrandService_MultiGetBrands_Handler,
+		},
+		{
+			MethodName: "GetBrandAttributes",
+			Handler:    _BrandService_GetBrandAttributes_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "catalog/pkg/pb/service.proto",
+}
+
+// BrandAttributeServiceClient is the client API for BrandAttributeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type BrandAttributeServiceClient interface {
+	CreateBrandAttribute(ctx context.Context, in *CreateBrandAttributeRequest, opts ...grpc.CallOption) (*CreateBrandAttributeResponse, error)
+	UpdateBrandAttribute(ctx context.Context, in *UpdateBrandAttributeRequest, opts ...grpc.CallOption) (*UpdateBrandAttributeResponse, error)
+	GetBrandAttributeById(ctx context.Context, in *GetBrandAttributeByIdRequest, opts ...grpc.CallOption) (*GetBrandAttributeByIdResponse, error)
+	DeleteBrandAttribute(ctx context.Context, in *DeleteBrandAttributeRequest, opts ...grpc.CallOption) (*DeleteBrandAttributeResponse, error)
+	MultiGetBrandAttributes(ctx context.Context, in *MultiGetBrandAttributeRequest, opts ...grpc.CallOption) (*MultiGetBrandAttributeResponse, error)
+}
+
+type brandAttributeServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewBrandAttributeServiceClient(cc *grpc.ClientConn) BrandAttributeServiceClient {
+	return &brandAttributeServiceClient{cc}
+}
+
+func (c *brandAttributeServiceClient) CreateBrandAttribute(ctx context.Context, in *CreateBrandAttributeRequest, opts ...grpc.CallOption) (*CreateBrandAttributeResponse, error) {
+	out := new(CreateBrandAttributeResponse)
+	err := c.cc.Invoke(ctx, "/service.BrandAttributeService/CreateBrandAttribute", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *brandAttributeServiceClient) UpdateBrandAttribute(ctx context.Context, in *UpdateBrandAttributeRequest, opts ...grpc.CallOption) (*UpdateBrandAttributeResponse, error) {
+	out := new(UpdateBrandAttributeResponse)
+	err := c.cc.Invoke(ctx, "/service.BrandAttributeService/UpdateBrandAttribute", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *brandAttributeServiceClient) GetBrandAttributeById(ctx context.Context, in *GetBrandAttributeByIdRequest, opts ...grpc.CallOption) (*GetBrandAttributeByIdResponse, error) {
+	out := new(GetBrandAttributeByIdResponse)
+	err := c.cc.Invoke(ctx, "/service.BrandAttributeService/GetBrandAttributeById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *brandAttributeServiceClient) DeleteBrandAttribute(ctx context.Context, in *DeleteBrandAttributeRequest, opts ...grpc.CallOption) (*DeleteBrandAttributeResponse, error) {
+	out := new(DeleteBrandAttributeResponse)
+	err := c.cc.Invoke(ctx, "/service.BrandAttributeService/DeleteBrandAttribute", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *brandAttributeServiceClient) MultiGetBrandAttributes(ctx context.Context, in *MultiGetBrandAttributeRequest, opts ...grpc.CallOption) (*MultiGetBrandAttributeResponse, error) {
+	out := new(MultiGetBrandAttributeResponse)
+	err := c.cc.Invoke(ctx, "/service.BrandAttributeService/MultiGetBrandAttributes", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BrandAttributeServiceServer is the server API for BrandAttributeService service.
+type BrandAttributeServiceServer interface {
+	CreateBrandAttribute(context.Context, *CreateBrandAttributeRequest) (*CreateBrandAttributeResponse, error)
+	UpdateBrandAttribute(context.Context, *UpdateBrandAttributeRequest) (*UpdateBrandAttributeResponse, error)
+	GetBrandAttributeById(context.Context, *GetBrandAttributeByIdRequest) (*GetBrandAttributeByIdResponse, error)
+	DeleteBrandAttribute(context.Context, *DeleteBrandAttributeRequest) (*DeleteBrandAttributeResponse, error)
+	MultiGetBrandAttributes(context.Context, *MultiGetBrandAttributeRequest) (*MultiGetBrandAttributeResponse, error)
+}
+
+func RegisterBrandAttributeServiceServer(s *grpc.Server, srv BrandAttributeServiceServer) {
+	s.RegisterService(&_BrandAttributeService_serviceDesc, srv)
+}
+
+func _BrandAttributeService_CreateBrandAttribute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateBrandAttributeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrandAttributeServiceServer).CreateBrandAttribute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.BrandAttributeService/CreateBrandAttribute",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrandAttributeServiceServer).CreateBrandAttribute(ctx, req.(*CreateBrandAttributeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BrandAttributeService_UpdateBrandAttribute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateBrandAttributeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrandAttributeServiceServer).UpdateBrandAttribute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.BrandAttributeService/UpdateBrandAttribute",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrandAttributeServiceServer).UpdateBrandAttribute(ctx, req.(*UpdateBrandAttributeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BrandAttributeService_GetBrandAttributeById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBrandAttributeByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrandAttributeServiceServer).GetBrandAttributeById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.BrandAttributeService/GetBrandAttributeById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrandAttributeServiceServer).GetBrandAttributeById(ctx, req.(*GetBrandAttributeByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BrandAttributeService_DeleteBrandAttribute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteBrandAttributeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrandAttributeServiceServer).DeleteBrandAttribute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.BrandAttributeService/DeleteBrandAttribute",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrandAttributeServiceServer).DeleteBrandAttribute(ctx, req.(*DeleteBrandAttributeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BrandAttributeService_MultiGetBrandAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MultiGetBrandAttributeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrandAttributeServiceServer).MultiGetBrandAttributes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.BrandAttributeService/MultiGetBrandAttributes",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrandAttributeServiceServer).MultiGetBrandAttributes(ctx, req.(*MultiGetBrandAttributeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _BrandAttributeService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "service.BrandAttributeService",
+	HandlerType: (*BrandAttributeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateBrandAttribute",
+			Handler:    _BrandAttributeService_CreateBrandAttribute_Handler,
+		},
+		{
+			MethodName: "UpdateBrandAttribute",
+			Handler:    _BrandAttributeService_UpdateBrandAttribute_Handler,
+		},
+		{
+			MethodName: "GetBrandAttributeById",
+			Handler:    _BrandAttributeService_GetBrandAttributeById_Handler,
+		},
+		{
+			MethodName: "DeleteBrandAttribute",
+			Handler:    _BrandAttributeService_DeleteBrandAttribute_Handler,
+		},
+		{
+			MethodName: "MultiGetBrandAttributes",
+			Handler:    _BrandAttributeService_MultiGetBrandAttributes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

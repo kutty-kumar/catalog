@@ -2,11 +2,19 @@ package repository
 
 import (
 	"catalog/pkg/domain"
+	"fmt"
 	"github.com/jinzhu/gorm"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type BrandGORM struct {
 	Db *gorm.DB
+}
+
+func (orm *BrandGORM) getBrand(externalId string) domain.Brand {
+	base := domain.Base{ExternalId: externalId}
+	return domain.Brand{Base: base}
 }
 
 func (orm *BrandGORM) Create(brand *domain.Brand) {
@@ -23,14 +31,26 @@ func (orm BrandGORM) Delete(brand *domain.Brand) {
 }
 
 func (orm BrandGORM) GetByExternalId(externalId string) domain.Brand {
-	base := domain.Base{ExternalId: externalId}
-	brand := domain.Brand{Base: base}
+	brand := orm.getBrand(externalId)
 	orm.Db.First(&brand)
 	return brand
 }
 
-func (orm BrandGORM) MultiGetByExternalId(externalIds []string) []domain.Brand {
+func (orm BrandGORM) MultiGetByExternalId(externalIds []string) ([]domain.Brand, error) {
 	var brands []domain.Brand
 	orm.Db.Where("external_id IN (?)", externalIds).Find(&brands)
-	return brands
+	if brands == nil {
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Brands with external_ids %v not found", externalIds))
+	}
+	return brands, nil
+}
+
+func (orm BrandGORM) GetAttributes(externalId string) ([]domain.BrandAttribute, error) {
+	var brandAttributes []domain.BrandAttribute
+	brand := orm.getBrand(externalId)
+	orm.Db.Model(&brand).Related(&brandAttributes)
+	if brandAttributes == nil {
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Brand Attributes with ids %v not found", externalId))
+	}
+	return brandAttributes, nil
 }

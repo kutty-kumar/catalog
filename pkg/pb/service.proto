@@ -12,8 +12,80 @@ message VersionResponse {
   string version = 1;
 }
 
+message BrandAttributeView {
+  string key = 1;
+  string value = 2;
+}
+
+message BrandAttributeResponseView {
+  string key = 1;
+  string value = 2;
+  string external_id = 3;
+}
+
+message CreateBrandAttributeRequest {
+  string brand_id = 1;
+  BrandAttributeView payload = 2;
+}
+
+message CreateBrandAttributeResponse {
+  BrandAttributeResponseView result = 1;
+}
+
+message UpdateBrandAttributeRequest {
+  string brand_id = 1;
+  string brand_attribute_id = 2;
+  BrandAttributeView payload = 3;
+}
+
+message UpdateBrandAttributeResponse {
+  BrandAttributeResponseView result = 1;
+}
+
+message DeleteBrandAttributeRequest {
+  string brand_id = 1;
+  string brand_attribute_id = 2;
+}
+
+message DeleteBrandAttributeResponse {
+
+}
+
+message GetBrandAttributeByIdRequest {
+  string brand_id = 1;
+  string brand_attribute_id = 2;
+}
+
+message GetBrandAttributeByIdResponse {
+  BrandAttributeResponseView result = 1;
+}
+
+message MultiGetBrandAttributeRequest {
+  repeated string external_ids = 1;
+}
+
+message MultiGetBrandAttributeResponse {
+  repeated BrandAttributeResponseView results = 1;
+}
+
+message GetBrandRequest {
+  string external_id = 1;
+}
+
+message GetBrandResponse {
+ BrandAttributeResponseView result = 1;
+}
+
 message CreateBrandRequest {
   BrandDetails payload = 1;
+}
+
+message GetAttributesForBrandRequest {
+  string brand_id = 1;
+}
+
+message GetAttributesForBrandResponse {
+  repeated BrandAttributeResponseView results = 1;
 }
 
 message BrandDetails {
@@ -63,7 +135,7 @@ message MultiGetBrandsResponse {
   repeated GetBrandByIdResponse result = 1;
 }
 
-service Catalog {
+service BrandService {
   rpc CreateBrand (CreateBrandRequest) returns (CreateBrandResponse) {
     option (google.api.http) = {
       post: "/brands"
@@ -93,6 +165,47 @@ service Catalog {
   rpc MultiGetBrands (MultiGetBrandsRequest) returns (MultiGetBrandsResponse){
     option (google.api.http) = {
       put: "/brands/multi-get"
+      body: "*"
+    };
+  }
+
+  rpc GetBrandAttributes (GetAttributesForBrandRequest) returns (GetAttributesForBrandResponse) {
+    option (google.api.http) = {
+      get: "/brands/{brand_id}/brand-attributes"
+    };
+  }
+}
+
+service BrandAttributeService {
+  rpc CreateBrandAttribute (CreateBrandAttributeRequest) returns (CreateBrandAttributeResponse) {
+    option (google.api.http) = {
+      post: "/brands/{brand_id}/brand-attributes"
+      body: "payload"
+    };
+  }
+
+  rpc UpdateBrandAttribute (UpdateBrandAttributeRequest) returns (UpdateBrandAttributeResponse) {
+    option (google.api.http) = {
+      put: "/brands/{brand_id}/brand-attributes/{brand_attribute_id}"
+      body: "payload"
+    };
+  }
+
+  rpc GetBrandAttributeById (GetBrandAttributeByIdRequest) returns (GetBrandAttributeByIdResponse) {
+    option (google.api.http) = {
+      get:"/brands/{brand_id}/brand-attributes/{brand_attribute_id}"
+    };
+  }
+
+  rpc DeleteBrandAttribute (DeleteBrandAttributeRequest) returns (DeleteBrandAttributeResponse) {
+    option (google.api.http) = {
+      delete: "/brands/{brand_id}/brand-attributes/{brand_attribute_id}"
+    };
+  }
+
+  rpc MultiGetBrandAttributes (MultiGetBrandAttributeRequest) returns (MultiGetBrandAttributeResponse){
+    option (google.api.http) = {
+      put: "/brand-attributes"
       body: "*"
     };
   }

@@ -15,12 +15,38 @@
     "version": "version not set"
   },
   "paths": {
+    "/brand-attributes": {
+      "put": {
+        "tags": [
+          "BrandAttributeService"
+        ],
+        "operationId": "BrandAttributeServiceMultiGetBrandAttributes",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetBrandAttributeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PUT operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetBrandAttributeResponse"
+            }
+          }
+        }
+      }
+    },
     "/brands": {
       "post": {
         "tags": [
-          "Catalog"
+          "BrandService"
         ],
-        "operationId": "CatalogCreateBrand",
+        "operationId": "BrandServiceCreateBrand",
         "parameters": [
           {
             "name": "body",
@@ -44,9 +70,9 @@
     "/brands/multi-get": {
       "put": {
         "tags": [
-          "Catalog"
+          "BrandService"
         ],
-        "operationId": "CatalogMultiGetBrands",
+        "operationId": "BrandServiceMultiGetBrands",
         "parameters": [
           {
             "name": "body",
@@ -67,12 +93,157 @@
         }
       }
     },
+    "/brands/{brand_id}/brand-attributes": {
+      "get": {
+        "tags": [
+          "BrandService"
+        ],
+        "operationId": "BrandServiceGetBrandAttributes",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "brand_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GET operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceGetAttributesForBrandResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BrandAttributeService"
+        ],
+        "operationId": "BrandAttributeServiceCreateBrandAttribute",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "brand_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceBrandAttributeView"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "POST operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceCreateBrandAttributeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/brands/{brand_id}/brand-attributes/{brand_attribute_id}": {
+      "get": {
+        "tags": [
+          "BrandAttributeService"
+        ],
+        "operationId": "BrandAttributeServiceGetBrandAttributeById",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "brand_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "brand_attribute_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GET operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceGetBrandAttributeByIdResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BrandAttributeService"
+        ],
+        "operationId": "BrandAttributeServiceUpdateBrandAttribute",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "brand_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "brand_attribute_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceBrandAttributeView"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PUT operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceUpdateBrandAttributeResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BrandAttributeService"
+        ],
+        "operationId": "BrandAttributeServiceDeleteBrandAttribute",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "brand_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "brand_attribute_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
     "/brands/{external_id}": {
       "get": {
         "tags": [
-          "Catalog"
+          "BrandService"
         ],
-        "operationId": "CatalogGetBrandById",
+        "operationId": "BrandServiceGetBrandById",
         "parameters": [
           {
             "type": "string",
@@ -92,9 +263,9 @@
       },
       "delete": {
         "tags": [
-          "Catalog"
+          "BrandService"
         ],
-        "operationId": "CatalogDeleteBrand",
+        "operationId": "BrandServiceDeleteBrand",
         "parameters": [
           {
             "type": "string",
@@ -111,9 +282,9 @@
       },
       "patch": {
         "tags": [
-          "Catalog"
+          "BrandService"
         ],
-        "operationId": "CatalogUpdateBrand",
+        "operationId": "BrandServiceUpdateBrand",
         "parameters": [
           {
             "type": "string",
@@ -142,6 +313,31 @@
     }
   },
   "definitions": {
+    "serviceBrandAttributeResponseView": {
+      "type": "object",
+      "properties": {
+        "external_id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceBrandAttributeView": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
     "serviceBrandDetails": {
       "type": "object",
       "properties": {
@@ -160,6 +356,14 @@
         }
       }
     },
+    "serviceCreateBrandAttributeResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/serviceBrandAttributeResponseView"
+        }
+      }
+    },
     "serviceCreateBrandResponse": {
       "type": "object",
       "properties": {
@@ -171,6 +375,25 @@
         }
       }
     },
+    "serviceGetAttributesForBrandResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceBrandAttributeResponseView"
+          }
+        }
+      }
+    },
+    "serviceGetBrandAttributeByIdResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/serviceBrandAttributeResponseView"
+        }
+      }
+    },
     "serviceGetBrandByIdResponse": {
       "type": "object",
       "properties": {
@@ -179,6 +402,28 @@
         },
         "external_id": {
           "type": "string"
+        }
+      }
+    },
+    "serviceMultiGetBrandAttributeRequest": {
+      "type": "object",
+      "properties": {
+        "external_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "serviceMultiGetBrandAttributeResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceBrandAttributeResponseView"
+          }
         }
       }
     },
@@ -201,6 +446,14 @@
           "items": {
             "$ref": "#/definitions/serviceGetBrandByIdResponse"
           }
+        }
+      }
+    },
+    "serviceUpdateBrandAttributeResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/serviceBrandAttributeResponseView"
         }
       }
     },

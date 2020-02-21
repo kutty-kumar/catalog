@@ -28,7 +28,7 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
-func request_Catalog_CreateBrand_0(ctx context.Context, marshaler runtime.Marshaler, client CatalogClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BrandService_CreateBrand_0(ctx context.Context, marshaler runtime.Marshaler, client BrandServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateBrandRequest
 	var metadata runtime.ServerMetadata
 
@@ -45,7 +45,7 @@ func request_Catalog_CreateBrand_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func request_Catalog_GetBrandById_0(ctx context.Context, marshaler runtime.Marshaler, client CatalogClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BrandService_GetBrandById_0(ctx context.Context, marshaler runtime.Marshaler, client BrandServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetBrandByIdRequest
 	var metadata runtime.ServerMetadata
 
@@ -72,7 +72,7 @@ func request_Catalog_GetBrandById_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func request_Catalog_UpdateBrand_0(ctx context.Context, marshaler runtime.Marshaler, client CatalogClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BrandService_UpdateBrand_0(ctx context.Context, marshaler runtime.Marshaler, client BrandServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateBrandRequest
 	var metadata runtime.ServerMetadata
 
@@ -107,7 +107,7 @@ func request_Catalog_UpdateBrand_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func request_Catalog_DeleteBrand_0(ctx context.Context, marshaler runtime.Marshaler, client CatalogClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BrandService_DeleteBrand_0(ctx context.Context, marshaler runtime.Marshaler, client BrandServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteBrandRequest
 	var metadata runtime.ServerMetadata
 
@@ -134,7 +134,7 @@ func request_Catalog_DeleteBrand_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func request_Catalog_MultiGetBrands_0(ctx context.Context, marshaler runtime.Marshaler, client CatalogClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BrandService_MultiGetBrands_0(ctx context.Context, marshaler runtime.Marshaler, client BrandServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq MultiGetBrandsRequest
 	var metadata runtime.ServerMetadata
 
@@ -151,9 +151,210 @@ func request_Catalog_MultiGetBrands_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-// RegisterCatalogHandlerFromEndpoint is same as RegisterCatalogHandler but
+func request_BrandService_GetBrandAttributes_0(ctx context.Context, marshaler runtime.Marshaler, client BrandServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetAttributesForBrandRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["brand_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_id")
+	}
+
+	protoReq.BrandId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_id", err)
+	}
+
+	msg, err := client.GetBrandAttributes(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_BrandAttributeService_CreateBrandAttribute_0(ctx context.Context, marshaler runtime.Marshaler, client BrandAttributeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CreateBrandAttributeRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Payload); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["brand_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_id")
+	}
+
+	protoReq.BrandId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_id", err)
+	}
+
+	msg, err := client.CreateBrandAttribute(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_BrandAttributeService_UpdateBrandAttribute_0(ctx context.Context, marshaler runtime.Marshaler, client BrandAttributeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UpdateBrandAttributeRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Payload); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["brand_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_id")
+	}
+
+	protoReq.BrandId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_id", err)
+	}
+
+	val, ok = pathParams["brand_attribute_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_attribute_id")
+	}
+
+	protoReq.BrandAttributeId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_attribute_id", err)
+	}
+
+	msg, err := client.UpdateBrandAttribute(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_BrandAttributeService_GetBrandAttributeById_0(ctx context.Context, marshaler runtime.Marshaler, client BrandAttributeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetBrandAttributeByIdRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["brand_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_id")
+	}
+
+	protoReq.BrandId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_id", err)
+	}
+
+	val, ok = pathParams["brand_attribute_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_attribute_id")
+	}
+
+	protoReq.BrandAttributeId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_attribute_id", err)
+	}
+
+	msg, err := client.GetBrandAttributeById(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_BrandAttributeService_DeleteBrandAttribute_0(ctx context.Context, marshaler runtime.Marshaler, client BrandAttributeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq DeleteBrandAttributeRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["brand_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_id")
+	}
+
+	protoReq.BrandId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_id", err)
+	}
+
+	val, ok = pathParams["brand_attribute_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_attribute_id")
+	}
+
+	protoReq.BrandAttributeId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_attribute_id", err)
+	}
+
+	msg, err := client.DeleteBrandAttribute(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_BrandAttributeService_MultiGetBrandAttributes_0(ctx context.Context, marshaler runtime.Marshaler, client BrandAttributeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq MultiGetBrandAttributeRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.MultiGetBrandAttributes(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+// RegisterBrandServiceHandlerFromEndpoint is same as RegisterBrandServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterCatalogHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterBrandServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -173,23 +374,23 @@ func RegisterCatalogHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeM
 		}()
 	}()
 
-	return RegisterCatalogHandler(ctx, mux, conn)
+	return RegisterBrandServiceHandler(ctx, mux, conn)
 }
 
-// RegisterCatalogHandler registers the http handlers for service Catalog to "mux".
+// RegisterBrandServiceHandler registers the http handlers for service BrandService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterCatalogHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterCatalogHandlerClient(ctx, mux, NewCatalogClient(conn))
+func RegisterBrandServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterBrandServiceHandlerClient(ctx, mux, NewBrandServiceClient(conn))
 }
 
-// RegisterCatalogHandlerClient registers the http handlers for service Catalog
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "CatalogClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "CatalogClient"
+// RegisterBrandServiceHandlerClient registers the http handlers for service BrandService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "BrandServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "BrandServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "CatalogClient" to call the correct interceptors.
-func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, client CatalogClient) error {
+// "BrandServiceClient" to call the correct interceptors.
+func RegisterBrandServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client BrandServiceClient) error {
 
-	mux.Handle("POST", pattern_Catalog_CreateBrand_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_BrandService_CreateBrand_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -198,18 +399,18 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Catalog_CreateBrand_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BrandService_CreateBrand_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Catalog_CreateBrand_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BrandService_CreateBrand_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Catalog_GetBrandById_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BrandService_GetBrandById_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -218,18 +419,18 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Catalog_GetBrandById_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BrandService_GetBrandById_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Catalog_GetBrandById_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BrandService_GetBrandById_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PATCH", pattern_Catalog_UpdateBrand_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PATCH", pattern_BrandService_UpdateBrand_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -238,18 +439,18 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Catalog_UpdateBrand_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BrandService_UpdateBrand_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Catalog_UpdateBrand_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BrandService_UpdateBrand_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Catalog_DeleteBrand_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_BrandService_DeleteBrand_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -258,18 +459,18 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Catalog_DeleteBrand_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BrandService_DeleteBrand_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Catalog_DeleteBrand_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BrandService_DeleteBrand_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Catalog_MultiGetBrands_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_BrandService_MultiGetBrands_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -278,14 +479,34 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Catalog_MultiGetBrands_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BrandService_MultiGetBrands_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Catalog_MultiGetBrands_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BrandService_MultiGetBrands_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_BrandService_GetBrandAttributes_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BrandService_GetBrandAttributes_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BrandService_GetBrandAttributes_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -293,25 +514,194 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Catalog_CreateBrand_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"brands"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandService_CreateBrand_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"brands"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Catalog_GetBrandById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"brands", "external_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandService_GetBrandById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"brands", "external_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Catalog_UpdateBrand_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"brands", "external_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandService_UpdateBrand_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"brands", "external_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Catalog_DeleteBrand_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"brands", "external_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandService_DeleteBrand_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"brands", "external_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Catalog_MultiGetBrands_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"brands", "multi-get"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandService_MultiGetBrands_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"brands", "multi-get"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_BrandService_GetBrandAttributes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "brand-attributes"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
-	forward_Catalog_CreateBrand_0 = runtime.ForwardResponseMessage
+	forward_BrandService_CreateBrand_0 = runtime.ForwardResponseMessage
 
-	forward_Catalog_GetBrandById_0 = runtime.ForwardResponseMessage
+	forward_BrandService_GetBrandById_0 = runtime.ForwardResponseMessage
 
-	forward_Catalog_UpdateBrand_0 = runtime.ForwardResponseMessage
+	forward_BrandService_UpdateBrand_0 = runtime.ForwardResponseMessage
 
-	forward_Catalog_DeleteBrand_0 = runtime.ForwardResponseMessage
+	forward_BrandService_DeleteBrand_0 = runtime.ForwardResponseMessage
 
-	forward_Catalog_MultiGetBrands_0 = runtime.ForwardResponseMessage
+	forward_BrandService_MultiGetBrands_0 = runtime.ForwardResponseMessage
+
+	forward_BrandService_GetBrandAttributes_0 = runtime.ForwardResponseMessage
+)
+
+// RegisterBrandAttributeServiceHandlerFromEndpoint is same as RegisterBrandAttributeServiceHandler but
+// automatically dials to "endpoint" and closes the connection when "ctx" gets done.
+func RegisterBrandAttributeServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+	conn, err := grpc.Dial(endpoint, opts...)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		if err != nil {
+			if cerr := conn.Close(); cerr != nil {
+				grpclog.Infof("Failed to close conn to %s: %v", endpoint, cerr)
+			}
+			return
+		}
+		go func() {
+			<-ctx.Done()
+			if cerr := conn.Close(); cerr != nil {
+				grpclog.Infof("Failed to close conn to %s: %v", endpoint, cerr)
+			}
+		}()
+	}()
+
+	return RegisterBrandAttributeServiceHandler(ctx, mux, conn)
+}
+
+// RegisterBrandAttributeServiceHandler registers the http handlers for service BrandAttributeService to "mux".
+// The handlers forward requests to the grpc endpoint over "conn".
+func RegisterBrandAttributeServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterBrandAttributeServiceHandlerClient(ctx, mux, NewBrandAttributeServiceClient(conn))
+}
+
+// RegisterBrandAttributeServiceHandlerClient registers the http handlers for service BrandAttributeService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "BrandAttributeServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "BrandAttributeServiceClient"
+// doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
+// "BrandAttributeServiceClient" to call the correct interceptors.
+func RegisterBrandAttributeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client BrandAttributeServiceClient) error {
+
+	mux.Handle("POST", pattern_BrandAttributeService_CreateBrandAttribute_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BrandAttributeService_CreateBrandAttribute_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BrandAttributeService_CreateBrandAttribute_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("PUT", pattern_BrandAttributeService_UpdateBrandAttribute_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BrandAttributeService_UpdateBrandAttribute_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BrandAttributeService_UpdateBrandAttribute_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_BrandAttributeService_GetBrandAttributeById_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BrandAttributeService_GetBrandAttributeById_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BrandAttributeService_GetBrandAttributeById_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("DELETE", pattern_BrandAttributeService_DeleteBrandAttribute_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BrandAttributeService_DeleteBrandAttribute_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BrandAttributeService_DeleteBrandAttribute_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("PUT", pattern_BrandAttributeService_MultiGetBrandAttributes_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BrandAttributeService_MultiGetBrandAttributes_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BrandAttributeService_MultiGetBrandAttributes_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	return nil
+}
+
+var (
+	pattern_BrandAttributeService_CreateBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "brand-attributes"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_BrandAttributeService_UpdateBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "brand-attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_BrandAttributeService_GetBrandAttributeById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "brand-attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_BrandAttributeService_DeleteBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "brand-attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_BrandAttributeService_MultiGetBrandAttributes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"brand-attributes"}, "", runtime.AssumeColonVerbOpt(true)))
+)
+
+var (
+	forward_BrandAttributeService_CreateBrandAttribute_0 = runtime.ForwardResponseMessage
+
+	forward_BrandAttributeService_UpdateBrandAttribute_0 = runtime.ForwardResponseMessage
+
+	forward_BrandAttributeService_GetBrandAttributeById_0 = runtime.ForwardResponseMessage
+
+	forward_BrandAttributeService_DeleteBrandAttribute_0 = runtime.ForwardResponseMessage
+
+	forward_BrandAttributeService_MultiGetBrandAttributes_0 = runtime.ForwardResponseMessage
 )

@@ -64,10 +64,17 @@ func (service BrandService) UpdateBrand(ctx context.Context, req *pb.UpdateBrand
 }
 
 func (service BrandService) MultiGetBrands(ctx context.Context, req *pb.MultiGetBrandsRequest) (*pb.MultiGetBrandsResponse, error) {
-	brands := service.repository.MultiGetByExternalId(req.ExternalIds)
+	brands, err := service.repository.MultiGetByExternalId(req.ExternalIds)
+	if err != nil {
+		return nil, err
+	}
 	var result []*pb.GetBrandByIdResponse
 	for _, brand := range brands {
 		result = append(result, &pb.GetBrandByIdResponse{Brand: builders.BuildBrandDetails(&brand), ExternalId: brand.ExternalId})
 	}
 	return &pb.MultiGetBrandsResponse{Result: result}, nil
+}
+
+func (service BrandService) GetBrandAttributes(ctx context.Context, ){
+
 }
