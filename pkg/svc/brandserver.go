@@ -1,9 +1,9 @@
 package svc
 
 import (
-	b "catalog/pkg/brand"
 	"catalog/pkg/brand/repository"
 	"catalog/pkg/builders"
+	"catalog/pkg/domain"
 	"catalog/pkg/pb"
 	"catalog/pkg/utils"
 	"context"
@@ -13,57 +13,59 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-const (
-	version = "0.0.1"
-)
-
 type BrandService struct {
-	repository b.Repository
+	repository repository.Repository
 }
 
 func NewBrandService(database *gorm.DB) (BrandService, error) {
-	var rep b.Repository
+	var rep repository.Repository
 	rep = &repository.BrandGORM{Db: database}
 	return BrandService{repository: rep}, nil
 }
 
-func (service BrandService) CreateBrand(ctx context.Context, req *pb.CreateBrandRequest) (*pb.CreateBrandResponse, error) {
+func (service BrandService) CreateBrand(_ context.Context, req *pb.CreateBrandRequest) (*pb.CreateBrandResponse, error) {
 	brand := builders.BuildBrand(req.Payload)
 	service.repository.Create(&brand)
 	return &pb.CreateBrandResponse{Brand: req.Payload, ExternalId: brand.ExternalId}, nil
 }
 
-func (service BrandService) GetBrandById(ctx context.Context, req *pb.GetBrandByIdRequest) (*pb.GetBrandByIdResponse, error) {
+func (service BrandService) GetBrandById(_ context.Context, req *pb.GetBrandByIdRequest) (*pb.GetBrandByIdResponse, error) {
 	if err := utils.HandleEmptyRequest(&req.ExternalId, "Brand Id"); err != nil {
 		return nil, err
 	}
-	brand := service.repository.GetByExternalId(req.ExternalId)
-	return &pb.GetBrandByIdResponse{Brand: builders.BuildBrandDetails(&brand)}, nil
+	brand, err := service.repository.GetByExternalId(req.ExternalId)
+	if err != nil{
+		return nil, err
+	}
+	return &pb.GetBrandByIdResponse{Brand: builders.BuildBrandDetails(brand)}, nil
 }
 
-func (service BrandService) DeleteBrand(ctx context.Context, req *pb.DeleteBrandRequest) (*pb.DeleteBrandResponse, error) {
+func (service BrandService) DeleteBrand(_ context.Context, req *pb.DeleteBrandRequest) (*pb.DeleteBrandResponse, error) {
 	if err := utils.HandleEmptyRequest(&req.ExternalId, "Brand Id"); err != nil {
 		return nil, err
 	}
-	brand := service.repository.GetByExternalId(req.ExternalId)
-	if &brand != nil && &brand.ID == nil {
-		service.repository.Delete(&brand)
+	brand, err  := service.repository.GetByExternalId(req.ExternalId)
+	if err == nil {
+		service.repository.Delete(brand)
 		return &pb.DeleteBrandResponse{}, nil
 	}
 	return nil, status.Error(codes.Internal, fmt.Sprintf("Brand %v not found.", req.ExternalId))
 }
 
-func (service BrandService) UpdateBrand(ctx context.Context, req *pb.UpdateBrandRequest) (*pb.UpdateBrandResponse, error) {
+func (service BrandService) UpdateBrand(_ context.Context, req *pb.UpdateBrandRequest) (*pb.UpdateBrandResponse, error) {
 	if err := utils.HandleEmptyRequest(&req.ExternalId, "Brand Id"); err != nil {
 		return nil, err
 	}
-	brand := service.repository.GetByExternalId(req.ExternalId)
-	builders.MergeBrand(&brand, req.Payload)
-	service.repository.Update(&brand)
-	return &pb.UpdateBrandResponse{Brand: builders.BuildBrandDetails(&brand), ExternalId: brand.ExternalId}, nil
+	brand, err := service.repository.GetByExternalId(req.ExternalId)
+	if err != nil {
+		return nil, err
+	}
+	builders.MergeBrand(brand, req.Payload)
+	service.repository.Update(brand)
+	return &pb.UpdateBrandResponse{Brand: builders.BuildBrandDetails(brand), ExternalId: brand.ExternalId}, nil
 }
 
-func (service BrandService) MultiGetBrands(ctx context.Context, req *pb.MultiGetBrandsRequest) (*pb.MultiGetBrandsResponse, error) {
+func (service BrandService) MultiGetBrands(_ context.Context, req *pb.MultiGetBrandsRequest) (*pb.MultiGetBrandsResponse, error) {
 	brands, err := service.repository.MultiGetByExternalId(req.ExternalIds)
 	if err != nil {
 		return nil, err
@@ -75,6 +77,20 @@ func (service BrandService) MultiGetBrands(ctx context.Context, req *pb.MultiGet
 	return &pb.MultiGetBrandsResponse{Result: result}, nil
 }
 
-func (service BrandService) GetBrandAttributes(ctx context.Context, ){
+func (service BrandService) GetBrandAttributes(_ context.Context, req *pb.GetAttributesForBrandRequest) (*pb.GetAttributesForBrandResponse, error) {
+	brandAttributes, err := service.repository.GetAttributes(req.BrandId)
+	if err != nil {
+		return nil, err
+	}
+	var result pb.GetAttributesForBrandResponse
+	var attributesView []*pb.BrandAttributeResponseView
+	for _, brandAttribute := range brandAttributes {
+		attributesView = append(attributesView, &pb.BrandAttributeResponseView{ExternalId: brandAttribute.ExternalId, Key: brandAttribute.Key, Value: brandAttribute.Value})
+	}
+	result.Results = attributesView
+	return &result, nil
+}
 
+func (service BrandService) GetBrand(externalId string) (*domain.Brand, error) {
+	return service.repository.GetByExternalId(externalId)
 }

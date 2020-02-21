@@ -15,7 +15,6 @@ func BuildBrandDetails(brand *domain.Brand) *pb.BrandDetails {
 	return &pb.BrandDetails{Name: brand.Name, Keywords: brand.Keywords, Description: brand.Description, Status: status}
 }
 
-
 func MergeBrand(brandOld *domain.Brand, updateReq *pb.BrandDetails) {
 	if &updateReq.Status != nil {
 		brandOld.Status = constants.Status(updateReq.Status)

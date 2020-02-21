@@ -4,8 +4,8 @@ import "catalog/pkg/constants"
 
 type BrandAttribute struct {
 	Base
-	BrandId int
-	Brand Brand
+	BrandId uint
+	Brand Brand `gorm:"foreignkey:BrandId"`
 	Key string
 	Value string
 	constants.Status

@@ -34,7 +34,7 @@ func (orm BrandAttributeGORM) Delete(brand *domain.Brand, brandAttribute *domain
 
 func (orm BrandAttributeGORM) GetByExternalId(externalId string) (*domain.BrandAttribute, error) {
 	brandAttribute := orm.getBrandAttribute(externalId)
-	orm.Db.First(&brandAttribute)
+	orm.Db.Where(&brandAttribute).First(&brandAttribute)
 	if brandAttribute.ID == 0 {
 		return nil, status.Error(codes.Aborted, fmt.Sprintf("Brand Attribute with Id %v not found", externalId))
 	}

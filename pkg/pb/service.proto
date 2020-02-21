@@ -61,7 +61,8 @@ message GetBrandAttributeByIdResponse {
 }
 
 message MultiGetBrandAttributeRequest {
-  repeated string external_ids = 1;
+  string brand_id = 1;
+  repeated string external_ids = 2;
 }
 
 message MultiGetBrandAttributeResponse {
@@ -171,7 +172,7 @@ service BrandService {
 
   rpc GetBrandAttributes (GetAttributesForBrandRequest) returns (GetAttributesForBrandResponse) {
     option (google.api.http) = {
-      get: "/brands/{brand_id}/brand-attributes"
+      get: "/brands/{brand_id}/attributes"
     };
   }
 }
@@ -179,33 +180,33 @@ service BrandService {
 service BrandAttributeService {
   rpc CreateBrandAttribute (CreateBrandAttributeRequest) returns (CreateBrandAttributeResponse) {
     option (google.api.http) = {
-      post: "/brands/{brand_id}/brand-attributes"
+      post: "/brands/{brand_id}/attributes"
       body: "payload"
     };
   }
 
   rpc UpdateBrandAttribute (UpdateBrandAttributeRequest) returns (UpdateBrandAttributeResponse) {
     option (google.api.http) = {
-      put: "/brands/{brand_id}/brand-attributes/{brand_attribute_id}"
+      put: "/brands/{brand_id}/attributes/{brand_attribute_id}"
       body: "payload"
     };
   }
 
   rpc GetBrandAttributeById (GetBrandAttributeByIdRequest) returns (GetBrandAttributeByIdResponse) {
     option (google.api.http) = {
-      get:"/brands/{brand_id}/brand-attributes/{brand_attribute_id}"
+      get:"/brands/{brand_id}/attributes/{brand_attribute_id}"
     };
   }
 
   rpc DeleteBrandAttribute (DeleteBrandAttributeRequest) returns (DeleteBrandAttributeResponse) {
     option (google.api.http) = {
-      delete: "/brands/{brand_id}/brand-attributes/{brand_attribute_id}"
+      delete: "/brands/{brand_id}/attributes/{brand_attribute_id}"
     };
   }
 
   rpc MultiGetBrandAttributes (MultiGetBrandAttributeRequest) returns (MultiGetBrandAttributeResponse){
     option (google.api.http) = {
-      put: "/brand-attributes"
+      put: "/brands/{brand_id}/attributes"
       body: "*"
     };
   }

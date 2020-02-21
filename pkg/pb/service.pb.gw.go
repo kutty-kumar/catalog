@@ -347,6 +347,24 @@ func request_BrandAttributeService_MultiGetBrandAttributes_0(ctx context.Context
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["brand_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "brand_id")
+	}
+
+	protoReq.BrandId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "brand_id", err)
+	}
+
 	msg, err := client.MultiGetBrandAttributes(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
@@ -524,7 +542,7 @@ var (
 
 	pattern_BrandService_MultiGetBrands_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"brands", "multi-get"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_BrandService_GetBrandAttributes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "brand-attributes"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandService_GetBrandAttributes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "attributes"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -683,15 +701,15 @@ func RegisterBrandAttributeServiceHandlerClient(ctx context.Context, mux *runtim
 }
 
 var (
-	pattern_BrandAttributeService_CreateBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "brand-attributes"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandAttributeService_CreateBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "attributes"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_BrandAttributeService_UpdateBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "brand-attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandAttributeService_UpdateBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_BrandAttributeService_GetBrandAttributeById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "brand-attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandAttributeService_GetBrandAttributeById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_BrandAttributeService_DeleteBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "brand-attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandAttributeService_DeleteBrandAttribute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"brands", "brand_id", "attributes", "brand_attribute_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_BrandAttributeService_MultiGetBrandAttributes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"brand-attributes"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BrandAttributeService_MultiGetBrandAttributes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"brands", "brand_id", "attributes"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

@@ -15,32 +15,6 @@
     "version": "version not set"
   },
   "paths": {
-    "/brand-attributes": {
-      "put": {
-        "tags": [
-          "BrandAttributeService"
-        ],
-        "operationId": "BrandAttributeServiceMultiGetBrandAttributes",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/serviceMultiGetBrandAttributeRequest"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "PUT operation response",
-            "schema": {
-              "$ref": "#/definitions/serviceMultiGetBrandAttributeResponse"
-            }
-          }
-        }
-      }
-    },
     "/brands": {
       "post": {
         "tags": [
@@ -93,7 +67,7 @@
         }
       }
     },
-    "/brands/{brand_id}/brand-attributes": {
+    "/brands/{brand_id}/attributes": {
       "get": {
         "tags": [
           "BrandService"
@@ -112,6 +86,36 @@
             "description": "GET operation response",
             "schema": {
               "$ref": "#/definitions/serviceGetAttributesForBrandResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BrandAttributeService"
+        ],
+        "operationId": "BrandAttributeServiceMultiGetBrandAttributes",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "brand_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetBrandAttributeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PUT operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetBrandAttributeResponse"
             }
           }
         }
@@ -147,7 +151,7 @@
         }
       }
     },
-    "/brands/{brand_id}/brand-attributes/{brand_attribute_id}": {
+    "/brands/{brand_id}/attributes/{brand_attribute_id}": {
       "get": {
         "tags": [
           "BrandAttributeService"
@@ -408,6 +412,9 @@
     "serviceMultiGetBrandAttributeRequest": {
       "type": "object",
       "properties": {
+        "brand_id": {
+          "type": "string"
+        },
         "external_ids": {
           "type": "array",
           "items": {

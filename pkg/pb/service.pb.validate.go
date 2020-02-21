@@ -861,6 +861,8 @@ func (m *MultiGetBrandAttributeRequest) Validate() error {
 		return nil
 	}
 
+	// no validation rules for BrandId
+
 	return nil
 }
 

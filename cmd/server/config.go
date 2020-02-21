@@ -19,13 +19,13 @@ const (
 	// Database
 	defaultDatabaseEnable = true
 	// DSN example user:password@/dbname?charset=utf8&parseTime=True&loc=Local
-	defaultDatabaseDSN      = "root:@/brahma?charset=utf8&parseTime=True&loc=Local"
+	defaultDatabaseDSN      = "root:my-secret-pw@/brahma?charset=utf8&parseTime=True&loc=Local"
 	defaultDatabaseType     = "mysql"
 	defaultDatabaseAddress  = "0.0.0.0"
 	defaultDatabasePort     = "3306"
 	defaultDatabaseName     = "brahma"
 	defaultDatabaseUser     = "root"
-	defaultDatabasePassword = ""
+	defaultDatabasePassword = "my-secret-pw"
 	defaultDatabaseSSL      = "disable"
 	defaultDatabaseOption   = ""
 

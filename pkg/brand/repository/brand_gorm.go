@@ -30,10 +30,13 @@ func (orm BrandGORM) Delete(brand *domain.Brand) {
 	orm.Db.Model(&brand).Update(&brand)
 }
 
-func (orm BrandGORM) GetByExternalId(externalId string) domain.Brand {
+func (orm BrandGORM) GetByExternalId(externalId string)  (*domain.Brand, error) {
 	brand := orm.getBrand(externalId)
-	orm.Db.First(&brand)
-	return brand
+	orm.Db.Where(&brand).First(&brand)
+	if brand.ID == 0 {
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Brand %v not found.", externalId))
+	}
+	return &brand, nil
 }
 
 func (orm BrandGORM) MultiGetByExternalId(externalIds []string) ([]domain.Brand, error) {
