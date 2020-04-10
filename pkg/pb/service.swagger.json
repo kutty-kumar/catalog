@@ -732,6 +732,21 @@
         }
       }
     },
+    "serviceDoctorTestimonial": {
+      "type": "object",
+      "properties": {
+        "doctor_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "testimonials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceTestimonial"
+          }
+        }
+      }
+    },
     "serviceGetAttributesForBrandResponse": {
       "type": "object",
       "properties": {
@@ -792,10 +807,10 @@
     "serviceGetTestimonialsForDoctorsResponse": {
       "type": "object",
       "properties": {
-        "testimonials_by_doctor_id": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/serviceTestimonials"
+        "doctor_testimonials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceDoctorTestimonial"
           }
         }
       }
@@ -898,17 +913,6 @@
         },
         "value": {
           "type": "string"
-        }
-      }
-    },
-    "serviceTestimonials": {
-      "type": "object",
-      "properties": {
-        "testimonials": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/serviceTestimonial"
-          }
         }
       }
     },

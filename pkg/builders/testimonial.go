@@ -5,25 +5,32 @@ import (
 	"catalog/pkg/pb"
 )
 
-func BuildTestimonial(testimonialReq *pb.CreateTestimonialRequest) *domain.Testimonial {
-	testimonial := testimonialReq.Payload
+func GetTestimonialFromDto(payload *pb.Testimonial) *domain.Testimonial {
 	return &domain.Testimonial{
-		Attribute:            testimonial.Attribute,
-		Value:                testimonial.Value,
-		Scale:                testimonial.Scale,
-		Comments:             testimonial.Comments,
-		DisplayOrder:         int(testimonial.DisplayOrder),
+		Attribute:    payload.Attribute,
+		Value:        payload.Value,
+		Scale:        payload.Scale,
+		Comments:     payload.Comments,
+		DisplayOrder: int(payload.DisplayOrder),
 	}
+}
+
+func GetDtoFromTestimonial(testimonial *domain.Testimonial) *pb.Testimonial {
+	return &pb.Testimonial{
+		Attribute:    testimonial.Attribute,
+		Value:        testimonial.Value,
+		Scale:        testimonial.Scale,
+		Comments:     testimonial.Comments,
+		DisplayOrder: int64(testimonial.DisplayOrder),
+	}
+}
+
+func BuildTestimonial(testimonialReq *pb.CreateTestimonialRequest) *domain.Testimonial {
+	return GetTestimonialFromDto(testimonialReq.Payload)
 }
 
 func BuildTestimonialResponse(testimonial *domain.Testimonial) *pb.CreateTestimonialResponse {
 	return &pb.CreateTestimonialResponse{
-		Response: &pb.Testimonial{
-			Attribute:            testimonial.Attribute,
-			Value:                testimonial.Value,
-			Scale:                testimonial.Scale,
-			Comments:             testimonial.Comments,
-			DisplayOrder:         int64(testimonial.DisplayOrder),
-		},
+		Response: GetDtoFromTestimonial(testimonial),
 	}
 }

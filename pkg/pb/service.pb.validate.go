@@ -3669,20 +3669,22 @@ var _ interface {
 	ErrorName() string
 } = GetTestimonialsForDoctorsRequestValidationError{}
 
-// Validate checks the field values on Testimonials with the rules defined in
-// the proto definition for this message. If any rules are violated, an error
-// is returned.
-func (m *Testimonials) Validate() error {
+// Validate checks the field values on DoctorTestimonial with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *DoctorTestimonial) Validate() error {
 	if m == nil {
 		return nil
 	}
+
+	// no validation rules for DoctorId
 
 	for idx, item := range m.GetTestimonials() {
 		_, _ = idx, item
 
 		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
-				return TestimonialsValidationError{
+				return DoctorTestimonialValidationError{
 					field:  fmt.Sprintf("Testimonials[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -3695,9 +3697,9 @@ func (m *Testimonials) Validate() error {
 	return nil
 }
 
-// TestimonialsValidationError is the validation error returned by
-// Testimonials.Validate if the designated constraints aren't met.
-type TestimonialsValidationError struct {
+// DoctorTestimonialValidationError is the validation error returned by
+// DoctorTestimonial.Validate if the designated constraints aren't met.
+type DoctorTestimonialValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -3705,22 +3707,24 @@ type TestimonialsValidationError struct {
 }
 
 // Field function returns field value.
-func (e TestimonialsValidationError) Field() string { return e.field }
+func (e DoctorTestimonialValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e TestimonialsValidationError) Reason() string { return e.reason }
+func (e DoctorTestimonialValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e TestimonialsValidationError) Cause() error { return e.cause }
+func (e DoctorTestimonialValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e TestimonialsValidationError) Key() bool { return e.key }
+func (e DoctorTestimonialValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e TestimonialsValidationError) ErrorName() string { return "TestimonialsValidationError" }
+func (e DoctorTestimonialValidationError) ErrorName() string {
+	return "DoctorTestimonialValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e TestimonialsValidationError) Error() string {
+func (e DoctorTestimonialValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -3732,14 +3736,14 @@ func (e TestimonialsValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sTestimonials.%s: %s%s",
+		"invalid %sDoctorTestimonial.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = TestimonialsValidationError{}
+var _ error = DoctorTestimonialValidationError{}
 
 var _ interface {
 	Field() string
@@ -3747,7 +3751,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = TestimonialsValidationError{}
+} = DoctorTestimonialValidationError{}
 
 // Validate checks the field values on GetTestimonialsForDoctorsResponse with
 // the rules defined in the proto definition for this message. If any rules
@@ -3757,7 +3761,20 @@ func (m *GetTestimonialsForDoctorsResponse) Validate() error {
 		return nil
 	}
 
-	// no validation rules for TestimonialsByDoctorId
+	for idx, item := range m.GetDoctorTestimonials() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetTestimonialsForDoctorsResponseValidationError{
+					field:  fmt.Sprintf("DoctorTestimonials[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	return nil
 }
