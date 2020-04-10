@@ -1,4 +1,4 @@
-package repository
+package brand_attribute
 
 import "catalog/pkg/domain"
 

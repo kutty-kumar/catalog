@@ -2120,3 +2120,1701 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = MultiGetBrandsResponseValidationError{}
+
+// Validate checks the field values on Testimonial with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Testimonial) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Attribute
+
+	// no validation rules for Value
+
+	// no validation rules for Scale
+
+	// no validation rules for Comments
+
+	// no validation rules for DisplayOrder
+
+	return nil
+}
+
+// TestimonialValidationError is the validation error returned by
+// Testimonial.Validate if the designated constraints aren't met.
+type TestimonialValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TestimonialValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TestimonialValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TestimonialValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TestimonialValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TestimonialValidationError) ErrorName() string { return "TestimonialValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TestimonialValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTestimonial.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TestimonialValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TestimonialValidationError{}
+
+// Validate checks the field values on Capability with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *Capability) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Mask
+
+	return nil
+}
+
+// CapabilityValidationError is the validation error returned by
+// Capability.Validate if the designated constraints aren't met.
+type CapabilityValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CapabilityValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CapabilityValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CapabilityValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CapabilityValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CapabilityValidationError) ErrorName() string { return "CapabilityValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CapabilityValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCapability.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CapabilityValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CapabilityValidationError{}
+
+// Validate checks the field values on Doctor with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *Doctor) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for FirstName
+
+	// no validation rules for LastName
+
+	if v, ok := interface{}(m.GetDateOfBirth()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return DoctorValidationError{
+				field:  "DateOfBirth",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for Status
+
+	// no validation rules for ThumbnailUrl
+
+	// no validation rules for ImageUrl
+
+	// no validation rules for PreSalutation
+
+	// no validation rules for PostSalutation
+
+	// no validation rules for MetaKeywords
+
+	// no validation rules for MetaDescription
+
+	// no validation rules for CapabilityBitMask
+
+	// no validation rules for Display
+
+	for idx, item := range m.GetCapabilities() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return DoctorValidationError{
+					field:  fmt.Sprintf("Capabilities[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for DisplayOrder
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// DoctorValidationError is the validation error returned by Doctor.Validate if
+// the designated constraints aren't met.
+type DoctorValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DoctorValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DoctorValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DoctorValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DoctorValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DoctorValidationError) ErrorName() string { return "DoctorValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DoctorValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDoctor.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DoctorValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DoctorValidationError{}
+
+// Validate checks the field values on CreateDoctorRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateDoctorRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateDoctorRequestValidationError{
+				field:  "Payload",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// CreateDoctorRequestValidationError is the validation error returned by
+// CreateDoctorRequest.Validate if the designated constraints aren't met.
+type CreateDoctorRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateDoctorRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateDoctorRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateDoctorRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateDoctorRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateDoctorRequestValidationError) ErrorName() string {
+	return "CreateDoctorRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateDoctorRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateDoctorRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateDoctorRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateDoctorRequestValidationError{}
+
+// Validate checks the field values on CreateDoctorResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateDoctorResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetResponse()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateDoctorResponseValidationError{
+				field:  "Response",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// CreateDoctorResponseValidationError is the validation error returned by
+// CreateDoctorResponse.Validate if the designated constraints aren't met.
+type CreateDoctorResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateDoctorResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateDoctorResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateDoctorResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateDoctorResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateDoctorResponseValidationError) ErrorName() string {
+	return "CreateDoctorResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateDoctorResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateDoctorResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateDoctorResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateDoctorResponseValidationError{}
+
+// Validate checks the field values on CreateTestimonialRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateTestimonialRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for DoctorId
+
+	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTestimonialRequestValidationError{
+				field:  "Payload",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// CreateTestimonialRequestValidationError is the validation error returned by
+// CreateTestimonialRequest.Validate if the designated constraints aren't met.
+type CreateTestimonialRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTestimonialRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTestimonialRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTestimonialRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTestimonialRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTestimonialRequestValidationError) ErrorName() string {
+	return "CreateTestimonialRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTestimonialRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTestimonialRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTestimonialRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTestimonialRequestValidationError{}
+
+// Validate checks the field values on CreateTestimonialResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateTestimonialResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetResponse()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTestimonialResponseValidationError{
+				field:  "Response",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// CreateTestimonialResponseValidationError is the validation error returned by
+// CreateTestimonialResponse.Validate if the designated constraints aren't met.
+type CreateTestimonialResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTestimonialResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTestimonialResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTestimonialResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTestimonialResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTestimonialResponseValidationError) ErrorName() string {
+	return "CreateTestimonialResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTestimonialResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTestimonialResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTestimonialResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTestimonialResponseValidationError{}
+
+// Validate checks the field values on GetDoctorByIdRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetDoctorByIdRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for ExternalId
+
+	return nil
+}
+
+// GetDoctorByIdRequestValidationError is the validation error returned by
+// GetDoctorByIdRequest.Validate if the designated constraints aren't met.
+type GetDoctorByIdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetDoctorByIdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetDoctorByIdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetDoctorByIdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetDoctorByIdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetDoctorByIdRequestValidationError) ErrorName() string {
+	return "GetDoctorByIdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetDoctorByIdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetDoctorByIdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetDoctorByIdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetDoctorByIdRequestValidationError{}
+
+// Validate checks the field values on GetDoctorByIdResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetDoctorByIdResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetResponse()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetDoctorByIdResponseValidationError{
+				field:  "Response",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// GetDoctorByIdResponseValidationError is the validation error returned by
+// GetDoctorByIdResponse.Validate if the designated constraints aren't met.
+type GetDoctorByIdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetDoctorByIdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetDoctorByIdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetDoctorByIdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetDoctorByIdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetDoctorByIdResponseValidationError) ErrorName() string {
+	return "GetDoctorByIdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetDoctorByIdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetDoctorByIdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetDoctorByIdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetDoctorByIdResponseValidationError{}
+
+// Validate checks the field values on UpdateDoctorRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateDoctorRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for DoctorId
+
+	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateDoctorRequestValidationError{
+				field:  "Payload",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// UpdateDoctorRequestValidationError is the validation error returned by
+// UpdateDoctorRequest.Validate if the designated constraints aren't met.
+type UpdateDoctorRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateDoctorRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateDoctorRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateDoctorRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateDoctorRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateDoctorRequestValidationError) ErrorName() string {
+	return "UpdateDoctorRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateDoctorRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateDoctorRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateDoctorRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateDoctorRequestValidationError{}
+
+// Validate checks the field values on UpdateDoctorResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateDoctorResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetResponse()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateDoctorResponseValidationError{
+				field:  "Response",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// UpdateDoctorResponseValidationError is the validation error returned by
+// UpdateDoctorResponse.Validate if the designated constraints aren't met.
+type UpdateDoctorResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateDoctorResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateDoctorResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateDoctorResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateDoctorResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateDoctorResponseValidationError) ErrorName() string {
+	return "UpdateDoctorResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateDoctorResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateDoctorResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateDoctorResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateDoctorResponseValidationError{}
+
+// Validate checks the field values on MultiGetDoctorsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *MultiGetDoctorsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// MultiGetDoctorsRequestValidationError is the validation error returned by
+// MultiGetDoctorsRequest.Validate if the designated constraints aren't met.
+type MultiGetDoctorsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MultiGetDoctorsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MultiGetDoctorsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MultiGetDoctorsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MultiGetDoctorsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MultiGetDoctorsRequestValidationError) ErrorName() string {
+	return "MultiGetDoctorsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e MultiGetDoctorsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMultiGetDoctorsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MultiGetDoctorsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MultiGetDoctorsRequestValidationError{}
+
+// Validate checks the field values on MultiGetDoctorsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *MultiGetDoctorsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetDoctors() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return MultiGetDoctorsResponseValidationError{
+					field:  fmt.Sprintf("Doctors[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MultiGetDoctorsResponseValidationError is the validation error returned by
+// MultiGetDoctorsResponse.Validate if the designated constraints aren't met.
+type MultiGetDoctorsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MultiGetDoctorsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MultiGetDoctorsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MultiGetDoctorsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MultiGetDoctorsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MultiGetDoctorsResponseValidationError) ErrorName() string {
+	return "MultiGetDoctorsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e MultiGetDoctorsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMultiGetDoctorsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MultiGetDoctorsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MultiGetDoctorsResponseValidationError{}
+
+// Validate checks the field values on UpdateDoctorTestimonialRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateDoctorTestimonialRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for DoctorId
+
+	// no validation rules for TestimonialId
+
+	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateDoctorTestimonialRequestValidationError{
+				field:  "Payload",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// UpdateDoctorTestimonialRequestValidationError is the validation error
+// returned by UpdateDoctorTestimonialRequest.Validate if the designated
+// constraints aren't met.
+type UpdateDoctorTestimonialRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateDoctorTestimonialRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateDoctorTestimonialRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateDoctorTestimonialRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateDoctorTestimonialRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateDoctorTestimonialRequestValidationError) ErrorName() string {
+	return "UpdateDoctorTestimonialRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateDoctorTestimonialRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateDoctorTestimonialRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateDoctorTestimonialRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateDoctorTestimonialRequestValidationError{}
+
+// Validate checks the field values on UpdateDoctorTestimonialResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateDoctorTestimonialResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetResponse()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateDoctorTestimonialResponseValidationError{
+				field:  "Response",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// UpdateDoctorTestimonialResponseValidationError is the validation error
+// returned by UpdateDoctorTestimonialResponse.Validate if the designated
+// constraints aren't met.
+type UpdateDoctorTestimonialResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateDoctorTestimonialResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateDoctorTestimonialResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateDoctorTestimonialResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateDoctorTestimonialResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateDoctorTestimonialResponseValidationError) ErrorName() string {
+	return "UpdateDoctorTestimonialResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateDoctorTestimonialResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateDoctorTestimonialResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateDoctorTestimonialResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateDoctorTestimonialResponseValidationError{}
+
+// Validate checks the field values on GetDoctorTestimonialByIdRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetDoctorTestimonialByIdRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for DoctorId
+
+	// no validation rules for TestimonialId
+
+	return nil
+}
+
+// GetDoctorTestimonialByIdRequestValidationError is the validation error
+// returned by GetDoctorTestimonialByIdRequest.Validate if the designated
+// constraints aren't met.
+type GetDoctorTestimonialByIdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetDoctorTestimonialByIdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetDoctorTestimonialByIdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetDoctorTestimonialByIdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetDoctorTestimonialByIdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetDoctorTestimonialByIdRequestValidationError) ErrorName() string {
+	return "GetDoctorTestimonialByIdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetDoctorTestimonialByIdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetDoctorTestimonialByIdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetDoctorTestimonialByIdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetDoctorTestimonialByIdRequestValidationError{}
+
+// Validate checks the field values on GetDoctorTestimonialByIdResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *GetDoctorTestimonialByIdResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetResponse()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetDoctorTestimonialByIdResponseValidationError{
+				field:  "Response",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// GetDoctorTestimonialByIdResponseValidationError is the validation error
+// returned by GetDoctorTestimonialByIdResponse.Validate if the designated
+// constraints aren't met.
+type GetDoctorTestimonialByIdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetDoctorTestimonialByIdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetDoctorTestimonialByIdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetDoctorTestimonialByIdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetDoctorTestimonialByIdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetDoctorTestimonialByIdResponseValidationError) ErrorName() string {
+	return "GetDoctorTestimonialByIdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetDoctorTestimonialByIdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetDoctorTestimonialByIdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetDoctorTestimonialByIdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetDoctorTestimonialByIdResponseValidationError{}
+
+// Validate checks the field values on MultiGetDoctorTestimonialsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *MultiGetDoctorTestimonialsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for DoctorId
+
+	return nil
+}
+
+// MultiGetDoctorTestimonialsRequestValidationError is the validation error
+// returned by MultiGetDoctorTestimonialsRequest.Validate if the designated
+// constraints aren't met.
+type MultiGetDoctorTestimonialsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MultiGetDoctorTestimonialsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MultiGetDoctorTestimonialsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MultiGetDoctorTestimonialsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MultiGetDoctorTestimonialsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MultiGetDoctorTestimonialsRequestValidationError) ErrorName() string {
+	return "MultiGetDoctorTestimonialsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e MultiGetDoctorTestimonialsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMultiGetDoctorTestimonialsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MultiGetDoctorTestimonialsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MultiGetDoctorTestimonialsRequestValidationError{}
+
+// Validate checks the field values on MultiGetDoctorTestimonialsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *MultiGetDoctorTestimonialsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTestimonials() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return MultiGetDoctorTestimonialsResponseValidationError{
+					field:  fmt.Sprintf("Testimonials[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MultiGetDoctorTestimonialsResponseValidationError is the validation error
+// returned by MultiGetDoctorTestimonialsResponse.Validate if the designated
+// constraints aren't met.
+type MultiGetDoctorTestimonialsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MultiGetDoctorTestimonialsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MultiGetDoctorTestimonialsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MultiGetDoctorTestimonialsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MultiGetDoctorTestimonialsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MultiGetDoctorTestimonialsResponseValidationError) ErrorName() string {
+	return "MultiGetDoctorTestimonialsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e MultiGetDoctorTestimonialsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMultiGetDoctorTestimonialsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MultiGetDoctorTestimonialsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MultiGetDoctorTestimonialsResponseValidationError{}
+
+// Validate checks the field values on GetTestimonialsForDoctorsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *GetTestimonialsForDoctorsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// GetTestimonialsForDoctorsRequestValidationError is the validation error
+// returned by GetTestimonialsForDoctorsRequest.Validate if the designated
+// constraints aren't met.
+type GetTestimonialsForDoctorsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTestimonialsForDoctorsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTestimonialsForDoctorsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTestimonialsForDoctorsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTestimonialsForDoctorsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTestimonialsForDoctorsRequestValidationError) ErrorName() string {
+	return "GetTestimonialsForDoctorsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTestimonialsForDoctorsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTestimonialsForDoctorsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTestimonialsForDoctorsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTestimonialsForDoctorsRequestValidationError{}
+
+// Validate checks the field values on Testimonials with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Testimonials) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTestimonials() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TestimonialsValidationError{
+					field:  fmt.Sprintf("Testimonials[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// TestimonialsValidationError is the validation error returned by
+// Testimonials.Validate if the designated constraints aren't met.
+type TestimonialsValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TestimonialsValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TestimonialsValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TestimonialsValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TestimonialsValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TestimonialsValidationError) ErrorName() string { return "TestimonialsValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TestimonialsValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTestimonials.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TestimonialsValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TestimonialsValidationError{}
+
+// Validate checks the field values on GetTestimonialsForDoctorsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *GetTestimonialsForDoctorsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TestimonialsByDoctorId
+
+	return nil
+}
+
+// GetTestimonialsForDoctorsResponseValidationError is the validation error
+// returned by GetTestimonialsForDoctorsResponse.Validate if the designated
+// constraints aren't met.
+type GetTestimonialsForDoctorsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTestimonialsForDoctorsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTestimonialsForDoctorsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTestimonialsForDoctorsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTestimonialsForDoctorsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTestimonialsForDoctorsResponseValidationError) ErrorName() string {
+	return "GetTestimonialsForDoctorsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTestimonialsForDoctorsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTestimonialsForDoctorsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTestimonialsForDoctorsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTestimonialsForDoctorsResponseValidationError{}

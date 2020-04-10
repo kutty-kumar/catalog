@@ -1,6 +1,6 @@
 package constants
 
-type Status int32
+type Status int64
 
 const (
 	Active Status = iota

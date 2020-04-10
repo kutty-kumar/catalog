@@ -5,6 +5,7 @@ package service;
 import "google/api/annotations.proto";
 import "github.com/lyft/protoc-gen-validate/validate/validate.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "catalog/pkg/pb;pb";
 
@@ -136,6 +137,120 @@ message MultiGetBrandsResponse {
   repeated GetBrandByIdResponse result = 1;
 }
 
+message Testimonial {
+  string attribute = 1;
+  string value = 2;
+  string scale = 3;
+  string comments = 4;
+  int64 display_order = 5;
+}
+
+message Capability {
+  int64 mask = 1;
+}
+
+message Doctor {
+  string first_name = 1;
+  string last_name = 2;
+  google.protobuf.Timestamp date_of_birth = 3;
+  int64 status = 4;
+  repeated string email_addresses = 5;
+  repeated string phone_numbers = 6;
+  string thumbnail_url = 7;
+  string image_url = 8;
+  string pre_salutation = 9;
+  string post_salutation = 10;
+  string meta_keywords = 11;
+  string meta_description = 12;
+  int64 capability_bit_mask = 13;
+  bool display = 14;
+  repeated Capability capabilities = 15;
+  int64 display_order = 16;
+  string external_id = 17;
+}
+
+message CreateDoctorRequest {
+  Doctor payload = 1;
+}
+
+message CreateDoctorResponse {
+  Doctor response = 1;
+}
+
+message CreateTestimonialRequest {
+  string doctor_id = 1;
+  Testimonial payload = 2;
+}
+
+message CreateTestimonialResponse {
+  Testimonial response = 1;
+}
+
+message GetDoctorByIdRequest {
+  string external_id = 1;
+}
+
+message GetDoctorByIdResponse {
+  Doctor response = 1;
+}
+
+message UpdateDoctorRequest {
+  string doctor_id = 1;
+  Doctor payload = 2;
+}
+
+message UpdateDoctorResponse {
+  Doctor response = 1;
+}
+
+message MultiGetDoctorsRequest {
+  repeated string doctor_ids = 1;
+}
+
+message MultiGetDoctorsResponse {
+  repeated Doctor doctors = 1;
+}
+
+message UpdateDoctorTestimonialRequest {
+  string doctor_id = 1;
+  string testimonial_id = 2;
+  Testimonial payload = 3;
+}
+
+message UpdateDoctorTestimonialResponse{
+  Testimonial response = 1;
+}
+
+message GetDoctorTestimonialByIdRequest {
+  string doctor_id = 1;
+  string testimonial_id = 2;
+}
+
+message GetDoctorTestimonialByIdResponse {
+  Testimonial response = 1;
+}
+
+
+message MultiGetDoctorTestimonialsRequest {
+  string doctor_id = 1;
+}
+
+message MultiGetDoctorTestimonialsResponse {
+  repeated Testimonial testimonials = 1;
+}
+
+message GetTestimonialsForDoctorsRequest {
+  repeated string doctor_ids = 1;
+}
+
+message Testimonials{
+  repeated Testimonial testimonials = 1;
+}
+
+message GetTestimonialsForDoctorsResponse {
+  map<string, Testimonials>  testimonials_by_doctor_id = 1;
+}
+
 service BrandService {
   rpc CreateBrand (CreateBrandRequest) returns (CreateBrandResponse) {
     option (google.api.http) = {
@@ -207,6 +322,70 @@ service BrandAttributeService {
   rpc MultiGetBrandAttributes (MultiGetBrandAttributeRequest) returns (MultiGetBrandAttributeResponse){
     option (google.api.http) = {
       put: "/brands/{brand_id}/attributes"
+      body: "*"
+    };
+  }
+}
+
+service DoctorService {
+  rpc CreateDoctor(CreateDoctorRequest) returns (CreateDoctorResponse) {
+    option(google.api.http) = {
+      post: "/doctors"
+      body: "payload"
+    };
+  }
+
+  rpc GetDoctorByExternalId(GetDoctorByIdRequest) returns (GetDoctorByIdResponse){
+    option(google.api.http) = {
+      get: "/doctors/{external_id}"
+    };
+  }
+
+  rpc UpdateDoctor(UpdateDoctorRequest) returns (UpdateDoctorResponse) {
+    option(google.api.http) = {
+      patch: "/doctors/{doctor_id}"
+      body: "payload"
+    };
+  }
+
+  rpc MultiGetDoctors(MultiGetDoctorsRequest) returns (MultiGetDoctorsResponse){
+   option(google.api.http) = {
+    put: "/doctors/multi-get"
+    body: "*"
+   };
+  }
+}
+
+service DoctorTestimonialService {
+  rpc CreateDoctorTestimonial(CreateTestimonialRequest) returns (CreateTestimonialResponse) {
+    option(google.api.http) = {
+      post: "/doctors/{doctor_id}/testimonials"
+      body: "payload"
+    };
+  }
+
+  rpc UpdateDoctorTestimonial(UpdateDoctorTestimonialRequest) returns (UpdateDoctorTestimonialResponse){
+    option(google.api.http) = {
+      patch: "/doctors/{doctor_id}/testimonials/{testimonial_id}"
+      body: "payload"
+    };
+  }
+
+  rpc GetDoctorTestimonialByExternalId(GetDoctorTestimonialByIdRequest) returns (GetDoctorTestimonialByIdResponse){
+    option(google.api.http) = {
+      get: "/v1/doctors/{doctor_id}/testimonials/{testimonial_id}"
+    };
+  }
+
+  rpc MultiGetDoctorTestimonials(MultiGetDoctorTestimonialsRequest) returns (MultiGetDoctorTestimonialsResponse){
+    option(google.api.http) = {
+      get: "/v1/doctors/{doctor_id}/testimonials"
+    };
+  }
+
+  rpc GetTestimonialsForDoctors(GetTestimonialsForDoctorsRequest) returns (GetTestimonialsForDoctorsResponse){
+    option(google.api.http) = {
+      put: "/v1/doctor-testimonials"
       body: "*"
     };
   }

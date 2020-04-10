@@ -314,6 +314,264 @@
           }
         }
       }
+    },
+    "/doctors": {
+      "post": {
+        "tags": [
+          "DoctorService"
+        ],
+        "operationId": "DoctorServiceCreateDoctor",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceDoctor"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "POST operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceCreateDoctorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/doctors/multi-get": {
+      "put": {
+        "tags": [
+          "DoctorService"
+        ],
+        "operationId": "DoctorServiceMultiGetDoctors",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetDoctorsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PUT operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetDoctorsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{doctor_id}": {
+      "patch": {
+        "tags": [
+          "DoctorService"
+        ],
+        "operationId": "DoctorServiceUpdateDoctor",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "doctor_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceDoctor"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PATCH operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceUpdateDoctorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{doctor_id}/testimonials": {
+      "post": {
+        "tags": [
+          "DoctorTestimonialService"
+        ],
+        "operationId": "DoctorTestimonialServiceCreateDoctorTestimonial",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "doctor_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceTestimonial"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "POST operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceCreateTestimonialResponse"
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{doctor_id}/testimonials/{testimonial_id}": {
+      "patch": {
+        "tags": [
+          "DoctorTestimonialService"
+        ],
+        "operationId": "DoctorTestimonialServiceUpdateDoctorTestimonial",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "doctor_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "testimonial_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceTestimonial"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PATCH operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceUpdateDoctorTestimonialResponse"
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{external_id}": {
+      "get": {
+        "tags": [
+          "DoctorService"
+        ],
+        "operationId": "DoctorServiceGetDoctorByExternalId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "external_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GET operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceGetDoctorByIdResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/doctor-testimonials": {
+      "put": {
+        "tags": [
+          "DoctorTestimonialService"
+        ],
+        "operationId": "DoctorTestimonialServiceGetTestimonialsForDoctors",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/serviceGetTestimonialsForDoctorsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PUT operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceGetTestimonialsForDoctorsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/doctors/{doctor_id}/testimonials": {
+      "get": {
+        "tags": [
+          "DoctorTestimonialService"
+        ],
+        "operationId": "DoctorTestimonialServiceMultiGetDoctorTestimonials",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "doctor_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GET operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceMultiGetDoctorTestimonialsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/doctors/{doctor_id}/testimonials/{testimonial_id}": {
+      "get": {
+        "tags": [
+          "DoctorTestimonialService"
+        ],
+        "operationId": "DoctorTestimonialServiceGetDoctorTestimonialByExternalId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "doctor_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "testimonial_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GET operation response",
+            "schema": {
+              "$ref": "#/definitions/serviceGetDoctorTestimonialByIdResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -360,6 +618,15 @@
         }
       }
     },
+    "serviceCapability": {
+      "type": "object",
+      "properties": {
+        "mask": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
     "serviceCreateBrandAttributeResponse": {
       "type": "object",
       "properties": {
@@ -375,6 +642,92 @@
           "$ref": "#/definitions/serviceBrandDetails"
         },
         "external_id": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceCreateDoctorResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/serviceDoctor"
+        }
+      }
+    },
+    "serviceCreateTestimonialResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/serviceTestimonial"
+        }
+      }
+    },
+    "serviceDoctor": {
+      "type": "object",
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceCapability"
+          }
+        },
+        "capability_bit_mask": {
+          "type": "string",
+          "format": "int64"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "display": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "display_order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "email_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "meta_description": {
+          "type": "string"
+        },
+        "meta_keywords": {
+          "type": "string"
+        },
+        "phone_numbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "post_salutation": {
+          "type": "string"
+        },
+        "pre_salutation": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "thumbnail_url": {
           "type": "string"
         }
       }
@@ -406,6 +759,44 @@
         },
         "external_id": {
           "type": "string"
+        }
+      }
+    },
+    "serviceGetDoctorByIdResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/serviceDoctor"
+        }
+      }
+    },
+    "serviceGetDoctorTestimonialByIdResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/serviceTestimonial"
+        }
+      }
+    },
+    "serviceGetTestimonialsForDoctorsRequest": {
+      "type": "object",
+      "properties": {
+        "doctor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "serviceGetTestimonialsForDoctorsResponse": {
+      "type": "object",
+      "properties": {
+        "testimonials_by_doctor_id": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/serviceTestimonials"
+          }
         }
       }
     },
@@ -456,6 +847,71 @@
         }
       }
     },
+    "serviceMultiGetDoctorTestimonialsResponse": {
+      "type": "object",
+      "properties": {
+        "testimonials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceTestimonial"
+          }
+        }
+      }
+    },
+    "serviceMultiGetDoctorsRequest": {
+      "type": "object",
+      "properties": {
+        "doctor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "serviceMultiGetDoctorsResponse": {
+      "type": "object",
+      "properties": {
+        "doctors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceDoctor"
+          }
+        }
+      }
+    },
+    "serviceTestimonial": {
+      "type": "object",
+      "properties": {
+        "attribute": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "display_order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "scale": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceTestimonials": {
+      "type": "object",
+      "properties": {
+        "testimonials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/serviceTestimonial"
+          }
+        }
+      }
+    },
     "serviceUpdateBrandAttributeResponse": {
       "type": "object",
       "properties": {
@@ -472,6 +928,22 @@
         },
         "external_id": {
           "type": "string"
+        }
+      }
+    },
+    "serviceUpdateDoctorResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/serviceDoctor"
+        }
+      }
+    },
+    "serviceUpdateDoctorTestimonialResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/serviceTestimonial"
         }
       }
     }

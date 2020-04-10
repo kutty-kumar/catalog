@@ -55,19 +55,22 @@ func NewGRPCServer(logger *logrus.Logger, dbConnectionString string) (*grpc.Serv
 	// register service implementation with the grpcServer
 	brandService, err := svc.NewBrandService(db)
 	brandAttributeService, err := svc.NewBrandAttributeService(db, brandService)
+	doctorService := svc.NewDoctorService(db)
+	doctorTestimonialService := svc.NewTestimonialService(db, doctorService)
 	if err != nil {
 		return nil, err
 	}
 	pb.RegisterBrandServiceServer(grpcServer, brandService)
 	pb.RegisterBrandAttributeServiceServer(grpcServer, brandAttributeService)
-
+	pb.RegisterDoctorServiceServer(grpcServer, &doctorService)
+	pb.RegisterDoctorTestimonialServiceServer(grpcServer, &doctorTestimonialService)
 	return grpcServer, nil
 }
 
 func createTables(db *gorm.DB){
-	db.CreateTable(domain.Brand{}, domain.BrandAttribute{})
+	db.CreateTable(domain.Brand{}, domain.BrandAttribute{}, domain.Doctor{}, domain.Testimonial{})
 }
 
 func dropTables(db *gorm.DB){
-	db.DropTableIfExists(domain.Brand{}, domain.BrandAttribute{})
+	db.DropTableIfExists(domain.Brand{}, domain.BrandAttribute{}, domain.Doctor{}, domain.Testimonial{})
 }

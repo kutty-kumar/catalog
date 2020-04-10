@@ -1,4 +1,4 @@
-package repository
+package brand
 
 import (
 	"catalog/pkg/domain"
@@ -8,29 +8,29 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-type BrandGORM struct {
+type BrandGORMRepository struct {
 	Db *gorm.DB
 }
 
-func (orm *BrandGORM) getBrand(externalId string) domain.Brand {
+func (orm *BrandGORMRepository) getBrand(externalId string) domain.Brand {
 	base := domain.Base{ExternalId: externalId}
 	return domain.Brand{Base: base}
 }
 
-func (orm *BrandGORM) Create(brand *domain.Brand) {
+func (orm *BrandGORMRepository) Create(brand *domain.Brand) {
 	orm.Db.Save(&brand)
 }
 
-func (orm BrandGORM) Update(brand *domain.Brand) {
+func (orm BrandGORMRepository) Update(brand *domain.Brand) {
 	orm.Db.Model(&brand).Update(&brand)
 }
 
-func (orm BrandGORM) Delete(brand *domain.Brand) {
+func (orm BrandGORMRepository) Delete(brand *domain.Brand) {
 	brand.Status = 1
 	orm.Db.Model(&brand).Update(&brand)
 }
 
-func (orm BrandGORM) GetByExternalId(externalId string)  (*domain.Brand, error) {
+func (orm BrandGORMRepository) GetByExternalId(externalId string)  (*domain.Brand, error) {
 	brand := orm.getBrand(externalId)
 	orm.Db.Where(&brand).First(&brand)
 	if brand.ID == 0 {
@@ -39,7 +39,7 @@ func (orm BrandGORM) GetByExternalId(externalId string)  (*domain.Brand, error) 
 	return &brand, nil
 }
 
-func (orm BrandGORM) MultiGetByExternalId(externalIds []string) ([]domain.Brand, error) {
+func (orm BrandGORMRepository) MultiGetByExternalId(externalIds []string) ([]domain.Brand, error) {
 	var brands []domain.Brand
 	orm.Db.Where("external_id IN (?)", externalIds).Find(&brands)
 	if brands == nil {
@@ -48,7 +48,7 @@ func (orm BrandGORM) MultiGetByExternalId(externalIds []string) ([]domain.Brand,
 	return brands, nil
 }
 
-func (orm BrandGORM) GetAttributes(externalId string) ([]domain.BrandAttribute, error) {
+func (orm BrandGORMRepository) GetAttributes(externalId string) ([]domain.BrandAttribute, error) {
 	var brandAttributes []domain.BrandAttribute
 	brand := orm.getBrand(externalId)
 	orm.Db.Model(&brand).Related(&brandAttributes)

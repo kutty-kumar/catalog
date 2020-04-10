@@ -50,6 +50,10 @@
   name = "github.com/satori/go.uuid"
   version = "1.2.0"
 
+[[constraints]]
+    name = "github.com/kutty-kumar/commons"
+    version = "*"
+
 [prune]
   go-tests = true
   unused-packages = true

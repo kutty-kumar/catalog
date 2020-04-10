@@ -7,6 +7,7 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/lyft/protoc-gen-validate/validate"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
@@ -1229,6 +1230,1064 @@ func (m *MultiGetBrandsResponse) GetResult() []*GetBrandByIdResponse {
 	return nil
 }
 
+type Testimonial struct {
+	Attribute            string   `protobuf:"bytes,1,opt,name=attribute,proto3" json:"attribute,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	Scale                string   `protobuf:"bytes,3,opt,name=scale,proto3" json:"scale,omitempty"`
+	Comments             string   `protobuf:"bytes,4,opt,name=comments,proto3" json:"comments,omitempty"`
+	DisplayOrder         int64    `protobuf:"varint,5,opt,name=display_order,json=displayOrder,proto3" json:"display_order,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Testimonial) Reset()         { *m = Testimonial{} }
+func (m *Testimonial) String() string { return proto.CompactTextString(m) }
+func (*Testimonial) ProtoMessage()    {}
+func (*Testimonial) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{28}
+}
+
+func (m *Testimonial) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Testimonial.Unmarshal(m, b)
+}
+func (m *Testimonial) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Testimonial.Marshal(b, m, deterministic)
+}
+func (m *Testimonial) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Testimonial.Merge(m, src)
+}
+func (m *Testimonial) XXX_Size() int {
+	return xxx_messageInfo_Testimonial.Size(m)
+}
+func (m *Testimonial) XXX_DiscardUnknown() {
+	xxx_messageInfo_Testimonial.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Testimonial proto.InternalMessageInfo
+
+func (m *Testimonial) GetAttribute() string {
+	if m != nil {
+		return m.Attribute
+	}
+	return ""
+}
+
+func (m *Testimonial) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+func (m *Testimonial) GetScale() string {
+	if m != nil {
+		return m.Scale
+	}
+	return ""
+}
+
+func (m *Testimonial) GetComments() string {
+	if m != nil {
+		return m.Comments
+	}
+	return ""
+}
+
+func (m *Testimonial) GetDisplayOrder() int64 {
+	if m != nil {
+		return m.DisplayOrder
+	}
+	return 0
+}
+
+type Capability struct {
+	Mask                 int64    `protobuf:"varint,1,opt,name=mask,proto3" json:"mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Capability) Reset()         { *m = Capability{} }
+func (m *Capability) String() string { return proto.CompactTextString(m) }
+func (*Capability) ProtoMessage()    {}
+func (*Capability) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{29}
+}
+
+func (m *Capability) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Capability.Unmarshal(m, b)
+}
+func (m *Capability) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Capability.Marshal(b, m, deterministic)
+}
+func (m *Capability) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Capability.Merge(m, src)
+}
+func (m *Capability) XXX_Size() int {
+	return xxx_messageInfo_Capability.Size(m)
+}
+func (m *Capability) XXX_DiscardUnknown() {
+	xxx_messageInfo_Capability.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Capability proto.InternalMessageInfo
+
+func (m *Capability) GetMask() int64 {
+	if m != nil {
+		return m.Mask
+	}
+	return 0
+}
+
+type Doctor struct {
+	FirstName            string               `protobuf:"bytes,1,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
+	LastName             string               `protobuf:"bytes,2,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
+	DateOfBirth          *timestamp.Timestamp `protobuf:"bytes,3,opt,name=date_of_birth,json=dateOfBirth,proto3" json:"date_of_birth,omitempty"`
+	Status               int64                `protobuf:"varint,4,opt,name=status,proto3" json:"status,omitempty"`
+	EmailAddresses       []string             `protobuf:"bytes,5,rep,name=email_addresses,json=emailAddresses,proto3" json:"email_addresses,omitempty"`
+	PhoneNumbers         []string             `protobuf:"bytes,6,rep,name=phone_numbers,json=phoneNumbers,proto3" json:"phone_numbers,omitempty"`
+	ThumbnailUrl         string               `protobuf:"bytes,7,opt,name=thumbnail_url,json=thumbnailUrl,proto3" json:"thumbnail_url,omitempty"`
+	ImageUrl             string               `protobuf:"bytes,8,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
+	PreSalutation        string               `protobuf:"bytes,9,opt,name=pre_salutation,json=preSalutation,proto3" json:"pre_salutation,omitempty"`
+	PostSalutation       string               `protobuf:"bytes,10,opt,name=post_salutation,json=postSalutation,proto3" json:"post_salutation,omitempty"`
+	MetaKeywords         string               `protobuf:"bytes,11,opt,name=meta_keywords,json=metaKeywords,proto3" json:"meta_keywords,omitempty"`
+	MetaDescription      string               `protobuf:"bytes,12,opt,name=meta_description,json=metaDescription,proto3" json:"meta_description,omitempty"`
+	CapabilityBitMask    int64                `protobuf:"varint,13,opt,name=capability_bit_mask,json=capabilityBitMask,proto3" json:"capability_bit_mask,omitempty"`
+	Display              bool                 `protobuf:"varint,14,opt,name=display,proto3" json:"display,omitempty"`
+	Capabilities         []*Capability        `protobuf:"bytes,15,rep,name=capabilities,proto3" json:"capabilities,omitempty"`
+	DisplayOrder         int64                `protobuf:"varint,16,opt,name=display_order,json=displayOrder,proto3" json:"display_order,omitempty"`
+	ExternalId           string               `protobuf:"bytes,17,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *Doctor) Reset()         { *m = Doctor{} }
+func (m *Doctor) String() string { return proto.CompactTextString(m) }
+func (*Doctor) ProtoMessage()    {}
+func (*Doctor) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{30}
+}
+
+func (m *Doctor) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Doctor.Unmarshal(m, b)
+}
+func (m *Doctor) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Doctor.Marshal(b, m, deterministic)
+}
+func (m *Doctor) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Doctor.Merge(m, src)
+}
+func (m *Doctor) XXX_Size() int {
+	return xxx_messageInfo_Doctor.Size(m)
+}
+func (m *Doctor) XXX_DiscardUnknown() {
+	xxx_messageInfo_Doctor.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Doctor proto.InternalMessageInfo
+
+func (m *Doctor) GetFirstName() string {
+	if m != nil {
+		return m.FirstName
+	}
+	return ""
+}
+
+func (m *Doctor) GetLastName() string {
+	if m != nil {
+		return m.LastName
+	}
+	return ""
+}
+
+func (m *Doctor) GetDateOfBirth() *timestamp.Timestamp {
+	if m != nil {
+		return m.DateOfBirth
+	}
+	return nil
+}
+
+func (m *Doctor) GetStatus() int64 {
+	if m != nil {
+		return m.Status
+	}
+	return 0
+}
+
+func (m *Doctor) GetEmailAddresses() []string {
+	if m != nil {
+		return m.EmailAddresses
+	}
+	return nil
+}
+
+func (m *Doctor) GetPhoneNumbers() []string {
+	if m != nil {
+		return m.PhoneNumbers
+	}
+	return nil
+}
+
+func (m *Doctor) GetThumbnailUrl() string {
+	if m != nil {
+		return m.ThumbnailUrl
+	}
+	return ""
+}
+
+func (m *Doctor) GetImageUrl() string {
+	if m != nil {
+		return m.ImageUrl
+	}
+	return ""
+}
+
+func (m *Doctor) GetPreSalutation() string {
+	if m != nil {
+		return m.PreSalutation
+	}
+	return ""
+}
+
+func (m *Doctor) GetPostSalutation() string {
+	if m != nil {
+		return m.PostSalutation
+	}
+	return ""
+}
+
+func (m *Doctor) GetMetaKeywords() string {
+	if m != nil {
+		return m.MetaKeywords
+	}
+	return ""
+}
+
+func (m *Doctor) GetMetaDescription() string {
+	if m != nil {
+		return m.MetaDescription
+	}
+	return ""
+}
+
+func (m *Doctor) GetCapabilityBitMask() int64 {
+	if m != nil {
+		return m.CapabilityBitMask
+	}
+	return 0
+}
+
+func (m *Doctor) GetDisplay() bool {
+	if m != nil {
+		return m.Display
+	}
+	return false
+}
+
+func (m *Doctor) GetCapabilities() []*Capability {
+	if m != nil {
+		return m.Capabilities
+	}
+	return nil
+}
+
+func (m *Doctor) GetDisplayOrder() int64 {
+	if m != nil {
+		return m.DisplayOrder
+	}
+	return 0
+}
+
+func (m *Doctor) GetExternalId() string {
+	if m != nil {
+		return m.ExternalId
+	}
+	return ""
+}
+
+type CreateDoctorRequest struct {
+	Payload              *Doctor  `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateDoctorRequest) Reset()         { *m = CreateDoctorRequest{} }
+func (m *CreateDoctorRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateDoctorRequest) ProtoMessage()    {}
+func (*CreateDoctorRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{31}
+}
+
+func (m *CreateDoctorRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateDoctorRequest.Unmarshal(m, b)
+}
+func (m *CreateDoctorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateDoctorRequest.Marshal(b, m, deterministic)
+}
+func (m *CreateDoctorRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateDoctorRequest.Merge(m, src)
+}
+func (m *CreateDoctorRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateDoctorRequest.Size(m)
+}
+func (m *CreateDoctorRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateDoctorRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateDoctorRequest proto.InternalMessageInfo
+
+func (m *CreateDoctorRequest) GetPayload() *Doctor {
+	if m != nil {
+		return m.Payload
+	}
+	return nil
+}
+
+type CreateDoctorResponse struct {
+	Response             *Doctor  `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateDoctorResponse) Reset()         { *m = CreateDoctorResponse{} }
+func (m *CreateDoctorResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateDoctorResponse) ProtoMessage()    {}
+func (*CreateDoctorResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{32}
+}
+
+func (m *CreateDoctorResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateDoctorResponse.Unmarshal(m, b)
+}
+func (m *CreateDoctorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateDoctorResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateDoctorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateDoctorResponse.Merge(m, src)
+}
+func (m *CreateDoctorResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateDoctorResponse.Size(m)
+}
+func (m *CreateDoctorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateDoctorResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateDoctorResponse proto.InternalMessageInfo
+
+func (m *CreateDoctorResponse) GetResponse() *Doctor {
+	if m != nil {
+		return m.Response
+	}
+	return nil
+}
+
+type CreateTestimonialRequest struct {
+	DoctorId             string       `protobuf:"bytes,1,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	Payload              *Testimonial `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *CreateTestimonialRequest) Reset()         { *m = CreateTestimonialRequest{} }
+func (m *CreateTestimonialRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateTestimonialRequest) ProtoMessage()    {}
+func (*CreateTestimonialRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{33}
+}
+
+func (m *CreateTestimonialRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTestimonialRequest.Unmarshal(m, b)
+}
+func (m *CreateTestimonialRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTestimonialRequest.Marshal(b, m, deterministic)
+}
+func (m *CreateTestimonialRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTestimonialRequest.Merge(m, src)
+}
+func (m *CreateTestimonialRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateTestimonialRequest.Size(m)
+}
+func (m *CreateTestimonialRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTestimonialRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTestimonialRequest proto.InternalMessageInfo
+
+func (m *CreateTestimonialRequest) GetDoctorId() string {
+	if m != nil {
+		return m.DoctorId
+	}
+	return ""
+}
+
+func (m *CreateTestimonialRequest) GetPayload() *Testimonial {
+	if m != nil {
+		return m.Payload
+	}
+	return nil
+}
+
+type CreateTestimonialResponse struct {
+	Response             *Testimonial `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *CreateTestimonialResponse) Reset()         { *m = CreateTestimonialResponse{} }
+func (m *CreateTestimonialResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateTestimonialResponse) ProtoMessage()    {}
+func (*CreateTestimonialResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{34}
+}
+
+func (m *CreateTestimonialResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTestimonialResponse.Unmarshal(m, b)
+}
+func (m *CreateTestimonialResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTestimonialResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateTestimonialResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTestimonialResponse.Merge(m, src)
+}
+func (m *CreateTestimonialResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateTestimonialResponse.Size(m)
+}
+func (m *CreateTestimonialResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTestimonialResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTestimonialResponse proto.InternalMessageInfo
+
+func (m *CreateTestimonialResponse) GetResponse() *Testimonial {
+	if m != nil {
+		return m.Response
+	}
+	return nil
+}
+
+type GetDoctorByIdRequest struct {
+	ExternalId           string   `protobuf:"bytes,1,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetDoctorByIdRequest) Reset()         { *m = GetDoctorByIdRequest{} }
+func (m *GetDoctorByIdRequest) String() string { return proto.CompactTextString(m) }
+func (*GetDoctorByIdRequest) ProtoMessage()    {}
+func (*GetDoctorByIdRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{35}
+}
+
+func (m *GetDoctorByIdRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDoctorByIdRequest.Unmarshal(m, b)
+}
+func (m *GetDoctorByIdRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDoctorByIdRequest.Marshal(b, m, deterministic)
+}
+func (m *GetDoctorByIdRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDoctorByIdRequest.Merge(m, src)
+}
+func (m *GetDoctorByIdRequest) XXX_Size() int {
+	return xxx_messageInfo_GetDoctorByIdRequest.Size(m)
+}
+func (m *GetDoctorByIdRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDoctorByIdRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDoctorByIdRequest proto.InternalMessageInfo
+
+func (m *GetDoctorByIdRequest) GetExternalId() string {
+	if m != nil {
+		return m.ExternalId
+	}
+	return ""
+}
+
+type GetDoctorByIdResponse struct {
+	Response             *Doctor  `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetDoctorByIdResponse) Reset()         { *m = GetDoctorByIdResponse{} }
+func (m *GetDoctorByIdResponse) String() string { return proto.CompactTextString(m) }
+func (*GetDoctorByIdResponse) ProtoMessage()    {}
+func (*GetDoctorByIdResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{36}
+}
+
+func (m *GetDoctorByIdResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDoctorByIdResponse.Unmarshal(m, b)
+}
+func (m *GetDoctorByIdResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDoctorByIdResponse.Marshal(b, m, deterministic)
+}
+func (m *GetDoctorByIdResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDoctorByIdResponse.Merge(m, src)
+}
+func (m *GetDoctorByIdResponse) XXX_Size() int {
+	return xxx_messageInfo_GetDoctorByIdResponse.Size(m)
+}
+func (m *GetDoctorByIdResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDoctorByIdResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDoctorByIdResponse proto.InternalMessageInfo
+
+func (m *GetDoctorByIdResponse) GetResponse() *Doctor {
+	if m != nil {
+		return m.Response
+	}
+	return nil
+}
+
+type UpdateDoctorRequest struct {
+	DoctorId             string   `protobuf:"bytes,1,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	Payload              *Doctor  `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UpdateDoctorRequest) Reset()         { *m = UpdateDoctorRequest{} }
+func (m *UpdateDoctorRequest) String() string { return proto.CompactTextString(m) }
+func (*UpdateDoctorRequest) ProtoMessage()    {}
+func (*UpdateDoctorRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{37}
+}
+
+func (m *UpdateDoctorRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateDoctorRequest.Unmarshal(m, b)
+}
+func (m *UpdateDoctorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateDoctorRequest.Marshal(b, m, deterministic)
+}
+func (m *UpdateDoctorRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateDoctorRequest.Merge(m, src)
+}
+func (m *UpdateDoctorRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateDoctorRequest.Size(m)
+}
+func (m *UpdateDoctorRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateDoctorRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateDoctorRequest proto.InternalMessageInfo
+
+func (m *UpdateDoctorRequest) GetDoctorId() string {
+	if m != nil {
+		return m.DoctorId
+	}
+	return ""
+}
+
+func (m *UpdateDoctorRequest) GetPayload() *Doctor {
+	if m != nil {
+		return m.Payload
+	}
+	return nil
+}
+
+type UpdateDoctorResponse struct {
+	Response             *Doctor  `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UpdateDoctorResponse) Reset()         { *m = UpdateDoctorResponse{} }
+func (m *UpdateDoctorResponse) String() string { return proto.CompactTextString(m) }
+func (*UpdateDoctorResponse) ProtoMessage()    {}
+func (*UpdateDoctorResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{38}
+}
+
+func (m *UpdateDoctorResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateDoctorResponse.Unmarshal(m, b)
+}
+func (m *UpdateDoctorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateDoctorResponse.Marshal(b, m, deterministic)
+}
+func (m *UpdateDoctorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateDoctorResponse.Merge(m, src)
+}
+func (m *UpdateDoctorResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateDoctorResponse.Size(m)
+}
+func (m *UpdateDoctorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateDoctorResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateDoctorResponse proto.InternalMessageInfo
+
+func (m *UpdateDoctorResponse) GetResponse() *Doctor {
+	if m != nil {
+		return m.Response
+	}
+	return nil
+}
+
+type MultiGetDoctorsRequest struct {
+	DoctorIds            []string `protobuf:"bytes,1,rep,name=doctor_ids,json=doctorIds,proto3" json:"doctor_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MultiGetDoctorsRequest) Reset()         { *m = MultiGetDoctorsRequest{} }
+func (m *MultiGetDoctorsRequest) String() string { return proto.CompactTextString(m) }
+func (*MultiGetDoctorsRequest) ProtoMessage()    {}
+func (*MultiGetDoctorsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{39}
+}
+
+func (m *MultiGetDoctorsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MultiGetDoctorsRequest.Unmarshal(m, b)
+}
+func (m *MultiGetDoctorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MultiGetDoctorsRequest.Marshal(b, m, deterministic)
+}
+func (m *MultiGetDoctorsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MultiGetDoctorsRequest.Merge(m, src)
+}
+func (m *MultiGetDoctorsRequest) XXX_Size() int {
+	return xxx_messageInfo_MultiGetDoctorsRequest.Size(m)
+}
+func (m *MultiGetDoctorsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_MultiGetDoctorsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MultiGetDoctorsRequest proto.InternalMessageInfo
+
+func (m *MultiGetDoctorsRequest) GetDoctorIds() []string {
+	if m != nil {
+		return m.DoctorIds
+	}
+	return nil
+}
+
+type MultiGetDoctorsResponse struct {
+	Doctors              []*Doctor `protobuf:"bytes,1,rep,name=doctors,proto3" json:"doctors,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *MultiGetDoctorsResponse) Reset()         { *m = MultiGetDoctorsResponse{} }
+func (m *MultiGetDoctorsResponse) String() string { return proto.CompactTextString(m) }
+func (*MultiGetDoctorsResponse) ProtoMessage()    {}
+func (*MultiGetDoctorsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{40}
+}
+
+func (m *MultiGetDoctorsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MultiGetDoctorsResponse.Unmarshal(m, b)
+}
+func (m *MultiGetDoctorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MultiGetDoctorsResponse.Marshal(b, m, deterministic)
+}
+func (m *MultiGetDoctorsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MultiGetDoctorsResponse.Merge(m, src)
+}
+func (m *MultiGetDoctorsResponse) XXX_Size() int {
+	return xxx_messageInfo_MultiGetDoctorsResponse.Size(m)
+}
+func (m *MultiGetDoctorsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MultiGetDoctorsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MultiGetDoctorsResponse proto.InternalMessageInfo
+
+func (m *MultiGetDoctorsResponse) GetDoctors() []*Doctor {
+	if m != nil {
+		return m.Doctors
+	}
+	return nil
+}
+
+type UpdateDoctorTestimonialRequest struct {
+	DoctorId             string       `protobuf:"bytes,1,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	TestimonialId        string       `protobuf:"bytes,2,opt,name=testimonial_id,json=testimonialId,proto3" json:"testimonial_id,omitempty"`
+	Payload              *Testimonial `protobuf:"bytes,3,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *UpdateDoctorTestimonialRequest) Reset()         { *m = UpdateDoctorTestimonialRequest{} }
+func (m *UpdateDoctorTestimonialRequest) String() string { return proto.CompactTextString(m) }
+func (*UpdateDoctorTestimonialRequest) ProtoMessage()    {}
+func (*UpdateDoctorTestimonialRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{41}
+}
+
+func (m *UpdateDoctorTestimonialRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateDoctorTestimonialRequest.Unmarshal(m, b)
+}
+func (m *UpdateDoctorTestimonialRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateDoctorTestimonialRequest.Marshal(b, m, deterministic)
+}
+func (m *UpdateDoctorTestimonialRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateDoctorTestimonialRequest.Merge(m, src)
+}
+func (m *UpdateDoctorTestimonialRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateDoctorTestimonialRequest.Size(m)
+}
+func (m *UpdateDoctorTestimonialRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateDoctorTestimonialRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateDoctorTestimonialRequest proto.InternalMessageInfo
+
+func (m *UpdateDoctorTestimonialRequest) GetDoctorId() string {
+	if m != nil {
+		return m.DoctorId
+	}
+	return ""
+}
+
+func (m *UpdateDoctorTestimonialRequest) GetTestimonialId() string {
+	if m != nil {
+		return m.TestimonialId
+	}
+	return ""
+}
+
+func (m *UpdateDoctorTestimonialRequest) GetPayload() *Testimonial {
+	if m != nil {
+		return m.Payload
+	}
+	return nil
+}
+
+type UpdateDoctorTestimonialResponse struct {
+	Response             *Testimonial `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *UpdateDoctorTestimonialResponse) Reset()         { *m = UpdateDoctorTestimonialResponse{} }
+func (m *UpdateDoctorTestimonialResponse) String() string { return proto.CompactTextString(m) }
+func (*UpdateDoctorTestimonialResponse) ProtoMessage()    {}
+func (*UpdateDoctorTestimonialResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{42}
+}
+
+func (m *UpdateDoctorTestimonialResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateDoctorTestimonialResponse.Unmarshal(m, b)
+}
+func (m *UpdateDoctorTestimonialResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateDoctorTestimonialResponse.Marshal(b, m, deterministic)
+}
+func (m *UpdateDoctorTestimonialResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateDoctorTestimonialResponse.Merge(m, src)
+}
+func (m *UpdateDoctorTestimonialResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateDoctorTestimonialResponse.Size(m)
+}
+func (m *UpdateDoctorTestimonialResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateDoctorTestimonialResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateDoctorTestimonialResponse proto.InternalMessageInfo
+
+func (m *UpdateDoctorTestimonialResponse) GetResponse() *Testimonial {
+	if m != nil {
+		return m.Response
+	}
+	return nil
+}
+
+type GetDoctorTestimonialByIdRequest struct {
+	DoctorId             string   `protobuf:"bytes,1,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	TestimonialId        string   `protobuf:"bytes,2,opt,name=testimonial_id,json=testimonialId,proto3" json:"testimonial_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetDoctorTestimonialByIdRequest) Reset()         { *m = GetDoctorTestimonialByIdRequest{} }
+func (m *GetDoctorTestimonialByIdRequest) String() string { return proto.CompactTextString(m) }
+func (*GetDoctorTestimonialByIdRequest) ProtoMessage()    {}
+func (*GetDoctorTestimonialByIdRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{43}
+}
+
+func (m *GetDoctorTestimonialByIdRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDoctorTestimonialByIdRequest.Unmarshal(m, b)
+}
+func (m *GetDoctorTestimonialByIdRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDoctorTestimonialByIdRequest.Marshal(b, m, deterministic)
+}
+func (m *GetDoctorTestimonialByIdRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDoctorTestimonialByIdRequest.Merge(m, src)
+}
+func (m *GetDoctorTestimonialByIdRequest) XXX_Size() int {
+	return xxx_messageInfo_GetDoctorTestimonialByIdRequest.Size(m)
+}
+func (m *GetDoctorTestimonialByIdRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDoctorTestimonialByIdRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDoctorTestimonialByIdRequest proto.InternalMessageInfo
+
+func (m *GetDoctorTestimonialByIdRequest) GetDoctorId() string {
+	if m != nil {
+		return m.DoctorId
+	}
+	return ""
+}
+
+func (m *GetDoctorTestimonialByIdRequest) GetTestimonialId() string {
+	if m != nil {
+		return m.TestimonialId
+	}
+	return ""
+}
+
+type GetDoctorTestimonialByIdResponse struct {
+	Response             *Testimonial `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *GetDoctorTestimonialByIdResponse) Reset()         { *m = GetDoctorTestimonialByIdResponse{} }
+func (m *GetDoctorTestimonialByIdResponse) String() string { return proto.CompactTextString(m) }
+func (*GetDoctorTestimonialByIdResponse) ProtoMessage()    {}
+func (*GetDoctorTestimonialByIdResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{44}
+}
+
+func (m *GetDoctorTestimonialByIdResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDoctorTestimonialByIdResponse.Unmarshal(m, b)
+}
+func (m *GetDoctorTestimonialByIdResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDoctorTestimonialByIdResponse.Marshal(b, m, deterministic)
+}
+func (m *GetDoctorTestimonialByIdResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDoctorTestimonialByIdResponse.Merge(m, src)
+}
+func (m *GetDoctorTestimonialByIdResponse) XXX_Size() int {
+	return xxx_messageInfo_GetDoctorTestimonialByIdResponse.Size(m)
+}
+func (m *GetDoctorTestimonialByIdResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDoctorTestimonialByIdResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDoctorTestimonialByIdResponse proto.InternalMessageInfo
+
+func (m *GetDoctorTestimonialByIdResponse) GetResponse() *Testimonial {
+	if m != nil {
+		return m.Response
+	}
+	return nil
+}
+
+type MultiGetDoctorTestimonialsRequest struct {
+	DoctorId             string   `protobuf:"bytes,1,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MultiGetDoctorTestimonialsRequest) Reset()         { *m = MultiGetDoctorTestimonialsRequest{} }
+func (m *MultiGetDoctorTestimonialsRequest) String() string { return proto.CompactTextString(m) }
+func (*MultiGetDoctorTestimonialsRequest) ProtoMessage()    {}
+func (*MultiGetDoctorTestimonialsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{45}
+}
+
+func (m *MultiGetDoctorTestimonialsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MultiGetDoctorTestimonialsRequest.Unmarshal(m, b)
+}
+func (m *MultiGetDoctorTestimonialsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MultiGetDoctorTestimonialsRequest.Marshal(b, m, deterministic)
+}
+func (m *MultiGetDoctorTestimonialsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MultiGetDoctorTestimonialsRequest.Merge(m, src)
+}
+func (m *MultiGetDoctorTestimonialsRequest) XXX_Size() int {
+	return xxx_messageInfo_MultiGetDoctorTestimonialsRequest.Size(m)
+}
+func (m *MultiGetDoctorTestimonialsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_MultiGetDoctorTestimonialsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MultiGetDoctorTestimonialsRequest proto.InternalMessageInfo
+
+func (m *MultiGetDoctorTestimonialsRequest) GetDoctorId() string {
+	if m != nil {
+		return m.DoctorId
+	}
+	return ""
+}
+
+type MultiGetDoctorTestimonialsResponse struct {
+	Testimonials         []*Testimonial `protobuf:"bytes,1,rep,name=testimonials,proto3" json:"testimonials,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *MultiGetDoctorTestimonialsResponse) Reset()         { *m = MultiGetDoctorTestimonialsResponse{} }
+func (m *MultiGetDoctorTestimonialsResponse) String() string { return proto.CompactTextString(m) }
+func (*MultiGetDoctorTestimonialsResponse) ProtoMessage()    {}
+func (*MultiGetDoctorTestimonialsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{46}
+}
+
+func (m *MultiGetDoctorTestimonialsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MultiGetDoctorTestimonialsResponse.Unmarshal(m, b)
+}
+func (m *MultiGetDoctorTestimonialsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MultiGetDoctorTestimonialsResponse.Marshal(b, m, deterministic)
+}
+func (m *MultiGetDoctorTestimonialsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MultiGetDoctorTestimonialsResponse.Merge(m, src)
+}
+func (m *MultiGetDoctorTestimonialsResponse) XXX_Size() int {
+	return xxx_messageInfo_MultiGetDoctorTestimonialsResponse.Size(m)
+}
+func (m *MultiGetDoctorTestimonialsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MultiGetDoctorTestimonialsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MultiGetDoctorTestimonialsResponse proto.InternalMessageInfo
+
+func (m *MultiGetDoctorTestimonialsResponse) GetTestimonials() []*Testimonial {
+	if m != nil {
+		return m.Testimonials
+	}
+	return nil
+}
+
+type GetTestimonialsForDoctorsRequest struct {
+	DoctorIds            []string `protobuf:"bytes,1,rep,name=doctor_ids,json=doctorIds,proto3" json:"doctor_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetTestimonialsForDoctorsRequest) Reset()         { *m = GetTestimonialsForDoctorsRequest{} }
+func (m *GetTestimonialsForDoctorsRequest) String() string { return proto.CompactTextString(m) }
+func (*GetTestimonialsForDoctorsRequest) ProtoMessage()    {}
+func (*GetTestimonialsForDoctorsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{47}
+}
+
+func (m *GetTestimonialsForDoctorsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetTestimonialsForDoctorsRequest.Unmarshal(m, b)
+}
+func (m *GetTestimonialsForDoctorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetTestimonialsForDoctorsRequest.Marshal(b, m, deterministic)
+}
+func (m *GetTestimonialsForDoctorsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTestimonialsForDoctorsRequest.Merge(m, src)
+}
+func (m *GetTestimonialsForDoctorsRequest) XXX_Size() int {
+	return xxx_messageInfo_GetTestimonialsForDoctorsRequest.Size(m)
+}
+func (m *GetTestimonialsForDoctorsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTestimonialsForDoctorsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTestimonialsForDoctorsRequest proto.InternalMessageInfo
+
+func (m *GetTestimonialsForDoctorsRequest) GetDoctorIds() []string {
+	if m != nil {
+		return m.DoctorIds
+	}
+	return nil
+}
+
+type Testimonials struct {
+	Testimonials         []*Testimonial `protobuf:"bytes,1,rep,name=testimonials,proto3" json:"testimonials,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *Testimonials) Reset()         { *m = Testimonials{} }
+func (m *Testimonials) String() string { return proto.CompactTextString(m) }
+func (*Testimonials) ProtoMessage()    {}
+func (*Testimonials) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{48}
+}
+
+func (m *Testimonials) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Testimonials.Unmarshal(m, b)
+}
+func (m *Testimonials) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Testimonials.Marshal(b, m, deterministic)
+}
+func (m *Testimonials) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Testimonials.Merge(m, src)
+}
+func (m *Testimonials) XXX_Size() int {
+	return xxx_messageInfo_Testimonials.Size(m)
+}
+func (m *Testimonials) XXX_DiscardUnknown() {
+	xxx_messageInfo_Testimonials.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Testimonials proto.InternalMessageInfo
+
+func (m *Testimonials) GetTestimonials() []*Testimonial {
+	if m != nil {
+		return m.Testimonials
+	}
+	return nil
+}
+
+type GetTestimonialsForDoctorsResponse struct {
+	TestimonialsByDoctorId map[string]*Testimonials `protobuf:"bytes,1,rep,name=testimonials_by_doctor_id,json=testimonialsByDoctorId,proto3" json:"testimonials_by_doctor_id,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral   struct{}                 `json:"-"`
+	XXX_unrecognized       []byte                   `json:"-"`
+	XXX_sizecache          int32                    `json:"-"`
+}
+
+func (m *GetTestimonialsForDoctorsResponse) Reset()         { *m = GetTestimonialsForDoctorsResponse{} }
+func (m *GetTestimonialsForDoctorsResponse) String() string { return proto.CompactTextString(m) }
+func (*GetTestimonialsForDoctorsResponse) ProtoMessage()    {}
+func (*GetTestimonialsForDoctorsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_481cb6c23ddb1e62, []int{49}
+}
+
+func (m *GetTestimonialsForDoctorsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetTestimonialsForDoctorsResponse.Unmarshal(m, b)
+}
+func (m *GetTestimonialsForDoctorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetTestimonialsForDoctorsResponse.Marshal(b, m, deterministic)
+}
+func (m *GetTestimonialsForDoctorsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTestimonialsForDoctorsResponse.Merge(m, src)
+}
+func (m *GetTestimonialsForDoctorsResponse) XXX_Size() int {
+	return xxx_messageInfo_GetTestimonialsForDoctorsResponse.Size(m)
+}
+func (m *GetTestimonialsForDoctorsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTestimonialsForDoctorsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTestimonialsForDoctorsResponse proto.InternalMessageInfo
+
+func (m *GetTestimonialsForDoctorsResponse) GetTestimonialsByDoctorId() map[string]*Testimonials {
+	if m != nil {
+		return m.TestimonialsByDoctorId
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*VersionResponse)(nil), "service.VersionResponse")
 	proto.RegisterType((*BrandAttributeView)(nil), "service.BrandAttributeView")
@@ -1258,77 +2317,163 @@ func init() {
 	proto.RegisterType((*DeleteBrandResponse)(nil), "service.DeleteBrandResponse")
 	proto.RegisterType((*MultiGetBrandsRequest)(nil), "service.MultiGetBrandsRequest")
 	proto.RegisterType((*MultiGetBrandsResponse)(nil), "service.MultiGetBrandsResponse")
+	proto.RegisterType((*Testimonial)(nil), "service.Testimonial")
+	proto.RegisterType((*Capability)(nil), "service.Capability")
+	proto.RegisterType((*Doctor)(nil), "service.Doctor")
+	proto.RegisterType((*CreateDoctorRequest)(nil), "service.CreateDoctorRequest")
+	proto.RegisterType((*CreateDoctorResponse)(nil), "service.CreateDoctorResponse")
+	proto.RegisterType((*CreateTestimonialRequest)(nil), "service.CreateTestimonialRequest")
+	proto.RegisterType((*CreateTestimonialResponse)(nil), "service.CreateTestimonialResponse")
+	proto.RegisterType((*GetDoctorByIdRequest)(nil), "service.GetDoctorByIdRequest")
+	proto.RegisterType((*GetDoctorByIdResponse)(nil), "service.GetDoctorByIdResponse")
+	proto.RegisterType((*UpdateDoctorRequest)(nil), "service.UpdateDoctorRequest")
+	proto.RegisterType((*UpdateDoctorResponse)(nil), "service.UpdateDoctorResponse")
+	proto.RegisterType((*MultiGetDoctorsRequest)(nil), "service.MultiGetDoctorsRequest")
+	proto.RegisterType((*MultiGetDoctorsResponse)(nil), "service.MultiGetDoctorsResponse")
+	proto.RegisterType((*UpdateDoctorTestimonialRequest)(nil), "service.UpdateDoctorTestimonialRequest")
+	proto.RegisterType((*UpdateDoctorTestimonialResponse)(nil), "service.UpdateDoctorTestimonialResponse")
+	proto.RegisterType((*GetDoctorTestimonialByIdRequest)(nil), "service.GetDoctorTestimonialByIdRequest")
+	proto.RegisterType((*GetDoctorTestimonialByIdResponse)(nil), "service.GetDoctorTestimonialByIdResponse")
+	proto.RegisterType((*MultiGetDoctorTestimonialsRequest)(nil), "service.MultiGetDoctorTestimonialsRequest")
+	proto.RegisterType((*MultiGetDoctorTestimonialsResponse)(nil), "service.MultiGetDoctorTestimonialsResponse")
+	proto.RegisterType((*GetTestimonialsForDoctorsRequest)(nil), "service.GetTestimonialsForDoctorsRequest")
+	proto.RegisterType((*Testimonials)(nil), "service.Testimonials")
+	proto.RegisterType((*GetTestimonialsForDoctorsResponse)(nil), "service.GetTestimonialsForDoctorsResponse")
+	proto.RegisterMapType((map[string]*Testimonials)(nil), "service.GetTestimonialsForDoctorsResponse.TestimonialsByDoctorIdEntry")
 }
 
 func init() { proto.RegisterFile("catalog/pkg/pb/service.proto", fileDescriptor_481cb6c23ddb1e62) }
 
 var fileDescriptor_481cb6c23ddb1e62 = []byte{
-	// 1032 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x4f, 0x6f, 0x1b, 0x45,
-	0x14, 0xd7, 0xc6, 0x4d, 0xdc, 0x3e, 0x47, 0x34, 0x1d, 0xdb, 0xa9, 0xd9, 0xd8, 0x89, 0x19, 0x48,
-	0xb0, 0xd2, 0x26, 0x2b, 0x19, 0x82, 0x44, 0x42, 0x0f, 0xa4, 0x05, 0x94, 0x03, 0xaa, 0x64, 0x44,
-	0x0f, 0xfc, 0xab, 0xc6, 0xde, 0xc9, 0xb2, 0x64, 0xe3, 0x5d, 0x76, 0xc6, 0x49, 0x2d, 0xd4, 0x0b,
-	0x47, 0xae, 0xe5, 0x8a, 0x90, 0x38, 0xf1, 0x09, 0xe0, 0x83, 0xf0, 0x15, 0xf8, 0x20, 0x95, 0x67,
-	0x67, 0xed, 0x19, 0xef, 0xac, 0x9d, 0x46, 0xce, 0xcd, 0x33, 0xf3, 0xde, 0xfb, 0xfd, 0xde, 0x9b,
-	0xdf, 0xbc, 0x7d, 0x86, 0x7a, 0x8f, 0x70, 0x12, 0x84, 0x9e, 0x13, 0x9d, 0x79, 0x4e, 0xd4, 0x75,
-	0x18, 0x8d, 0x2f, 0xfc, 0x1e, 0xdd, 0x8f, 0xe2, 0x90, 0x87, 0xa8, 0x28, 0x97, 0x76, 0xdd, 0x0b,
-	0x43, 0x2f, 0xa0, 0x0e, 0x89, 0x7c, 0x87, 0xf4, 0xfb, 0x21, 0x27, 0xdc, 0x0f, 0xfb, 0x2c, 0x31,
-	0xb3, 0x8f, 0x3c, 0x9f, 0xff, 0x38, 0xe8, 0xee, 0xf7, 0xc2, 0x73, 0x27, 0x18, 0x9e, 0x72, 0x47,
-	0x6c, 0xf7, 0xf6, 0x3c, 0xda, 0xdf, 0xbb, 0x20, 0x81, 0xef, 0x12, 0x4e, 0x9d, 0xcc, 0x0f, 0xe9,
-	0xfc, 0x50, 0x31, 0x66, 0x97, 0xc4, 0xf3, 0x68, 0xec, 0x84, 0x91, 0x08, 0x9f, 0x85, 0xc2, 0x0f,
-	0xe0, 0xee, 0x33, 0x1a, 0x33, 0x3f, 0xec, 0x77, 0x28, 0x8b, 0xc2, 0x3e, 0xa3, 0xa8, 0x06, 0xc5,
-	0x8b, 0x64, 0xab, 0x66, 0x35, 0xad, 0xd6, 0x9d, 0x4e, 0xba, 0xc4, 0x9f, 0x00, 0x3a, 0x8e, 0x49,
-	0xdf, 0xfd, 0x94, 0xf3, 0xd8, 0xef, 0x0e, 0x38, 0x7d, 0xe6, 0xd3, 0x4b, 0xb4, 0x06, 0x85, 0x33,
-	0x3a, 0x94, 0xb6, 0xa3, 0x9f, 0xa8, 0x02, 0xcb, 0x17, 0x24, 0x18, 0xd0, 0xda, 0x92, 0xd8, 0x4b,
-	0x16, 0x98, 0x82, 0xad, 0x7b, 0xa7, 0x88, 0x6f, 0x12, 0x05, 0x6d, 0x41, 0x89, 0xbe, 0xe0, 0x34,
-	0xee, 0x93, 0xe0, 0xb9, 0xef, 0xd6, 0x0a, 0xe2, 0x0c, 0xd2, 0xad, 0x13, 0x17, 0x87, 0xb0, 0xf1,
-	0x38, 0xa6, 0x84, 0xd3, 0x69, 0xb0, 0x9f, 0x07, 0x94, 0x71, 0xf4, 0x36, 0xdc, 0xee, 0x8e, 0x0e,
-	0x46, 0xce, 0x32, 0x3d, 0xb1, 0x3e, 0x71, 0xd1, 0x01, 0x14, 0x23, 0x32, 0x0c, 0x42, 0xe2, 0x0a,
-	0xc8, 0x52, 0x7b, 0x63, 0x3f, 0xbd, 0xbe, 0x6c, 0xda, 0x9d, 0xd4, 0x16, 0x7f, 0x0b, 0x75, 0x33,
-	0xa0, 0xac, 0xe7, 0x11, 0xac, 0xc4, 0x94, 0x0d, 0x02, 0x2e, 0xf0, 0x4a, 0xed, 0x77, 0x73, 0xa2,
-	0xaa, 0xe5, 0xe8, 0x48, 0x17, 0xfc, 0x87, 0x05, 0x1b, 0x5f, 0x47, 0xee, 0x75, 0xd2, 0x79, 0x08,
-	0x28, 0x39, 0x22, 0xa9, 0xd3, 0xc8, 0x28, 0x29, 0xe6, 0x5a, 0x57, 0x8b, 0xa6, 0x27, 0x5f, 0x78,
-	0xb3, 0xe4, 0xcd, 0xf4, 0x16, 0x91, 0xfc, 0x29, 0x6c, 0x3c, 0xa1, 0x01, 0xbd, 0xe9, 0xdc, 0xf1,
-	0x26, 0xd4, 0xcd, 0x38, 0x09, 0x27, 0xec, 0x41, 0xfd, 0x0b, 0xca, 0xf5, 0xc3, 0xe3, 0xe1, 0x89,
-	0xbb, 0x70, 0x22, 0xdf, 0x41, 0x23, 0x07, 0x68, 0x11, 0xe5, 0xfc, 0x1e, 0x1a, 0x5f, 0x0e, 0x02,
-	0xee, 0x67, 0x20, 0xae, 0x90, 0xc7, 0x3b, 0xb0, 0xaa, 0x3c, 0x3b, 0x56, 0x5b, 0x6a, 0x16, 0x5a,
-	0x77, 0x3a, 0xa5, 0xc9, 0xbb, 0x63, 0xf8, 0x39, 0x6c, 0xe6, 0x85, 0x97, 0xec, 0x1f, 0x41, 0x31,
-	0xa1, 0xc2, 0x6a, 0x56, 0xb3, 0x70, 0x55, 0xfa, 0xa9, 0x0f, 0x6e, 0xc3, 0xdd, 0x34, 0x76, 0xca,
-	0x78, 0xaa, 0x1b, 0x58, 0x99, 0x6e, 0xf0, 0x14, 0xd6, 0x26, 0x3e, 0x8b, 0x28, 0xe2, 0x67, 0x80,
-	0x94, 0xd7, 0x9e, 0xf2, 0x70, 0x26, 0xaf, 0x27, 0x89, 0x59, 0xd5, 0x63, 0x3e, 0xa1, 0x9c, 0xf8,
-	0x01, 0x9b, 0xbc, 0x9b, 0x8f, 0x85, 0xa4, 0xc6, 0x50, 0xec, 0xf3, 0x30, 0xd6, 0x02, 0xe6, 0x5f,
-	0x05, 0xfe, 0x41, 0x88, 0xc4, 0xe4, 0xba, 0x98, 0x32, 0xbf, 0x80, 0x55, 0x95, 0x33, 0x42, 0x70,
-	0xab, 0x4f, 0xce, 0xa9, 0xa4, 0x21, 0x7e, 0xa3, 0x26, 0x94, 0x5c, 0xca, 0x7a, 0xb1, 0x2f, 0x3e,
-	0x2c, 0x52, 0xcf, 0xea, 0x16, 0xb2, 0xe1, 0xf6, 0x19, 0x1d, 0x5e, 0x86, 0xb1, 0xcb, 0x64, 0x93,
-	0x1e, 0xaf, 0xd1, 0x3a, 0xac, 0x30, 0x4e, 0xf8, 0x80, 0xd5, 0x6e, 0x35, 0xad, 0xd6, 0x72, 0x47,
-	0xae, 0x70, 0x0f, 0xca, 0x5a, 0x6d, 0x65, 0x3e, 0x0f, 0x60, 0x59, 0xe4, 0x3e, 0xbb, 0xb4, 0x89,
-	0xcd, 0xb4, 0x22, 0x96, 0x32, 0x8a, 0x70, 0xa1, 0x92, 0x2a, 0x42, 0x7b, 0x5a, 0x8b, 0x45, 0xf9,
-	0x08, 0xca, 0x3a, 0xca, 0x15, 0xf5, 0x7a, 0x0a, 0x48, 0xe9, 0xa7, 0xd7, 0x95, 0xd7, 0x7c, 0x7e,
-	0x3d, 0x28, 0x6b, 0x38, 0x37, 0x52, 0x84, 0x03, 0x40, 0x4a, 0x5f, 0xbd, 0x72, 0x0d, 0xaa, 0x50,
-	0xd6, 0xdc, 0x64, 0x17, 0x3e, 0x84, 0xaa, 0xd6, 0x5f, 0x58, 0x1a, 0x70, 0xba, 0x37, 0x59, 0xd9,
-	0xde, 0xf4, 0x14, 0xd6, 0xa7, 0x7d, 0x65, 0xc6, 0x07, 0x4a, 0x33, 0x18, 0xbd, 0x95, 0xc6, 0x38,
-	0x65, 0x93, 0x4a, 0xd2, 0x36, 0xd0, 0xfe, 0x77, 0x59, 0xbe, 0x92, 0xaf, 0x12, 0x6b, 0xd4, 0x85,
-	0x92, 0xa2, 0x5d, 0x34, 0xf9, 0x7a, 0x66, 0xbb, 0x85, 0x5d, 0x37, 0x1f, 0xca, 0x3c, 0x6b, 0xbf,
-	0xfe, 0xf7, 0xff, 0xab, 0x25, 0x84, 0x8b, 0x8e, 0x28, 0x33, 0x3b, 0x1c, 0xdf, 0xea, 0x4f, 0xb0,
-	0xaa, 0x92, 0x42, 0xf5, 0x1c, 0xae, 0x09, 0xca, 0xec, 0x4c, 0x70, 0x43, 0xc0, 0xdc, 0x47, 0x55,
-	0x09, 0xe3, 0xfc, 0xa2, 0x14, 0xf1, 0x25, 0x8a, 0xa0, 0xa4, 0x08, 0x44, 0xc9, 0x27, 0x2b, 0x4f,
-	0x25, 0x1f, 0x83, 0xa6, 0xf0, 0x8e, 0x00, 0x6a, 0xb6, 0xcd, 0x40, 0x93, 0xec, 0x3c, 0x28, 0x29,
-	0xd7, 0xae, 0x20, 0x66, 0x35, 0xa4, 0x20, 0x9a, 0x94, 0x22, 0x53, 0xdb, 0xcd, 0x49, 0x2d, 0x84,
-	0xb7, 0x74, 0x31, 0xa0, 0xcd, 0x71, 0x38, 0xa3, 0xc2, 0xec, 0xad, 0xdc, 0x73, 0x89, 0x58, 0x17,
-	0x88, 0xeb, 0xf6, 0xbd, 0x14, 0xf1, 0x7c, 0x64, 0xb7, 0xe7, 0x51, 0x7e, 0x68, 0xed, 0xa2, 0xdf,
-	0x2c, 0x40, 0x99, 0xaf, 0x22, 0x43, 0xdb, 0xea, 0x05, 0xe5, 0x7e, 0x0a, 0xec, 0x9d, 0x79, 0x66,
-	0x92, 0xc3, 0xb6, 0xe0, 0xb0, 0x85, 0x1a, 0xe3, 0xac, 0xd3, 0x2f, 0xc8, 0x4b, 0x67, 0x3c, 0x7d,
-	0xb0, 0xf6, 0x3f, 0x2b, 0x50, 0xd5, 0x99, 0xa4, 0x12, 0x7e, 0x65, 0x41, 0xc5, 0x34, 0xc9, 0xa2,
-	0xf7, 0x4c, 0x7a, 0x9d, 0x9e, 0x1e, 0xec, 0xed, 0x39, 0x56, 0x92, 0xe6, 0xbe, 0xa0, 0xd9, 0xc2,
-	0xb3, 0x69, 0x4e, 0x64, 0xf1, 0xb7, 0x05, 0x15, 0xd3, 0x88, 0xa9, 0xb0, 0x9a, 0x31, 0x20, 0x2b,
-	0xac, 0x66, 0xcd, 0xa9, 0xf8, 0xb1, 0x60, 0xf5, 0xc8, 0x6e, 0xcf, 0x64, 0x95, 0xee, 0xaa, 0xc3,
-	0x9c, 0xa2, 0xe0, 0xbf, 0x2c, 0xa8, 0x1a, 0xe7, 0x37, 0xfd, 0xaa, 0x73, 0x07, 0x49, 0xfd, 0xaa,
-	0xf3, 0xc7, 0x40, 0x7c, 0x28, 0xd8, 0x7e, 0x88, 0xae, 0xc1, 0x16, 0xfd, 0x69, 0x41, 0xc5, 0x34,
-	0xed, 0x2a, 0xf5, 0x9c, 0x31, 0x74, 0x2b, 0xf5, 0x9c, 0x39, 0x32, 0x4b, 0x86, 0xbb, 0xd7, 0x61,
-	0xf8, 0xbb, 0x05, 0xf7, 0xcd, 0x93, 0x24, 0x43, 0x3b, 0xe6, 0x97, 0x98, 0xa1, 0xf9, 0xfe, 0x5c,
-	0x3b, 0x49, 0xb4, 0x25, 0x88, 0x62, 0x7b, 0x8e, 0x1c, 0xad, 0xdd, 0xe3, 0xf2, 0x37, 0xf7, 0xf4,
-	0x3f, 0xf7, 0x47, 0x51, 0xb7, 0xbb, 0x22, 0xfe, 0x46, 0x7f, 0xf0, 0x3a, 0x00, 0x00, 0xff, 0xff,
-	0x68, 0x9b, 0x24, 0x9c, 0xf8, 0x0f, 0x00, 0x00,
+	// 2043 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x59, 0xcf, 0x73, 0x1b, 0x49,
+	0xf5, 0xaf, 0xb1, 0xd6, 0x3f, 0xf4, 0x24, 0xff, 0x48, 0xfb, 0x47, 0xc6, 0x63, 0xd9, 0x96, 0x27,
+	0xeb, 0x44, 0x76, 0x12, 0xcd, 0xf7, 0x2b, 0x08, 0x59, 0x1c, 0x42, 0x6d, 0x1c, 0x27, 0x90, 0xa2,
+	0xb2, 0xa9, 0x52, 0xb2, 0x7b, 0x00, 0x76, 0xc5, 0x48, 0x6a, 0x2b, 0x83, 0x47, 0x1a, 0x31, 0xdd,
+	0x72, 0x56, 0xb5, 0xb5, 0x07, 0xb8, 0xc1, 0x75, 0x17, 0x8a, 0x0b, 0x45, 0x15, 0x5c, 0xb8, 0x72,
+	0x59, 0xfe, 0x10, 0x2e, 0x5c, 0xb8, 0xf1, 0x87, 0x50, 0xd3, 0xd3, 0x3d, 0xd3, 0x3d, 0x3f, 0x64,
+	0xd9, 0x78, 0x6f, 0x9a, 0xd7, 0xaf, 0xfb, 0x7d, 0xde, 0xeb, 0xf7, 0x5e, 0x7f, 0xba, 0x05, 0x95,
+	0x8e, 0x4d, 0x6d, 0xd7, 0xeb, 0x59, 0xc3, 0xb3, 0x9e, 0x35, 0x6c, 0x5b, 0x04, 0xfb, 0xe7, 0x4e,
+	0x07, 0xd7, 0x87, 0xbe, 0x47, 0x3d, 0x34, 0xcf, 0x3f, 0x8d, 0x4a, 0xcf, 0xf3, 0x7a, 0x2e, 0xb6,
+	0xec, 0xa1, 0x63, 0xd9, 0x83, 0x81, 0x47, 0x6d, 0xea, 0x78, 0x03, 0x12, 0xaa, 0x19, 0x8f, 0x7a,
+	0x0e, 0x7d, 0x3b, 0x6a, 0xd7, 0x3b, 0x5e, 0xdf, 0x72, 0xc7, 0xa7, 0xd4, 0x62, 0xe2, 0xce, 0xfd,
+	0x1e, 0x1e, 0xdc, 0x3f, 0xb7, 0x5d, 0xa7, 0x6b, 0x53, 0x6c, 0xa5, 0x7e, 0xf0, 0xc9, 0xf7, 0x24,
+	0x65, 0xf2, 0xce, 0xee, 0xf5, 0xb0, 0x6f, 0x79, 0x43, 0xb6, 0x7c, 0x86, 0xa9, 0x5d, 0x0e, 0x84,
+	0x7d, 0xb5, 0x47, 0xa7, 0x16, 0x75, 0xfa, 0x98, 0x50, 0xbb, 0x3f, 0x0c, 0x15, 0xcc, 0xbb, 0xb0,
+	0xfc, 0x09, 0xf6, 0x89, 0xe3, 0x0d, 0x9a, 0x98, 0x0c, 0xbd, 0x01, 0xc1, 0x48, 0x87, 0xf9, 0xf3,
+	0x50, 0xa4, 0x6b, 0x55, 0xad, 0x56, 0x6c, 0x8a, 0x4f, 0xf3, 0x07, 0x80, 0x8e, 0x7d, 0x7b, 0xd0,
+	0x7d, 0x42, 0xa9, 0xef, 0xb4, 0x47, 0x14, 0x7f, 0xe2, 0xe0, 0x77, 0x68, 0x05, 0x0a, 0x67, 0x78,
+	0xcc, 0x75, 0x83, 0x9f, 0x68, 0x0d, 0x66, 0xcf, 0x6d, 0x77, 0x84, 0xf5, 0x19, 0x26, 0x0b, 0x3f,
+	0x4c, 0x0c, 0x86, 0x3a, 0x5b, 0x58, 0xbc, 0xcc, 0x2a, 0x68, 0x17, 0x4a, 0xf8, 0x73, 0x8a, 0xfd,
+	0x81, 0xed, 0xb6, 0x9c, 0xae, 0x5e, 0x60, 0x63, 0x20, 0x44, 0x2f, 0xba, 0xa6, 0x07, 0x5b, 0x4f,
+	0x7d, 0x6c, 0x53, 0x9c, 0x34, 0xf6, 0xab, 0x11, 0x26, 0x14, 0x6d, 0xc2, 0x42, 0x3b, 0x18, 0x08,
+	0x26, 0x73, 0xf7, 0xd8, 0xf7, 0x8b, 0x2e, 0x7a, 0x00, 0xf3, 0x43, 0x7b, 0xec, 0x7a, 0x76, 0x97,
+	0x99, 0x2c, 0x35, 0xb6, 0xea, 0x62, 0x7f, 0xd3, 0x6e, 0x37, 0x85, 0xae, 0xf9, 0x33, 0xa8, 0x64,
+	0x1b, 0xe4, 0xf1, 0x7c, 0x04, 0x73, 0x3e, 0x26, 0x23, 0x97, 0x32, 0x7b, 0xa5, 0xc6, 0xad, 0x9c,
+	0x55, 0xe5, 0x70, 0x34, 0xf9, 0x14, 0xf3, 0x4f, 0x1a, 0x6c, 0x7d, 0x3c, 0xec, 0x5e, 0xc5, 0x9d,
+	0x7b, 0x80, 0xc2, 0x21, 0x5b, 0x4c, 0x0a, 0x94, 0xc2, 0x60, 0xae, 0xb4, 0x95, 0xd5, 0x54, 0xe7,
+	0x0b, 0x97, 0x73, 0x3e, 0x1b, 0xde, 0x75, 0x38, 0x7f, 0x0a, 0x5b, 0x27, 0xd8, 0xc5, 0xdf, 0xb6,
+	0xef, 0xe6, 0x0e, 0x54, 0xb2, 0xed, 0x84, 0x98, 0xcc, 0x1e, 0x54, 0x7e, 0x84, 0xa9, 0x3a, 0x78,
+	0x3c, 0x7e, 0xd1, 0xbd, 0x76, 0x20, 0x3f, 0x87, 0xed, 0x1c, 0x43, 0xd7, 0x11, 0xce, 0x4f, 0x61,
+	0xfb, 0xe5, 0xc8, 0xa5, 0x4e, 0xca, 0xc4, 0x14, 0x7e, 0xec, 0x41, 0x59, 0x2a, 0x3b, 0xa2, 0xcf,
+	0x54, 0x0b, 0xb5, 0x62, 0xb3, 0x14, 0xd7, 0x1d, 0x31, 0x5b, 0xb0, 0x93, 0xb7, 0x3c, 0x47, 0xff,
+	0x18, 0xe6, 0x43, 0x28, 0x44, 0xd7, 0xaa, 0x85, 0x69, 0xe1, 0x8b, 0x39, 0x66, 0x03, 0x96, 0xc5,
+	0xda, 0x02, 0x71, 0xa2, 0x1b, 0x68, 0xa9, 0x6e, 0xf0, 0x0a, 0x56, 0xe2, 0x39, 0xd7, 0x11, 0xc4,
+	0x67, 0x80, 0xa4, 0x6a, 0x17, 0x38, 0xac, 0xb8, 0x7a, 0xc2, 0x35, 0xd7, 0xd5, 0x35, 0x4f, 0x30,
+	0xb5, 0x1d, 0x97, 0xc4, 0x75, 0xf3, 0x7d, 0x96, 0x52, 0x91, 0x29, 0xf2, 0xdc, 0xf3, 0x95, 0x05,
+	0xf3, 0xb7, 0xc2, 0xfc, 0x8c, 0x25, 0x49, 0xd6, 0xd4, 0xeb, 0x09, 0xf3, 0xe7, 0x50, 0x96, 0x31,
+	0x23, 0x04, 0xef, 0x0d, 0xec, 0x3e, 0xe6, 0x30, 0xd8, 0x6f, 0x54, 0x85, 0x52, 0x17, 0x93, 0x8e,
+	0xef, 0xb0, 0x93, 0x87, 0xe7, 0xb3, 0x2c, 0x42, 0x06, 0x2c, 0x9c, 0xe1, 0xf1, 0x3b, 0xcf, 0xef,
+	0x12, 0xde, 0xa4, 0xa3, 0x6f, 0xb4, 0x01, 0x73, 0x84, 0xda, 0x74, 0x44, 0xf4, 0xf7, 0xaa, 0x5a,
+	0x6d, 0xb6, 0xc9, 0xbf, 0xcc, 0x0e, 0xac, 0x2a, 0xb1, 0xe5, 0xfe, 0xdc, 0x85, 0x59, 0xe6, 0xfb,
+	0xe4, 0xd0, 0x86, 0x3a, 0xc9, 0x8c, 0x98, 0x49, 0x65, 0x44, 0x17, 0xd6, 0x44, 0x46, 0x28, 0xa5,
+	0x75, 0xbd, 0x56, 0xbe, 0x07, 0xab, 0xaa, 0x95, 0x29, 0xf3, 0xf5, 0x14, 0x90, 0xd4, 0x4f, 0xaf,
+	0x9a, 0x5e, 0x17, 0xe3, 0xeb, 0xc0, 0xaa, 0x62, 0xe7, 0x5b, 0x09, 0xc2, 0x03, 0x40, 0x52, 0x5f,
+	0x9d, 0x3a, 0x06, 0xeb, 0xb0, 0xaa, 0x4c, 0xe3, 0x5d, 0xf8, 0x08, 0xd6, 0x95, 0xfe, 0x42, 0xc4,
+	0x82, 0xc9, 0xde, 0xa4, 0xa5, 0x7b, 0xd3, 0x2b, 0xd8, 0x48, 0xce, 0xe5, 0x1e, 0x3f, 0x90, 0x9a,
+	0x41, 0x50, 0x2b, 0xdb, 0x91, 0xcb, 0x59, 0x59, 0x12, 0xb5, 0x81, 0x3f, 0x6a, 0x50, 0x7a, 0x83,
+	0x09, 0x75, 0xfa, 0xde, 0xc0, 0xb1, 0x5d, 0x54, 0x81, 0x62, 0xd4, 0xe1, 0xb9, 0x4b, 0xb1, 0x20,
+	0x87, 0xca, 0xac, 0xc1, 0x2c, 0xe9, 0xd8, 0x2e, 0xe6, 0xf5, 0x11, 0x7e, 0x04, 0x85, 0xd3, 0xf1,
+	0xfa, 0x7d, 0x3c, 0xa0, 0x61, 0x79, 0x14, 0x9b, 0xd1, 0x37, 0xba, 0x05, 0x8b, 0x5d, 0x87, 0x0c,
+	0x5d, 0x7b, 0xdc, 0xf2, 0xfc, 0x2e, 0xf6, 0xf5, 0xd9, 0xaa, 0x56, 0x2b, 0x34, 0xcb, 0x5c, 0xf8,
+	0x2a, 0x90, 0x99, 0x55, 0x80, 0xa7, 0xf6, 0xd0, 0x6e, 0x3b, 0xae, 0x43, 0xc7, 0x41, 0xf5, 0xf6,
+	0x6d, 0x72, 0xc6, 0x30, 0x15, 0x9a, 0xec, 0xb7, 0xf9, 0xfb, 0x59, 0x98, 0x3b, 0xf1, 0x3a, 0xd4,
+	0xf3, 0xd1, 0x36, 0xc0, 0xa9, 0xe3, 0x13, 0xda, 0x92, 0x4a, 0xbc, 0xc8, 0x24, 0x1f, 0x05, 0x75,
+	0xbe, 0x05, 0x45, 0xd7, 0x16, 0xa3, 0x21, 0xf8, 0x85, 0x40, 0xc0, 0x06, 0x7f, 0x08, 0x8b, 0x41,
+	0x06, 0xb5, 0xbc, 0xd3, 0x56, 0xdb, 0xf1, 0xe9, 0x5b, 0x4e, 0x1c, 0x8c, 0x7a, 0x48, 0x3a, 0xeb,
+	0x82, 0x74, 0xd6, 0xdf, 0x08, 0xd2, 0xd9, 0x2c, 0x05, 0x13, 0x5e, 0x9d, 0x1e, 0x07, 0xea, 0x89,
+	0x36, 0x50, 0x10, 0x6d, 0x00, 0xdd, 0x81, 0x65, 0xdc, 0xb7, 0x1d, 0xb7, 0x65, 0x77, 0xbb, 0x3e,
+	0x26, 0x04, 0x13, 0x7d, 0x96, 0x6d, 0xe9, 0x12, 0x13, 0x3f, 0x11, 0xd2, 0x20, 0x1c, 0xc3, 0xb7,
+	0xde, 0x00, 0xb7, 0x06, 0xa3, 0x7e, 0x1b, 0xfb, 0x44, 0x9f, 0x63, 0x6a, 0x65, 0x26, 0xfc, 0x28,
+	0x94, 0x05, 0x4a, 0xf4, 0xed, 0xa8, 0xdf, 0x1e, 0x04, 0x2b, 0x8e, 0x7c, 0x57, 0x9f, 0x67, 0x6e,
+	0x94, 0x23, 0xe1, 0xc7, 0xbe, 0x1b, 0xf8, 0xe9, 0xf4, 0xed, 0x1e, 0x66, 0x0a, 0x0b, 0xa1, 0x9f,
+	0x4c, 0x10, 0x0c, 0xee, 0xc3, 0xd2, 0xd0, 0xc7, 0x2d, 0x62, 0xbb, 0xa3, 0x90, 0x5d, 0xeb, 0x45,
+	0xa6, 0xb1, 0x38, 0xf4, 0xf1, 0xeb, 0x48, 0x18, 0xc0, 0x1e, 0x7a, 0x84, 0xca, 0x7a, 0xc0, 0xf4,
+	0x96, 0x02, 0xb1, 0xa4, 0x78, 0x0b, 0x16, 0xfb, 0x98, 0xda, 0xad, 0xa8, 0x3f, 0x96, 0x42, 0x44,
+	0x81, 0xf0, 0x27, 0xa2, 0x47, 0x1e, 0xc0, 0x0a, 0x53, 0x92, 0xdb, 0x6c, 0x99, 0xe9, 0x2d, 0x07,
+	0xf2, 0x13, 0xa9, 0xd5, 0xd6, 0x61, 0xb5, 0x13, 0x6d, 0x78, 0xab, 0xed, 0xd0, 0x16, 0xdb, 0xf1,
+	0x45, 0x16, 0xd4, 0x1b, 0xf1, 0xd0, 0xb1, 0x43, 0x5f, 0xda, 0xe4, 0x2c, 0x20, 0xf8, 0x3c, 0x61,
+	0xf4, 0xa5, 0xaa, 0x56, 0x5b, 0x68, 0x8a, 0x4f, 0xf4, 0x10, 0xca, 0x91, 0xba, 0x83, 0x89, 0xbe,
+	0xcc, 0x4a, 0x62, 0x35, 0x2a, 0x89, 0x38, 0xaf, 0x9a, 0x8a, 0x62, 0x3a, 0x31, 0x57, 0xd2, 0x89,
+	0x99, 0x2c, 0xfc, 0x1b, 0xa9, 0xc2, 0xff, 0x50, 0xf4, 0xff, 0x30, 0x39, 0x45, 0x7d, 0x1f, 0x24,
+	0xbb, 0xdf, 0x72, 0x04, 0x88, 0x2b, 0x46, 0xc7, 0xea, 0x53, 0x58, 0x53, 0x57, 0x88, 0xfa, 0xda,
+	0x82, 0xcf, 0x7f, 0xe7, 0xad, 0x11, 0x29, 0x98, 0x3d, 0xd0, 0xc3, 0x45, 0xa4, 0x02, 0x17, 0x58,
+	0xb6, 0xa0, 0xd8, 0x65, 0xfa, 0x71, 0xeb, 0x5a, 0x08, 0x05, 0x2f, 0xba, 0xa8, 0x9e, 0xbc, 0x40,
+	0xac, 0x45, 0x46, 0xe4, 0xa5, 0x22, 0xb4, 0x2f, 0x61, 0x33, 0xc3, 0x10, 0x87, 0xfc, 0x7f, 0x29,
+	0xc8, 0xd9, 0xab, 0xc5, 0xb8, 0x1f, 0xb2, 0x93, 0x2d, 0x74, 0xe7, 0x52, 0x87, 0xce, 0x09, 0xac,
+	0x27, 0x26, 0x5e, 0x25, 0x6c, 0x9f, 0x8a, 0x23, 0x45, 0xdd, 0xbd, 0x89, 0x11, 0x3b, 0x48, 0x46,
+	0x6c, 0xe2, 0xd6, 0xaa, 0xcb, 0x5f, 0x05, 0xe3, 0xc3, 0xf8, 0x1c, 0x08, 0xc7, 0xa2, 0x43, 0x64,
+	0x1b, 0x20, 0x82, 0x29, 0x8e, 0x90, 0xa2, 0xc0, 0x49, 0xcc, 0x13, 0xb8, 0x99, 0x9a, 0xc8, 0x01,
+	0x1c, 0xc0, 0x7c, 0xa8, 0x27, 0xe8, 0x56, 0xda, 0x07, 0x3e, 0x6e, 0x7e, 0xad, 0xc1, 0x8e, 0xec,
+	0xc4, 0x65, 0x13, 0x6c, 0x1f, 0x96, 0x68, 0x3c, 0x25, 0x3e, 0x74, 0x17, 0x25, 0xa9, 0x9a, 0x87,
+	0x85, 0x69, 0xf2, 0xf0, 0x35, 0xec, 0xe6, 0xa2, 0xba, 0x72, 0x36, 0x62, 0xd8, 0x8d, 0x82, 0x25,
+	0x69, 0xc8, 0x89, 0x79, 0x0d, 0xbe, 0x9a, 0x6f, 0xa0, 0x9a, 0x6f, 0xe6, 0xca, 0xe0, 0x3f, 0x84,
+	0x3d, 0x75, 0xbb, 0x25, 0x35, 0x32, 0x0d, 0x7c, 0xf3, 0x33, 0x30, 0x27, 0xad, 0xc0, 0x91, 0x7d,
+	0x00, 0x65, 0xc9, 0x1d, 0x91, 0x40, 0xd9, 0xe8, 0x14, 0x4d, 0xf3, 0x09, 0xf3, 0x5b, 0x5e, 0xf4,
+	0xb9, 0xe7, 0x5f, 0x2e, 0xa7, 0x7f, 0x0c, 0x65, 0x79, 0xfe, 0xff, 0x00, 0xe6, 0xb7, 0x33, 0xb0,
+	0x37, 0x01, 0x0d, 0x77, 0xf6, 0xd7, 0x1a, 0x6c, 0xca, 0xd3, 0x5a, 0xed, 0x71, 0x4b, 0x0e, 0x60,
+	0x60, 0xed, 0xb9, 0x4c, 0xbf, 0x26, 0xaf, 0x27, 0xe3, 0x21, 0xc7, 0xe3, 0x13, 0xee, 0xd7, 0xb3,
+	0x01, 0xf5, 0xc7, 0xcd, 0x0d, 0x9a, 0x39, 0x68, 0xfc, 0x02, 0xb6, 0x26, 0x4c, 0xcb, 0x78, 0x85,
+	0xba, 0x2b, 0x53, 0x37, 0x99, 0x11, 0x2b, 0xfb, 0x19, 0xea, 0x1c, 0xcd, 0x7c, 0xa0, 0x35, 0xfe,
+	0x31, 0xcb, 0xef, 0x4f, 0xaf, 0x43, 0x45, 0xd4, 0x86, 0x92, 0x74, 0xab, 0x41, 0xf1, 0xbb, 0x4a,
+	0xfa, 0x1e, 0x69, 0x54, 0xb2, 0x07, 0x79, 0x56, 0xea, 0xbf, 0xf9, 0xe7, 0x7f, 0xbe, 0x9a, 0x41,
+	0xe6, 0xbc, 0xc5, 0x08, 0x38, 0x39, 0x8a, 0xf8, 0xfe, 0x2f, 0xa1, 0x2c, 0xd3, 0x55, 0x54, 0xc9,
+	0x61, 0xb1, 0xa1, 0x95, 0xc9, 0x1c, 0xd7, 0xdc, 0x66, 0x66, 0x6e, 0xa2, 0x75, 0x6e, 0xc6, 0xfa,
+	0x42, 0x3a, 0x3e, 0xbe, 0x44, 0x43, 0x28, 0x49, 0x57, 0x07, 0xc9, 0x9f, 0xf4, 0xc5, 0x45, 0xf2,
+	0x27, 0xe3, 0xb6, 0x61, 0xde, 0x66, 0x86, 0xaa, 0x8d, 0x6c, 0x43, 0xb1, 0x77, 0x3d, 0x28, 0x49,
+	0x17, 0x02, 0xc9, 0x62, 0xfa, 0x76, 0x21, 0x59, 0xcc, 0xba, 0x43, 0x70, 0xd7, 0x0e, 0x73, 0x5c,
+	0xf3, 0x60, 0x49, 0xbd, 0x26, 0xa0, 0x9d, 0x68, 0xb9, 0xcc, 0xbb, 0x87, 0xb1, 0x9b, 0x3b, 0xce,
+	0x2d, 0x56, 0x98, 0xc5, 0x0d, 0xe3, 0x86, 0xb0, 0xd8, 0x0f, 0xf4, 0xee, 0xf7, 0x30, 0x3d, 0xd2,
+	0x0e, 0xd1, 0xef, 0x34, 0x40, 0xa9, 0xf7, 0x12, 0x82, 0xf6, 0xe5, 0x0d, 0xca, 0x7d, 0x24, 0x30,
+	0x6e, 0x5f, 0xa4, 0xc6, 0x31, 0xec, 0x33, 0x0c, 0xbb, 0x68, 0x3b, 0xf2, 0x5a, 0xbc, 0x2d, 0x7c,
+	0x69, 0x45, 0x97, 0x14, 0xd2, 0xf8, 0x66, 0x0e, 0xd6, 0x55, 0x24, 0x22, 0x85, 0xbf, 0xd2, 0x04,
+	0xaf, 0x52, 0xc7, 0xd1, 0xfb, 0x59, 0xf9, 0x9a, 0x7c, 0x57, 0x32, 0xf6, 0x2f, 0xd0, 0xe2, 0x30,
+	0xeb, 0x0c, 0x66, 0xcd, 0x9c, 0x0c, 0x33, 0x4e, 0x8b, 0xbf, 0x69, 0x82, 0x12, 0xe4, 0xa2, 0x9a,
+	0xf0, 0x74, 0x2a, 0xa1, 0x9a, 0xf4, 0x82, 0x69, 0x3e, 0x65, 0xa8, 0x1e, 0x1b, 0x8d, 0x89, 0xa8,
+	0x84, 0x54, 0x7e, 0xe6, 0x93, 0x32, 0xf8, 0x2f, 0x1a, 0xa3, 0x58, 0xe9, 0x97, 0x3d, 0x75, 0xab,
+	0x73, 0x9f, 0x18, 0xd5, 0xad, 0xce, 0x7f, 0x20, 0x34, 0x8f, 0x18, 0xda, 0xef, 0xa2, 0x2b, 0xa0,
+	0x45, 0x7f, 0xd6, 0x60, 0x2d, 0xeb, 0x1d, 0x54, 0x8a, 0xe7, 0x84, 0xe7, 0x58, 0x29, 0x9e, 0x13,
+	0x1f, 0x53, 0x39, 0xc2, 0xc3, 0xab, 0x20, 0xfc, 0x5a, 0x8b, 0x69, 0x58, 0xb2, 0x66, 0x6e, 0x67,
+	0x57, 0x62, 0x0a, 0xe6, 0x9d, 0x0b, 0xf5, 0x38, 0xd0, 0x1a, 0x03, 0x6a, 0x1a, 0x17, 0xa4, 0xa3,
+	0x76, 0xd8, 0xf8, 0x57, 0x01, 0x16, 0xc3, 0x73, 0x44, 0x14, 0xcc, 0x29, 0x94, 0xe5, 0x7b, 0x08,
+	0x4a, 0xf6, 0x75, 0x85, 0x22, 0x4b, 0xfd, 0x38, 0xeb, 0xf2, 0x62, 0x6e, 0x32, 0x20, 0xab, 0xe6,
+	0x82, 0xc5, 0x79, 0x64, 0x9c, 0x57, 0xe7, 0x0a, 0x73, 0x7f, 0x16, 0x51, 0x7a, 0xa4, 0xb4, 0xf8,
+	0xd4, 0x95, 0xc0, 0xd8, 0xc9, 0x1b, 0xe6, 0x26, 0x77, 0x98, 0x49, 0x1d, 0x6d, 0x08, 0x93, 0x89,
+	0x46, 0xe9, 0x43, 0x59, 0x66, 0x8c, 0x28, 0xd9, 0xe7, 0xf3, 0xfc, 0xcb, 0x62, 0xf0, 0xa2, 0x3d,
+	0x35, 0xd6, 0x62, 0x63, 0x11, 0x2d, 0x90, 0x6a, 0x88, 0xc0, 0x72, 0x82, 0x82, 0xa3, 0x74, 0xf7,
+	0x55, 0x19, 0x90, 0x51, 0xcd, 0x57, 0x50, 0x4f, 0x04, 0x03, 0x45, 0xc6, 0xe5, 0x06, 0xdd, 0xf8,
+	0xf7, 0x1c, 0xe8, 0x29, 0xfe, 0x26, 0x76, 0x39, 0x48, 0x47, 0x79, 0xc7, 0xe4, 0x07, 0xa1, 0xbd,
+	0xc4, 0x9e, 0xa6, 0xa9, 0xbe, 0x61, 0x4e, 0x52, 0xe1, 0xf0, 0x1a, 0x0c, 0xde, 0x3d, 0x73, 0x2f,
+	0x2b, 0x36, 0x96, 0x4c, 0x72, 0xe2, 0x40, 0xfd, 0x5d, 0x83, 0x9b, 0x39, 0x7c, 0x1e, 0xdd, 0xc9,
+	0xdc, 0x8a, 0x0c, 0x70, 0xb5, 0x8b, 0x15, 0xd5, 0x06, 0xd9, 0x68, 0x5c, 0x08, 0xd1, 0xfa, 0x42,
+	0x65, 0xf4, 0xd2, 0xe6, 0x7e, 0xa3, 0xe5, 0xf1, 0x78, 0x29, 0xa9, 0x6b, 0xe9, 0xac, 0xcd, 0xbe,
+	0x59, 0x18, 0x07, 0x53, 0x68, 0x72, 0xf8, 0x8f, 0x19, 0xfc, 0x87, 0xe8, 0x81, 0x75, 0xfe, 0xff,
+	0x97, 0xf7, 0x00, 0xfd, 0x55, 0x03, 0x23, 0x9f, 0xe8, 0xa3, 0xc3, 0x9c, 0x04, 0xcc, 0xb8, 0x4f,
+	0x18, 0x77, 0xa7, 0xd2, 0xe5, 0xb0, 0xef, 0x31, 0xd8, 0xb7, 0xd1, 0xfb, 0xd3, 0xc0, 0x46, 0x7f,
+	0xd0, 0x60, 0x33, 0x97, 0x50, 0xa3, 0x83, 0x69, 0x48, 0x77, 0x88, 0xf1, 0x70, 0x7a, 0x7e, 0x6e,
+	0x9a, 0x0c, 0x62, 0xc5, 0xb8, 0x19, 0x43, 0xbc, 0xaf, 0x64, 0xac, 0x76, 0x78, 0xbc, 0xfa, 0xd3,
+	0x1b, 0xea, 0x5f, 0xea, 0x8f, 0x86, 0xed, 0xf6, 0x1c, 0x7b, 0x39, 0xfc, 0xce, 0x7f, 0x03, 0x00,
+	0x00, 0xff, 0xff, 0xe8, 0xed, 0xcc, 0x63, 0x6e, 0x1f, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1758,6 +2903,365 @@ var _BrandAttributeService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "MultiGetBrandAttributes",
 			Handler:    _BrandAttributeService_MultiGetBrandAttributes_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "catalog/pkg/pb/service.proto",
+}
+
+// DoctorServiceClient is the client API for DoctorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type DoctorServiceClient interface {
+	CreateDoctor(ctx context.Context, in *CreateDoctorRequest, opts ...grpc.CallOption) (*CreateDoctorResponse, error)
+	GetDoctorByExternalId(ctx context.Context, in *GetDoctorByIdRequest, opts ...grpc.CallOption) (*GetDoctorByIdResponse, error)
+	UpdateDoctor(ctx context.Context, in *UpdateDoctorRequest, opts ...grpc.CallOption) (*UpdateDoctorResponse, error)
+	MultiGetDoctors(ctx context.Context, in *MultiGetDoctorsRequest, opts ...grpc.CallOption) (*MultiGetDoctorsResponse, error)
+}
+
+type doctorServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewDoctorServiceClient(cc *grpc.ClientConn) DoctorServiceClient {
+	return &doctorServiceClient{cc}
+}
+
+func (c *doctorServiceClient) CreateDoctor(ctx context.Context, in *CreateDoctorRequest, opts ...grpc.CallOption) (*CreateDoctorResponse, error) {
+	out := new(CreateDoctorResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorService/CreateDoctor", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorServiceClient) GetDoctorByExternalId(ctx context.Context, in *GetDoctorByIdRequest, opts ...grpc.CallOption) (*GetDoctorByIdResponse, error) {
+	out := new(GetDoctorByIdResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorService/GetDoctorByExternalId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorServiceClient) UpdateDoctor(ctx context.Context, in *UpdateDoctorRequest, opts ...grpc.CallOption) (*UpdateDoctorResponse, error) {
+	out := new(UpdateDoctorResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorService/UpdateDoctor", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorServiceClient) MultiGetDoctors(ctx context.Context, in *MultiGetDoctorsRequest, opts ...grpc.CallOption) (*MultiGetDoctorsResponse, error) {
+	out := new(MultiGetDoctorsResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorService/MultiGetDoctors", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DoctorServiceServer is the server API for DoctorService service.
+type DoctorServiceServer interface {
+	CreateDoctor(context.Context, *CreateDoctorRequest) (*CreateDoctorResponse, error)
+	GetDoctorByExternalId(context.Context, *GetDoctorByIdRequest) (*GetDoctorByIdResponse, error)
+	UpdateDoctor(context.Context, *UpdateDoctorRequest) (*UpdateDoctorResponse, error)
+	MultiGetDoctors(context.Context, *MultiGetDoctorsRequest) (*MultiGetDoctorsResponse, error)
+}
+
+func RegisterDoctorServiceServer(s *grpc.Server, srv DoctorServiceServer) {
+	s.RegisterService(&_DoctorService_serviceDesc, srv)
+}
+
+func _DoctorService_CreateDoctor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateDoctorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorServiceServer).CreateDoctor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorService/CreateDoctor",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorServiceServer).CreateDoctor(ctx, req.(*CreateDoctorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorService_GetDoctorByExternalId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDoctorByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorServiceServer).GetDoctorByExternalId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorService/GetDoctorByExternalId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorServiceServer).GetDoctorByExternalId(ctx, req.(*GetDoctorByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorService_UpdateDoctor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDoctorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorServiceServer).UpdateDoctor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorService/UpdateDoctor",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorServiceServer).UpdateDoctor(ctx, req.(*UpdateDoctorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorService_MultiGetDoctors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MultiGetDoctorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorServiceServer).MultiGetDoctors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorService/MultiGetDoctors",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorServiceServer).MultiGetDoctors(ctx, req.(*MultiGetDoctorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _DoctorService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "service.DoctorService",
+	HandlerType: (*DoctorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateDoctor",
+			Handler:    _DoctorService_CreateDoctor_Handler,
+		},
+		{
+			MethodName: "GetDoctorByExternalId",
+			Handler:    _DoctorService_GetDoctorByExternalId_Handler,
+		},
+		{
+			MethodName: "UpdateDoctor",
+			Handler:    _DoctorService_UpdateDoctor_Handler,
+		},
+		{
+			MethodName: "MultiGetDoctors",
+			Handler:    _DoctorService_MultiGetDoctors_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "catalog/pkg/pb/service.proto",
+}
+
+// DoctorTestimonialServiceClient is the client API for DoctorTestimonialService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type DoctorTestimonialServiceClient interface {
+	CreateDoctorTestimonial(ctx context.Context, in *CreateTestimonialRequest, opts ...grpc.CallOption) (*CreateTestimonialResponse, error)
+	UpdateDoctorTestimonial(ctx context.Context, in *UpdateDoctorTestimonialRequest, opts ...grpc.CallOption) (*UpdateDoctorTestimonialResponse, error)
+	GetDoctorTestimonialByExternalId(ctx context.Context, in *GetDoctorTestimonialByIdRequest, opts ...grpc.CallOption) (*GetDoctorTestimonialByIdResponse, error)
+	MultiGetDoctorTestimonials(ctx context.Context, in *MultiGetDoctorTestimonialsRequest, opts ...grpc.CallOption) (*MultiGetDoctorTestimonialsResponse, error)
+	GetTestimonialsForDoctors(ctx context.Context, in *GetTestimonialsForDoctorsRequest, opts ...grpc.CallOption) (*GetTestimonialsForDoctorsResponse, error)
+}
+
+type doctorTestimonialServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewDoctorTestimonialServiceClient(cc *grpc.ClientConn) DoctorTestimonialServiceClient {
+	return &doctorTestimonialServiceClient{cc}
+}
+
+func (c *doctorTestimonialServiceClient) CreateDoctorTestimonial(ctx context.Context, in *CreateTestimonialRequest, opts ...grpc.CallOption) (*CreateTestimonialResponse, error) {
+	out := new(CreateTestimonialResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorTestimonialService/CreateDoctorTestimonial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorTestimonialServiceClient) UpdateDoctorTestimonial(ctx context.Context, in *UpdateDoctorTestimonialRequest, opts ...grpc.CallOption) (*UpdateDoctorTestimonialResponse, error) {
+	out := new(UpdateDoctorTestimonialResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorTestimonialService/UpdateDoctorTestimonial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorTestimonialServiceClient) GetDoctorTestimonialByExternalId(ctx context.Context, in *GetDoctorTestimonialByIdRequest, opts ...grpc.CallOption) (*GetDoctorTestimonialByIdResponse, error) {
+	out := new(GetDoctorTestimonialByIdResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorTestimonialService/GetDoctorTestimonialByExternalId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorTestimonialServiceClient) MultiGetDoctorTestimonials(ctx context.Context, in *MultiGetDoctorTestimonialsRequest, opts ...grpc.CallOption) (*MultiGetDoctorTestimonialsResponse, error) {
+	out := new(MultiGetDoctorTestimonialsResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorTestimonialService/MultiGetDoctorTestimonials", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *doctorTestimonialServiceClient) GetTestimonialsForDoctors(ctx context.Context, in *GetTestimonialsForDoctorsRequest, opts ...grpc.CallOption) (*GetTestimonialsForDoctorsResponse, error) {
+	out := new(GetTestimonialsForDoctorsResponse)
+	err := c.cc.Invoke(ctx, "/service.DoctorTestimonialService/GetTestimonialsForDoctors", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DoctorTestimonialServiceServer is the server API for DoctorTestimonialService service.
+type DoctorTestimonialServiceServer interface {
+	CreateDoctorTestimonial(context.Context, *CreateTestimonialRequest) (*CreateTestimonialResponse, error)
+	UpdateDoctorTestimonial(context.Context, *UpdateDoctorTestimonialRequest) (*UpdateDoctorTestimonialResponse, error)
+	GetDoctorTestimonialByExternalId(context.Context, *GetDoctorTestimonialByIdRequest) (*GetDoctorTestimonialByIdResponse, error)
+	MultiGetDoctorTestimonials(context.Context, *MultiGetDoctorTestimonialsRequest) (*MultiGetDoctorTestimonialsResponse, error)
+	GetTestimonialsForDoctors(context.Context, *GetTestimonialsForDoctorsRequest) (*GetTestimonialsForDoctorsResponse, error)
+}
+
+func RegisterDoctorTestimonialServiceServer(s *grpc.Server, srv DoctorTestimonialServiceServer) {
+	s.RegisterService(&_DoctorTestimonialService_serviceDesc, srv)
+}
+
+func _DoctorTestimonialService_CreateDoctorTestimonial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTestimonialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorTestimonialServiceServer).CreateDoctorTestimonial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorTestimonialService/CreateDoctorTestimonial",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorTestimonialServiceServer).CreateDoctorTestimonial(ctx, req.(*CreateTestimonialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorTestimonialService_UpdateDoctorTestimonial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDoctorTestimonialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorTestimonialServiceServer).UpdateDoctorTestimonial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorTestimonialService/UpdateDoctorTestimonial",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorTestimonialServiceServer).UpdateDoctorTestimonial(ctx, req.(*UpdateDoctorTestimonialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorTestimonialService_GetDoctorTestimonialByExternalId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDoctorTestimonialByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorTestimonialServiceServer).GetDoctorTestimonialByExternalId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorTestimonialService/GetDoctorTestimonialByExternalId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorTestimonialServiceServer).GetDoctorTestimonialByExternalId(ctx, req.(*GetDoctorTestimonialByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorTestimonialService_MultiGetDoctorTestimonials_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MultiGetDoctorTestimonialsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorTestimonialServiceServer).MultiGetDoctorTestimonials(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorTestimonialService/MultiGetDoctorTestimonials",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorTestimonialServiceServer).MultiGetDoctorTestimonials(ctx, req.(*MultiGetDoctorTestimonialsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DoctorTestimonialService_GetTestimonialsForDoctors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTestimonialsForDoctorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DoctorTestimonialServiceServer).GetTestimonialsForDoctors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.DoctorTestimonialService/GetTestimonialsForDoctors",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DoctorTestimonialServiceServer).GetTestimonialsForDoctors(ctx, req.(*GetTestimonialsForDoctorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _DoctorTestimonialService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "service.DoctorTestimonialService",
+	HandlerType: (*DoctorTestimonialServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateDoctorTestimonial",
+			Handler:    _DoctorTestimonialService_CreateDoctorTestimonial_Handler,
+		},
+		{
+			MethodName: "UpdateDoctorTestimonial",
+			Handler:    _DoctorTestimonialService_UpdateDoctorTestimonial_Handler,
+		},
+		{
+			MethodName: "GetDoctorTestimonialByExternalId",
+			Handler:    _DoctorTestimonialService_GetDoctorTestimonialByExternalId_Handler,
+		},
+		{
+			MethodName: "MultiGetDoctorTestimonials",
+			Handler:    _DoctorTestimonialService_MultiGetDoctorTestimonials_Handler,
+		},
+		{
+			MethodName: "GetTestimonialsForDoctors",
+			Handler:    _DoctorTestimonialService_GetTestimonialsForDoctors_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

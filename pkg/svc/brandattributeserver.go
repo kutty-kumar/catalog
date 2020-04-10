@@ -1,11 +1,11 @@
 package svc
 
 import (
-	"catalog/pkg/brand_attribute/repository"
 	"catalog/pkg/builders"
 	"catalog/pkg/constants"
 	"catalog/pkg/domain"
 	"catalog/pkg/pb"
+	"catalog/pkg/repository/brand_attribute"
 	"context"
 	"fmt"
 	"github.com/jinzhu/gorm"
@@ -18,13 +18,13 @@ const (
 )
 
 type BrandAttributeService struct {
-	repository   repository.Repository
+	repository   brand_attribute.Repository
 	brandService BrandService
 }
 
 func NewBrandAttributeService(database *gorm.DB, brandService BrandService) (BrandAttributeService, error) {
-	var rep repository.Repository
-	rep = &repository.BrandAttributeGORM{Db: database}
+	var rep brand_attribute.Repository
+	rep = &brand_attribute.BrandAttributeGORMRepository{Db: database}
 	return BrandAttributeService{repository: rep, brandService: brandService}, nil
 }
 

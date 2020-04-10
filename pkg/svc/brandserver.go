@@ -1,10 +1,10 @@
 package svc
 
 import (
-	"catalog/pkg/brand/repository"
 	"catalog/pkg/builders"
 	"catalog/pkg/domain"
 	"catalog/pkg/pb"
+	bRepo "catalog/pkg/repository/brand"
 	"catalog/pkg/utils"
 	"context"
 	"fmt"
@@ -14,12 +14,12 @@ import (
 )
 
 type BrandService struct {
-	repository repository.Repository
+	repository bRepo.Repository
 }
 
 func NewBrandService(database *gorm.DB) (BrandService, error) {
-	var rep repository.Repository
-	rep = &repository.BrandGORM{Db: database}
+	var rep bRepo.Repository
+	rep = &bRepo.BrandGORMRepository{Db: database}
 	return BrandService{repository: rep}, nil
 }
 

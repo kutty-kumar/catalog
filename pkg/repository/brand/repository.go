@@ -1,4 +1,4 @@
-package repository
+package brand
 
 import "catalog/pkg/domain"
 
